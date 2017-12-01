@@ -4,12 +4,11 @@ from handler.transaction import TransactionHandler
 from handler.request import RequestHandler
 
 
-
 app = Flask(__name__)
 
 @app.route('/')
 def greeting():
-    return 'Hello, this is the parts DB Project!'
+    return 'Hello, this is the Status PR DB Project!'
 
 # ---------- Supply Related -------------
 
@@ -28,7 +27,7 @@ def getSupplies():
     else:
         return SupplyHandler().searchSupplies(request.args) #qty and date
 
-# add suppliers by part id
+
 
 # ------------ Request Related --------------
 
