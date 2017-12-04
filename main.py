@@ -17,39 +17,74 @@ app = Flask(__name__)
 def welcome():
     return 'Hello, this is the Disaster-Site-Resources-Locator project.'
 
-# Resource routes
+# ---------------------------------------------------------------------------- #
+#                              Resource routes                                 #
+# ---------------------------------------------------------------------------- #
 
 @app.route('/ResourceApp/resources')
 def getAllResources():
+    # Get all resources
     if not request.args:
         return ResourceHandler().getAllResources()
+    # Get all resources by attributes (rname, rqty, rcategory)
     else:
-        return ResourceHandler().searchResources(request.args) # RName, RQty and RCategory
+        return ResourceHandler().searchResources(request.args)
 
-@app.route('/ResourceApp/resource/<int:id>')
+# Get resource by ID
+@app.route('/ResourceApp/resources/<int:id>')
 def getResourceById(id):
     return ResourceHandler().getResourceById(id)
 
-# Category routes
+@app.route('/ResourceApp/resources/available')
+def getResourcesAvailable():
+    # Get all resources available now
+    if not request.args:
+        return ResourceHandler().getResourcesAvailable()
+    # Get all resources available by attributes (adate, rname)
+    # Get all resources at a given moment
+    # Get all resources available in a region
+    else:
+        return ResourceHandler().searchResourcesAvailable(request.args)
 
+# Get all resources needed now
+@app.route('/ResourceApp/resources/needed')
+def getResourcesNeeded():
+    # Get all resources needed now
+    if not request.args:
+        return ResourceHandler().getResourcesNeeded()
+    # Get all resources needed by attributes (ndate, rname)
+    # Get all resources needed at a given moment
+    # Get all resources needed in a regions
+    else:
+        return ResourceHandler.searchResourcesNeeded(request.args)
+
+# ---------------------------------------------------------------------------- #
+#                              Category routes                                 #
+# ---------------------------------------------------------------------------- #
+
+# Get all categories
 @app.route('/ResourceApp/categories')
 def getAllCategories():
     return CategoryHandler().getAllCategories()
 
-@app.route('/ResourceApp/category/<string:name>')
+# Get category by name
+@app.route('/ResourceApp/categories/<string:name>')
 def getCategoryByName(name):
     return CategoryHandler().getCategoryByName(name)
 
-# Region routes
+# ---------------------------------------------------------------------------- #
+#                              Region routes                                   #
+# ---------------------------------------------------------------------------- #
 
+# Get all regions
 @app.route('/ResourceApp/regions')
 def getAllRegions():
     return RegionHandler().getAllRegions()
 
-@app.route('/ResourceApp/region/<string:name>')
+# Get region by name
+@app.route('/ResourceApp/regions/<string:name>')
 def getRegionByName(name):
     return RegionHandler().getRegionByName(name)
-
 
 # ---------- Supply Related -------------
 
@@ -68,6 +103,16 @@ def getSupplies():
     else:
         return SupplyHandler().searchSupplies(request.args) #qty and date
 
+@app.route('/ResourceApp/supply/supplier') #check for shupplier city
+def getSuppliesbySupplier():
+    if not request.args:
+        return SupplyHandler().searchAllsupplies()
+    else:
+        return SupplyHandler().searchSuppliesSuppliers(request.args)
+
+@app.route('/ResourceApp/supply/supplier/city/region/<string:region>') #check for region name
+def getSuppliesbyRegion(region):
+    return SupplyHandler().searchSuppliesbyRegion(region)
 
 
 # ------------ Request Related --------------
@@ -86,6 +131,18 @@ def getRequests():
         return RequestHandler().searchAllrequest()
     else:
         return RequestHandler().searchRequests(request.args) #qty and date
+
+@app.route('/ResourceApp/request/needer')
+def getRequestsbyNeeder():
+    if not request.args:
+        return RequestHandler().searchAllrequest()
+    else:
+        return RequestHandler().searchRequestsNeeders(request.args)
+
+@app.route('/ResourceApp/request/needer/city/region/<string:region>')
+def getRequestbyRegion(region):
+    return RequestHandler().searchRequestbyRegion(region)
+
 
 # ------------- Transaction Related -------------
 
