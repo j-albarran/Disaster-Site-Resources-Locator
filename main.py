@@ -8,7 +8,7 @@ from handler.regions import RegionHandler
 from handler.supplier import SupplierHandler
 from handler.needer import NeederHandler
 from handler.administrator import AdministratorHandler
-from handler.person import PersonHandler
+from handler.account import AccountHandler
 from handler.city import CityHandler
 
 app = Flask(__name__)
@@ -112,98 +112,117 @@ def getSupplierTransactions(sid):
     return TransactionHandler().searchAllSupplierTransactions(sid)
 
 
-#   STATUSPR PAGE ROUTE
+#   RESOURCEAPP PAGE ROUTE
 # =================================================
 
 @app.route('/ResourceApp')
 def statusPR():
-    return 'STATUS PR!'
+    return 'RESOURCEAPP PR!'
 
-#   SUPPLIERS ROUTES
+#   SUPPLIER ROUTES
 # =================================================
 
-@app.route('/ResourceApp/suppliers')
+@app.route('/ResourceApp/supplier')
 def getSuppliers():
     # Listing all Suppliers
     if not request.args:
         return SupplierHandler().getAllSuppliers()
-    # Searching specific suppliers (pname, plname, city)
+    # Searching specific suppliers (pname, plname, city, email, username, region)
     else:
         return SupplierHandler().searchSuppliers(request.args)
 
 #   Looking for a supplier by ID
-@app.route('/ResourceApp/suppliers/<int:sid>')
+@app.route('/ResourceApp/supplier/<int:sid>')
 def getSupplierById(sid):
     return SupplierHandler().getSupplierById(sid)
 
+# Looking for suppliers on a specific region
+@app.route('/RersourceApp/supplier/city/region/<string:rname>')
+def getSuppliersOnRegion(rname):
+    return SupplierHandler().getSuppliersOnThisRegion(rname)
 
-#   NEEDERS ROUTES
+#   NEEDER ROUTES
 # =================================================
 
-@app.route('/ResourceApp/needers')
+@app.route('/ResourceApp/needer')
 def getNeeders():
     # Listing all needers
     if not request.args:
         return NeederHandler().getAllNeeders()
-    # Searching specific needers (pname, plname, city)
+    # Searching specific needers (pname, plname, city, email, username, region)
     else:
         return NeederHandler().searchNeeders(request.args)
 
 # Looking for a needer by ID
-@app.route('/ResourceApp/needers/<int:nid>')
+@app.route('/ResourceApp/needer/<int:nid>')
 def getNeederById(nid):
     return NeederHandler().getNeederById(nid)
 
+# Looking for needers on a specific region
+@app.route('/RersourceApp/needer/city/region/<string:rname>')
+def getNeedersOnRegion(rname):
+    return NeederHandler().getNeedersOnThisRegion(rname)
 
-#   ADMINISTRATORS ROUTES
+
+
+#   ADMINISTRATOR ROUTES
 # =================================================
 
-@app.route('/ResourceApp/administrators')
+@app.route('/ResourceApp/administrator')
 def getAdministrators():
     # Listing all administrators
     if not request.args:
         return AdministratorHandler().getAllAdministrators()
-    # Searching specific administrators
+    # Searching specific administratos (pname, plname, city, email, username, region)
     else:
-        return AdministratorHandler().searchAdmins(request.args)
+        return AdministratorHandler().searchAdministrators(request.args)
 
 # Looking for an administrator by ID
-@app.route('/ResourceApp/administrators/<int:aid>')
+@app.route('/ResourceApp/administrator/<int:aid>')
 def getAdministratorById(aid):
     return AdministratorHandler().getAdministratorById(aid)
 
+# Looking for administrators on a specific region
+@app.route('/RersourceApp/administrator/city/region/<string:rname>')
+def getAdministratorsOnRegion(rname):
+    return AdministratorHandler().getAdministratorsOnThisRegion(rname)
 
-#   PERSONS ROUTES
+
+#   ACCOUNT ROUTES
 # =================================================
 
-# Looking for a person by ID
-@app.route('/ResourceApp/persons/<int:pid>')
+# Looking for a account by ID
+@app.route('/ResourceApp/account/<int:pid>')
 def getPersonById(pid):
-    return PersonHandler().getPersonByUniqueId(pid)
+    return AccountHandler().getAccountByUniqueId(pid)
 
-@app.route('/ResourceApp/persons')
-def getAllPeople():
-    # Listing all persons
+@app.route('/ResourceApp/account')
+def getAllAccounts():
+    # Listing all accounts
     if not request.args:
-        return PersonHandler().getAllPersons()
-    # Searching for specific persons
+        return AccountHandler().getAllAccounts()
+    # Searching specific accounts (pname, plname, city, email, username, region)
     else:
-        return PersonHandler().searchPersons(request.args)
+        return AccountHandler().searchAccounts(request.args)
 
+# Looking for accounts on a specific region
+@app.route('/RersourceApp/account/city/region/<string:rname>')
+def getAccountsOnRegion(rname):
+    return AccountHandler().getAccountsOnThisRegion(rname)
 
-#   CITIES ROUTES
+#   CITY ROUTES
 # =================================================
-@app.route('/ResourceApp/cities')
+@app.route('/ResourceApp/city')
 def getCities():
     # Listing all cities
     if not request.args:
         return CityHandler().getAllCities()
-    # Searching for a specific city
+    # Searching for cities on a specific region
     else:
         return CityHandler().searchCities(request.args)
 
 # Looking or a specific city by name
-@app.route('/ResourceApp/cities/<string:cname>')
+@app.route('/ResourceApp/city/<string:cname>')
 def getCityByName(cname):
     return CityHandler().getCitiesByName(cname)
 
