@@ -86,7 +86,6 @@ def getAllRegions():
 def getRegionByName(name):
     return RegionHandler().getRegionByName(name)
 
-
 # ---------- Supply Related -------------
 
 @app.route('/ResourceApp/supplier/<int:sid>/resources')
@@ -104,6 +103,16 @@ def getSupplies():
     else:
         return SupplyHandler().searchSupplies(request.args) #qty and date
 
+@app.route('/ResourceApp/supply/supplier') #check for shupplier city
+def getSuppliesbySupplier():
+    if not request.args:
+        return SupplyHandler().searchAllsupplies()
+    else:
+        return SupplyHandler().searchSuppliesSuppliers(request.args)
+
+@app.route('/ResourceApp/supply/supplier/city/region/<string:region>') #check for region name
+def getSuppliesbyRegion(region):
+    return SupplyHandler().searchSuppliesbyRegion(region)
 
 
 # ------------ Request Related --------------
@@ -122,6 +131,18 @@ def getRequests():
         return RequestHandler().searchAllrequest()
     else:
         return RequestHandler().searchRequests(request.args) #qty and date
+
+@app.route('/ResourceApp/request/needer')
+def getRequestsbyNeeder():
+    if not request.args:
+        return RequestHandler().searchAllrequest()
+    else:
+        return RequestHandler().searchRequestsNeeders(request.args)
+
+@app.route('/ResourceApp/request/needer/city/region/<string:region>')
+def getRequestbyRegion(region):
+    return RequestHandler().searchRequestbyRegion(region)
+
 
 # ------------- Transaction Related -------------
 
@@ -146,7 +167,6 @@ def getNeederTransactions(nid):
 @app.route('/ResourceApp/supplier/<int:sid>/resource/needer')
 def getSupplierTransactions(sid):
     return TransactionHandler().searchAllSupplierTransactions(sid)
-
 
 #   STATUSPR PAGE ROUTE
 # =================================================

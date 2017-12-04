@@ -8,6 +8,7 @@ class TransactionHandler:
         price = args.get("price")
         qty = args.get("quantity")
         purchase_date = args.get("purchase_date")
+        category = args.get("cat")
         if (len(args) ==3) and price and qty and purchase_date:
             return "Transactions with given price, quantity and purchase_date"
         if (len(args) ==2) and price and purchase_date:
@@ -22,6 +23,8 @@ class TransactionHandler:
             return "Transactions on given purchase_date"
         if (len(args) ==1) and price:
             return "Transactions with given price"
+        if (len(args) ==1) and category:
+            return "Transactions from the given category"
         return "prueba"
 
     def searchAllResourceTransactions(self, rid):
@@ -30,7 +33,7 @@ class TransactionHandler:
     def searchResourceTransactions(self, rid, args):
         quantity = args.get("quantity")
         name = args.get("name")
-        category = args.get("category")
+        category = args.get("cat")
         if (len(args) ==3) and quantity and name and category:
             return "Transactions with resouce that have the given quantity, name and category"
         if (len(args) ==2) and quantity and name:
@@ -45,20 +48,11 @@ class TransactionHandler:
             return "Transaction with resource that have the given category"
         if (len(args)==1) and name:
             return "Transaction with resource that have the given name"
-        return "All transactions for Resource"
+        return "Bad Request", 404
 
     def searchAllNeederTransactions(self, nid):
         return "All transactions for given needer"
 
-    def searchNeederTransactions(self, nid, args):
-        name = args.get("name")
-        last_name = args.get("last_name")
-        city = args.get("city")
-        if len(args)==3 and name and last_name and city:
-            return "Transaction of given nedeer with given name, last_name and city"
-        return "All transactions for given needer"
-    ## add the needer check
-
     def searchAllSupplierTransactions(self, sid):
         return "All transactions from given supplier"
-    ## add the supplier check
+## add the supplier check
