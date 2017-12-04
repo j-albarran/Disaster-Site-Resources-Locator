@@ -5,4 +5,4 @@ class CategoryHandler:
         return jsonify(Categories = "All categories")
 
     def getCategoryByName(self, name):
-        return jsonify(Category = "Category with name " + name)
+        return jsonify(Categories = "Category with name " + name)

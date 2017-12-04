@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome():
-    return 'Hello, this is the Disaster-Site-Resources-Locator project.'
+    return jsonify(Welcome = 'Hello, this is the Disaster-Site-Resources-Locator project.')
 
 # ---------------------------------------------------------------------------- #
 #                              Resource routes                                 #
@@ -173,8 +173,8 @@ def getSupplierTransactions(sid):
 # =================================================
 
 @app.route('/ResourceApp')
-def statusPR():
-    return 'RESOURCEAPP PR!'
+def resourceAppPR():
+    return jsonify(Home = 'RESOURCEAPP PR!')
 
 #   SUPPLIER ROUTES
 # =================================================

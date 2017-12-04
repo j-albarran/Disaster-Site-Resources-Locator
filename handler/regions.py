@@ -5,4 +5,4 @@ class RegionHandler:
         return jsonify(Regions = "All regions")
 
     def getRegionByName(self, name):
-        return jsonify(Region = "Region with name " + name)
+        return jsonify(Regions = "Region with name " + name)
