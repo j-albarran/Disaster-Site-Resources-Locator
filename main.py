@@ -193,11 +193,6 @@ def getSuppliers():
 def getSupplierById(sid):
     return SupplierHandler().getSupplierById(sid)
 
-# Looking for suppliers on a specific region
-@app.route('/RersourceApp/supplier/city/region/<string:rname>')
-def getSuppliersOnRegion(rname):
-    return SupplierHandler().getSuppliersOnThisRegion(rname)
-
 #   NEEDER ROUTES
 # =================================================
 
@@ -214,12 +209,6 @@ def getNeeders():
 @app.route('/ResourceApp/needer/<int:nid>')
 def getNeederById(nid):
     return NeederHandler().getNeederById(nid)
-
-# Looking for needers on a specific region
-@app.route('/RersourceApp/needer/city/region/<string:rname>')
-def getNeedersOnRegion(rname):
-    return NeederHandler().getNeedersOnThisRegion(rname)
-
 
 
 #   ADMINISTRATOR ROUTES
@@ -239,11 +228,6 @@ def getAdministrators():
 def getAdministratorById(aid):
     return AdministratorHandler().getAdministratorById(aid)
 
-# Looking for administrators on a specific region
-@app.route('/RersourceApp/administrator/city/region/<string:rname>')
-def getAdministratorsOnRegion(rname):
-    return AdministratorHandler().getAdministratorsOnThisRegion(rname)
-
 
 #   ACCOUNT ROUTES
 # =================================================
@@ -261,11 +245,6 @@ def getAllAccounts():
     # Searching specific accounts (pname, plname, city, email, username, region)
     else:
         return AccountHandler().searchAccounts(request.args)
-
-# Looking for accounts on a specific region
-@app.route('/RersourceApp/account/city/region/<string:rname>')
-def getAccountsOnRegion(rname):
-    return AccountHandler().getAccountsOnThisRegion(rname)
 
 #   CITY ROUTES
 # =================================================
