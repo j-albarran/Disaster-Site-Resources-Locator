@@ -26,6 +26,7 @@ class RequestHandler:
         city = args.get("city")
         if len(args) == 1 and city:
             return jsonify(Requests = "Request of resources in given city")
+        return jsonify(Requests = "Bad request"), 404
 
     def searchRequestbyRegion(self, region):
         return jsonify(Requests = "Request of resources in given region")

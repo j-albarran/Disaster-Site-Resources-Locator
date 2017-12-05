@@ -25,7 +25,7 @@ class TransactionHandler:
             return jsonify(Transactions = "Transactions with given price")
         if (len(args) ==1) and category:
             return jsonify(Transactions = "Transactions from the given category")
-        return jsonify(Transactions = "prueba")
+        return jsonify(Transactions = "Bad Request"), 404
 
     def searchAllResourceTransactions(self, rid):
         return jsonify(Transactions = "All transactions for specific resource")
