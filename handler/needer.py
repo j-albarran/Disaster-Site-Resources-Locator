@@ -272,4 +272,4 @@ class NeederHandler:
         # ------------------------------------------------------------------------------
 
         else:
-            return jsonify(Needers = 'No suppliers found'), 404
+            return jsonify(Needers = 'Bad Request'), 400

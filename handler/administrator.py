@@ -272,4 +272,4 @@ class AdministratorHandler:
         # ------------------------------------------------------------------------------
 
         else:
-            return jsonify(Administrators = 'No administrators found'), 404
+            return jsonify(Administrators = 'Bad Request'), 400

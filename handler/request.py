@@ -20,13 +20,13 @@ class RequestHandler:
             return jsonify(Requests = "Request of resources with given quantity")
         elif len(args) ==1 and request_date:
             return jsonify(Requests = "request of resources on given date")
-        return jsonify(Requests = "Bad Request"), 404
+        return jsonify(Requests = "Bad Request"), 400
 
     def searchRequestsNeeders(self, args):
         city = args.get("city")
         if len(args) == 1 and city:
             return jsonify(Requests = "Request of resources in given city")
-        return jsonify(Requests = "Bad request"), 404
+        return jsonify(Requests = "Bad request"), 400
 
     def searchRequestbyRegion(self, region):
         return jsonify(Requests = "Request of resources in given region")

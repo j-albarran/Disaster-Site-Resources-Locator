@@ -21,7 +21,7 @@ class SupplyHandler:
             return jsonify(Supplies = "Search Supplies for the given request date")
         elif (len(args) == 1) and qty:
             return jsonify(Supplies = "Search Supplies with the given quantity")
-        return jsonify(Supplies = "Bad Request"), 404
+        return jsonify(Supplies = "Bad Request"), 400
 
     def searchSuppliesbyRegion(self, region):
         return jsonify(Supplies = "Search all supplies in given region")

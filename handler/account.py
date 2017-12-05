@@ -272,4 +272,4 @@ class AccountHandler:
         # ------------------------------------------------------------------------------
 
         else:
-            return jsonify(Accounts = 'No accounts found'), 404
+            return jsonify(Accounts = 'Bad Request'), 400
