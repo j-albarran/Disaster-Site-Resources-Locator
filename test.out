@@ -1,0 +1,2422 @@
+--------------------------------------------------------------
+
+127.0.0.1:5000/
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 79
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Welcome": "Hello, this is the Disaster-Site-Resources-Locator project."
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 35
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "All resources"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources/7
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 40
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "Resource with id 7"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources/available
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 49
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "All resources available now"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources/needed
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 46
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "All resources needed now"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rname=Diesel&rcategory=Fuel&rqty=3
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "rname and rcategory and rqty"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rname=Diesel&rcategory=Fuel
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 41
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "rname and rcategory"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rcategory=Fuel&rqty=3
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 40
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "rcategory and rqty"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rname=Diesel&rqty=3
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 36
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:38 GMT
+
+{
+  "Resources": "rname and rqty"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rname=Diesel
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 27
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Resources": "rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rcategory=Fuel
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 31
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Resources": "rcategory"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resources?rqty=3
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 26
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Resources": "rqty"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/categories
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 37
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Categories": "All categories"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/categories/JAY
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 45
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Categories": "Category with name JAY"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/regions
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 31
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Regions": "All regions"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/regions/JAY
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 40
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Regions": "Region with name JAY"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier/7/resources
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Supplies": "List of Resources Supplied by specific supplier"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resource/7/suppliers
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Supplies": "Search all suppliers of the given resource"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supply
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 33
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Supplies": "All supplies"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer/7/resources
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 52
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Requests": "Search Resources need by needer"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 41
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Transactions": "All Transactions"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/resource/7/needer/supplier
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:39 GMT
+
+{
+  "Transactions": "All transactions for specific resource"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer/7/resource/supplier
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Transactions": "All transactions for given needer"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier/7/resource/needer
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 61
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Transactions": "All transactions from given supplier"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 32
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Home": "RESOURCEAPP PR!"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 43
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Viewing all suppliers"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier/7
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 53
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for a supplier by ID: 7"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 52
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by pname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 53
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 52
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 52
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 52
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by pname and plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:40 GMT
+
+{
+  "Suppliers": "Looking for suppliers by pname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by pname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by pname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for suppliers by email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for account by pname, plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for account by pname, plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for account by pname, plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for account by pname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for account by pname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:41 GMT
+
+{
+  "Suppliers": "Looking for account by pname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for account by plname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for account by plname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 68
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for account by plname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for account by cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 79
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for an account by pname, plname, cname, and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 79
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for an account by pname, plname, cname, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 79
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for an account by pname, plname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 78
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for an account by pname, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 78
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for an account by plame, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/supplier?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 85
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Suppliers": "Looking for an account by pname, plname, cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 39
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Needers": "Viewing all Needers"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer/7
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 49
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:42 GMT
+
+{
+  "Needers": "Looking for a needer by ID: 7"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 48
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by pname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 49
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 48
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 48
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 48
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 59
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by pname and plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by pname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by pname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by pname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 59
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 59
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 59
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 58
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:43 GMT
+
+{
+  "Needers": "Looking for needers by email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by pname, plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by pname, plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by pname, plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 65
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by pname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 65
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by pname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 65
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by pname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by plname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by plname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by plname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 65
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for account by cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 77
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for an account by pname, plname, cname, and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 77
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for an account by pname, plname, cname, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 77
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for an account by pname, plname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 76
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for an account by pname, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 76
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:44 GMT
+
+{
+  "Needers": "Looking for an account by plame, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/needer?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 83
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Needers": "Looking for an account by pname, plname, cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 53
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Viewing all Administrators"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator/7
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 55
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for a admin by ID: 7"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by pname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 63
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 62
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by pname and plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by pname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by pname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by pname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:45 GMT
+
+{
+  "Administrators": "Looking for administrators by plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for administrators by plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for administrators by plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for administrators by cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for administrators by cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for administrators by email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by pname, plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by pname, plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by pname, plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by pname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by pname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by pname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by plname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by plname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 73
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:46 GMT
+
+{
+  "Administrators": "Looking for account by plname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for account by cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 84
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for an account by pname, plname, cname, and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 84
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for an account by pname, plname, cname, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 84
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for an account by pname, plname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 83
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for an account by pname, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 83
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for an account by plame, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/administrator?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 90
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Administrators": "Looking for an account by pname, plname, cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account/7
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Accounts": "Looking for a person by ID: 7"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 51
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Accounts": "Viewing all Persons registered"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Accounts": "Looking for accounts by pname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 51
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Accounts": "Looking for accounts by plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Accounts": "Looking for accounts by cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:47 GMT
+
+{
+  "Accounts": "Looking for accounts by email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 61
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by pname and plname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by pname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by pname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by pname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 61
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 61
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 61
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for accounts by email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&cname=SanJuan
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for account by pname, plname and cname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:48 GMT
+
+{
+  "Accounts": "Looking for account by pname, plname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by pname, plname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by pname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by pname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by pname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by plname, cname and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by plname, cname and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 67
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by plname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 66
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for account by cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 78
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for an account by pname, plname, cname, and email"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&cname=SanJuan&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 78
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for an account by pname, plname, cname, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 78
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:49 GMT
+
+{
+  "Accounts": "Looking for an account by pname, plname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 77
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Accounts": "Looking for an account by pname, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 77
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Accounts": "Looking for an account by plame, cname, email, and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/account?pname=YAJ&plname=asa&cname=SanJuan&email=yaj@gmail.com&rname=Metro
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 84
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Accounts": "Looking for an account by pname, plname, cname, email and rname"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/city
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 37
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Cities": "Viewing all cities"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/city/JAY
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 50
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Cities": "Looking for a city by name: JAY"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/request?qty=12&request_date=12-1-2017
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 78
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Requests": "Request of resources with given quantity and request date"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/request?request_date=12-1-2017
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 55
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Requests": "request of resources on given date"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/request?qty=12
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 61
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Requests": "Request of resources with given quantity"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/request/needer?qty=12&supply_date=12-1-2017
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 32
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Requests": "Bad request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/request/needer?supply_date=12-1-2017
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 32
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Requests": "Bad request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/request/needer?qty=12
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 32
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Requests": "Bad request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?price=15&qty=13&purchase_date=12-1-2017
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 36
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Transactions": "Bad Request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?price=15&purchase_date=12-1-2017
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 72
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Transactions": "Transactions with given price and purchase_date"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?price=15&qty=13
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 36
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Transactions": "Bad Request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?qty=13&purchase_date=12-1-2017
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 36
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:50 GMT
+
+{
+  "Transactions": "Bad Request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?price=15
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 54
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:51 GMT
+
+{
+  "Transactions": "Transactions with given price"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?qty=13
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 36
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:51 GMT
+
+{
+  "Transactions": "Bad Request"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?purchase_date=12-1-2017
+
+HTTP/1.0 200 OK
+Content-Type: application/json
+Content-Length: 60
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:51 GMT
+
+{
+  "Transactions": "Transactions on given purchase_date"
+}
+
+--------------------------------------------------------------
+
+127.0.0.1:5000/ResourceApp/transactions?category=Agua
+
+HTTP/1.0 400 BAD REQUEST
+Content-Type: application/json
+Content-Length: 36
+Server: Werkzeug/0.12.2 Python/3.5.2
+Date: Tue, 05 Dec 2017 16:38:51 GMT
+
+{
+  "Transactions": "Bad Request"
+}
+
