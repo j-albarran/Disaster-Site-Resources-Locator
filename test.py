@@ -205,25 +205,29 @@ routes.append("/ResourceApp/city/JAY")
 routes.append("/ResourceApp/request?qty=12&request_date=12-1-2017")
 routes.append("/ResourceApp/request?request_date=12-1-2017")
 routes.append("/ResourceApp/request?qty=12")
+routes.append("/ResourceApp/request/needer?city=SJ")
+routes.append("/ResourceApp/request/needer/city/region/Metro")
 
 # ---------------------------------------------------------------------------- #
 #                              Supply routes                                   #
 # ---------------------------------------------------------------------------- #
-routes.append("/ResourceApp/request/needer?qty=12&supply_date=12-1-2017")
-routes.append("/ResourceApp/request/needer?supply_date=12-1-2017")
-routes.append("/ResourceApp/request/needer?qty=12")
+routes.append("/ResourceApp/supply?qty=12&supply_date=12-1-2017")
+routes.append("/ResourceApp/supply?supply_date=12-1-2017")
+routes.append("/ResourceApp/supply?qty=12")
+routes.append("/ResourceApp/supply/supplier?city=SJ")
+routes.append("/ResourceApp/supply/supplier/city/region/Metro")
 
 # ---------------------------------------------------------------------------- #
 #                              Transactions routes                             #
 # ---------------------------------------------------------------------------- #
-routes.append("/ResourceApp/transactions?price=15&qty=13&purchase_date=12-1-2017")
+routes.append("/ResourceApp/transactions?price=15&quantity=13&purchase_date=12-1-2017")
 routes.append("/ResourceApp/transactions?price=15&purchase_date=12-1-2017")
-routes.append("/ResourceApp/transactions?price=15&qty=13")
-routes.append("/ResourceApp/transactions?qty=13&purchase_date=12-1-2017")
+routes.append("/ResourceApp/transactions?price=15&quantity=13")
+routes.append("/ResourceApp/transactions?quantity=13&purchase_date=12-1-2017")
 routes.append("/ResourceApp/transactions?price=15")
-routes.append("/ResourceApp/transactions?qty=13")
+routes.append("/ResourceApp/transactions?quantity=13")
 routes.append("/ResourceApp/transactions?purchase_date=12-1-2017")
-routes.append("/ResourceApp/transactions?category=Agua")
+routes.append("/ResourceApp/transactions?cat=Agua")
 
 def test():
     for route in routes:
