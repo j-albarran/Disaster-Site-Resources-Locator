@@ -206,7 +206,7 @@ routes.append("/ResourceApp/request?qty=12&request_date=12-1-2017")
 routes.append("/ResourceApp/request?request_date=12-1-2017")
 routes.append("/ResourceApp/request?qty=12")
 routes.append("/ResourceApp/request/needer?city=SJ")
-routes.append("/ResourceApp/request/needer/city/region/Metro")
+routes.append("/ResourceApp/request/needer/city/region/San Juan")
 
 # ---------------------------------------------------------------------------- #
 #                              Supply routes                                   #
@@ -215,7 +215,7 @@ routes.append("/ResourceApp/supply?qty=12&supply_date=12-1-2017")
 routes.append("/ResourceApp/supply?supply_date=12-1-2017")
 routes.append("/ResourceApp/supply?qty=12")
 routes.append("/ResourceApp/supply/supplier?city=SJ")
-routes.append("/ResourceApp/supply/supplier/city/region/Metro")
+routes.append("/ResourceApp/supply/supplier/city/region/San Juan")
 
 # ---------------------------------------------------------------------------- #
 #                              Transactions routes                             #

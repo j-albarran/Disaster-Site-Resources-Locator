@@ -1,15 +1,57 @@
 from flask import jsonify
 
+needers = [
+    {
+        'sid': 4,
+        'pname': 'needer1',
+        'plname': 'needer_lastname1',
+        'city': 'Ponce',
+        'region': 'sur',
+        'address': 'address1',
+        'gps': 'gps1',
+        'email': 'suplier1@email.com',
+        'username': 'needer_1',
+        'password': 'password1'
+    },
+    {
+        'sid': 5,
+        'pname': 'needer2',
+        'plname': 'needer_lastname2',
+        'city': 'Mayaguez',
+        'region': 'oeste',
+        'address': 'address2',
+        'gps': 'gps2',
+        'email': 'suplier2@email.com',
+        'username': 'needer_2',
+        'password': 'password2'
+    },
+    {
+        'sid': 6,
+        'pname': 'needer3',
+        'plname': 'needer_lastname3',
+        'city': 'Caguas',
+        'region': 'este',
+        'address': 'address3',
+        'gps': 'gps3',
+        'email': 'suplier3@email.com',
+        'username': 'needer_3',
+        'password': 'password3'
+    }
+]
+
+
 class NeederHandler:
-
     def getAllNeeders(self):
-        return jsonify(Needers = 'Viewing all Needers')
+        return jsonify(needers=needers)
 
-    def getNeederById(self, nid):
-        return jsonify(Needers = 'Looking for a needer by ID: %d' % (nid))
-
-    def getNeedersOnThisrname(self, rname):
-       return jsonify(Needers = 'Showing needers on rname: %s' %(rname))
+    def getNeederById(self, sid):
+        result_list = []
+        for needer in needers:
+            if needer['sid'] == sid:
+                result_list.append(needer)
+        if not result_list:
+            return jsonify(Error="needer Not Found"), 404
+        return jsonify(needer=result_list)
 
     def searchNeeders(self, args):
 
@@ -21,255 +63,668 @@ class NeederHandler:
         rname = args.get('rname')
 
         if (len(args) == 6) and firstName and lastName and cname and email and username and rname:
-            return jsonify(Needers = 'Looking for and account by pname, plname, cname, emaill, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # ------------------------------------------------------------------------------
 
         # Without rname
         elif (len(args) == 5) and firstName and lastName and cname and email and username:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, email and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without username
         elif (len(args) == 5) and firstName and lastName and cname and email and rname:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, email and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without email
         elif (len(args) == 5) and firstName and lastName and cname and username and rname:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without cname
         elif (len(args) == 5) and firstName and lastName and cname and email and rname:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, email and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['email'] == email \
+                        and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname
         elif (len(args) == 5) and firstName and cname and email and username and rname:
-            return jsonify(Needers = 'Looking for an account by pname, cname, email, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname
         elif (len(args) == 5) and lastName and cname and email and username and rname:
-            return jsonify(Needers = 'Looking for an account by plname, cname, email, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
         # ------------------------------------------------------------------------------
 
         # Without rname and username
         elif (len(args) == 4) and firstName and lastName and cname and email:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, and email')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without rname and email
         elif (len(args) == 4) and firstName and lastName and cname and username:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without rname and cname
         elif (len(args) == 4) and firstName and lastName and email and username:
-            return jsonify(Needers = 'Looking for an account by pname, plname, email, and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName \
+                        and needer['email'] == email and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without rname and lastname
         elif (len(args) == 4) and firstName and cname and email and username:
-            return jsonify(Needers = 'Looking for an account by pname, cname, email, and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without rname and firstname
         elif (len(args) == 4) and lastName and cname and email and username:
-            return jsonify(Needers = 'Looking for an account by plname, cname, email, and username')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without username and email
         elif (len(args) == 4) and firstName and lastName and cname and rname:
-            return jsonify(Needers = 'Looking for an account by pname, plname, cname, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without username and cname
         elif (len(args) == 4) and firstName and lastName and email and rname:
-            return jsonify(Needers = 'Looking for an account by pname, plname, email, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName \
+                        and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # firstname, lastname, cname, email, username, rname
 
         # Without username and lastname
         elif (len(args) == 4) and firstName and cname and email and rname:
-            return jsonify(Needers = 'Looking for an account by pname, cname, email, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname \
+                        and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without username and firstname
         elif (len(args) == 4) and lastName and cname and email and rname:
-            return jsonify(Needers = 'Looking for an account by plame, cname, email, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without email and cname
         elif (len(args) == 4) and firstName and lastName and username and rname:
-            return jsonify(Needers = 'Looking for an account by pname, plname, username, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName \
+                        and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without email and lastname
         elif (len(args) == 4) and firstName and cname and username and rname:
-            return jsonify(Needers = 'Looking for an account by pname, cname, username, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname \
+                        and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without email and firstname
         elif (len(args) == 4) and lastName and cname and username and rname:
-            return jsonify(Needers = 'Looking for an account by plname, cname, username, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname \
+                        and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without cname and lastname
         elif (len(args) == 4) and firstName and email and username and rname:
-            return jsonify(Needers = 'Looking for an account by pname, email, username, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName \
+                        and needer['email'] == email and needer['username'] == username \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without cname and firstName
         elif (len(args) == 4) and lastName and email and username and rname:
-            return jsonify(Needers = 'Looking for an account by plname, email, username, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName \
+                        and needer['email'] == email and needer['username'] == username \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname and firstName
         elif (len(args) == 4) and cname and email and username and rname:
-            return jsonify(Needers = 'Looking for an account by cname, email, username, and rname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname \
+                        and needer['email'] == email and needer['username'] == username \
+                        and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # ------------------------------------------------------------------------------
 
         # Without email, username and rname
         elif (len(args) == 3) and firstName and lastName and cname:
-            return jsonify(Needers = 'Looking for account by pname, plname and cname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['city'] == cname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without cname, username and rname
         elif (len(args) == 3) and firstName and lastName and email:
-            return jsonify(Needers = 'Looking for account by pname, plname and email')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname, username and rname
         elif (len(args) == 3) and firstName and cname and email:
-            return jsonify(Needers = 'Looking for account by pname, cname and email')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, username and rname
         elif (len(args) == 3) and lastName and cname and email:
-            return jsonify(Needers = 'Looking for account by plname, cname and email')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without cname, email and rname
         elif (len(args) == 3) and firstName and lastName and username:
-            return jsonify(Needers = 'Looking for account by pname, plname and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName \
+                        and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname, email and rname
         elif (len(args) == 3) and firstName and cname and username:
-            return jsonify(Needers = 'Looking for account by pname, cname and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, email and rname
         elif (len(args) == 3) and lastName and cname and username:
-            return jsonify(Needers = 'Looking for account by plname, cname and username')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname, cname and rname
         elif (len(args) == 3) and firstName and email and username:
-            return jsonify(Needers = 'Looking for account by pname, email and username')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['email'] == email and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, cname and rname
         elif (len(args) == 3) and lastName and email and username:
-            return jsonify(Needers = 'Looking for account by plname, email and username')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['email'] == email and needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, lastname and rname
         elif (len(args) == 3) and cname and email and username:
-            return jsonify(Needers = 'Looking for account by cname, email and username')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['username'] == username and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without cname, email and username
         elif (len(args) == 3) and firstName and lastName and rname:
-            return jsonify(Needers = 'Looking for account by pname, plname and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname, email and username
         elif (len(args) == 3) and firstName and cname and rname:
-            return jsonify(Needers = 'Looking for account by pname, cname and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['city'] == cname and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, email and username
         elif (len(args) == 3) and lastName and cname and rname:
-            return jsonify(Needers = 'Looking for account by plname, cname and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['city'] == cname and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname, cname and username
         elif (len(args) == 3) and firstName and email and rname:
-            return jsonify(Needers = 'Looking for account by pname, email and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, cname and username
         elif (len(args) == 3) and lastName and email and rname:
-            return jsonify(Needers = 'Looking for account by plname, email and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without lastname, cname and email
         elif (len(args) == 3) and firstName and username and rname:
-            return jsonify(Needers = 'Looking for account by pname, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, cname and email
         elif (len(args) == 3) and lastName and username and rname:
-            return jsonify(Needers = 'Looking for account by plname, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, lastname and cname
         elif (len(args) == 3) and email and username and rname:
-            return jsonify(Needers = 'Looking for account by email, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['email'] == email and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, lastname and email
         elif (len(args) == 3) and cname and username and rname:
-            return jsonify(Needers = 'Looking for account by cname, username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # Without firstname, lastname and username
         elif (len(args) == 3) and cname and email and rname:
-            return jsonify(Needers = 'Looking for account by cname, email and rname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # ------------------------------------------------------------------------------
 
         elif (len(args) == 2) and username and rname:
-            return jsonify(Needers = 'Looking for needers by username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and email and rname:
-            return jsonify(Needers = 'Looking for needers by email and rname')
+            result_list = []
+            for needer in needers:
+                if needer['email'] == email and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and cname and rname:
-            return jsonify(Needers = 'Looking for needers by cname and rname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and lastName and rname:
-            return jsonify(Needers = 'Looking for needers by plname and rname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and firstName and rname:
-            return jsonify(Needers = 'Looking for needers by pname and rname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and username and rname:
-            return jsonify(Needers = 'Looking for needers by username and rname')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username and needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and email and username:
-            return jsonify(Needers = 'Looking for needers by email and username')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and cname and username:
-            return jsonify(Needers = 'Looking for needers by cname and username')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username and needer['city'] == cname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and lastName and username:
-            return jsonify(Needers = 'Looking for needers by plname and username')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username and needer['plname'] == lastName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and firstName and username:
-            return jsonify(Needers = 'Looking for needers by pname and username')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username and needer['pname'] == firstName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and cname and email:
-            return jsonify(Needers = 'Looking for needers by cname and email')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and lastName and email:
-            return jsonify(Needers = 'Looking for needers by plname and email')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and firstName and email:
-            return jsonify(Needers = 'Looking for needers by pname and email')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and lastName and cname:
-            return jsonify(Needers = 'Looking for needers by plname and cname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['plname'] == lastName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and firstName and cname:
-            return jsonify(Needers = 'Looking for needers by pname and cname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname and needer['pname'] == firstName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         elif (len(args) == 2) and firstName and lastName:
-            return jsonify(Needers = 'Looking for needers by pname and plname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName and needer['plname'] == lastName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # ------------------------------------------------------------------------------
 
         # firstname
         elif (len(args) == 1) and firstName:
-            return jsonify(Needers = 'Looking for needers by pname')
+            result_list = []
+            for needer in needers:
+                if needer['pname'] == firstName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # lastname
         elif (len(args) == 1) and lastName:
-            return jsonify(Needers = 'Looking for needers by plname')
+            result_list = []
+            for needer in needers:
+                if needer['plname'] == lastName:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # cname
         elif (len(args) == 1) and cname:
-            return jsonify(Needers = 'Looking for needers by cname')
+            result_list = []
+            for needer in needers:
+                if needer['city'] == cname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # email
         elif (len(args) == 1) and email:
-            return jsonify(Needers = 'Looking for needers by email')
+            result_list = []
+            for needer in needers:
+                if needer['email'] == email:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # username
         elif (len(args) == 1) and username:
-            return jsonify(Needers = 'Looking for needers by username')
+            result_list = []
+            for needer in needers:
+                if needer['username'] == username:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
 
         # rname
         elif (len(args) == 1) and rname:
-            return jsonify(Needers = 'Looking for needers by rname')
+            result_list = []
+            for needer in needers:
+                if needer['region'] == rname:
+                    result_list.append(needer)
+            if not result_list:
+                return jsonify(Error="needers Not Found"), 404
+            return jsonify(needers=result_list)
         # ------------------------------------------------------------------------------
 
         else:
-            return jsonify(Needers = 'Bad Request'), 400
+            return 'No needers found', 404
