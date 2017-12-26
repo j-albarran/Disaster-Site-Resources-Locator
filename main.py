@@ -1,15 +1,4 @@
 from flask import Flask, jsonify, request
-from handler.supply import SupplyHandler
-from handler.transaction import TransactionHandler
-from handler.request import RequestHandler
-from handler.resources import ResourceHandler
-from handler.categories import CategoryHandler
-from handler.regions import RegionHandler
-from handler.supplier import SupplierHandler
-from handler.needer import NeederHandler
-from handler.administrator import AdministratorHandler
-from handler.account import AccountHandler
-from handler.city import CityHandler
 
 app = Flask(__name__)
 
@@ -18,249 +7,216 @@ def welcome():
     return jsonify(Welcome = 'Hello, this is the Disaster-Site-Resources-Locator project.')
 
 # ---------------------------------------------------------------------------- #
+#                                City routes                                   #
+# ---------------------------------------------------------------------------- #
+
+@app.route('/ResourceApp/cities/<string:cname>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def getResourcesByCityName(cname):
+    return CityHandler().getResourcesByCityName(cname)
+
+@app.route('/ResourceApp/cities/<string:cname>/resources_requested') # By rrqty, rrdescription, rr_request_date, rr_changed_date
+def getResourcesRequestedByCityName(cname):
+    return CityHandler().getResourcesRequestedByCityName(cname)
+
+# ---------------------------------------------------------------------------- #
+#                               Region routes                                  #
+# ---------------------------------------------------------------------------- #
+
+@app.route('/ResourceApp/regions/<string:rname>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def getResourcesByRegionName(rname):
+    return RegionHandler().getResourcesByRegionName(rname)
+
+@app.route('/ResourceApp/regions/<string:rname>/resources_requested') # By rrqty, rrdescription, rr_request_date, rr_changed_date
+def getResourcesRequestedByRegionName(rname):
+    return RegionHandler().getResourcesRequestedByRegionName(rname)
+
+# ---------------------------------------------------------------------------- #
+#                               Address routes                                 #
+# ---------------------------------------------------------------------------- #
+
+
+
+# ---------------------------------------------------------------------------- #
+#                               Account routes                                 #
+# ---------------------------------------------------------------------------- #
+
+
+
+# ---------------------------------------------------------------------------- #
+#                            Administrator routes                              #
+# ---------------------------------------------------------------------------- #
+
+
+
+# ---------------------------------------------------------------------------- #
+#                              Supplier routes                                 #
+# ---------------------------------------------------------------------------- #
+
+
+# ---------------------------------------------------------------------------- #
+#                             Requester routes                                 #
+# ---------------------------------------------------------------------------- #
+
+
+# ---------------------------------------------------------------------------- #
 #                              Resource routes                                 #
 # ---------------------------------------------------------------------------- #
 
-@app.route('/ResourceApp/resources')
-def getAllResources():
-    # Get all resources
-    if not request.args:
-        return ResourceHandler().getAllResources()
-    # Get all resources by attributes (rname, rqty, rcategory)
+@app.route('/ResourceApp/resources', methods = ['GET', 'POST']) # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def handleResources():
+    if request.method == 'POST':
+        return ResourceHandler().insertResource(request.form)
     else:
-        return ResourceHandler().searchResources(request.args)
+        if not request.args:
+            return ResourceHandler().getAllResources()
+        else:
+            return ResourceHandler().searchResources(request.args)
 
-# Get resource by ID
-@app.route('/ResourceApp/resources/<int:id>')
-def getResourceById(id):
-    return ResourceHandler().getResourceById(id)
-
-@app.route('/ResourceApp/resources/available')
-def getResourcesAvailable():
-    # Get all resources available now
-    if not request.args:
-        return ResourceHandler().getResourcesAvailable()
-    # Get all resources available by attributes (adate, rname)
-    # Get all resources at a given moment
-    # Get all resources available in a region
+@app.route('/ResourceApp/resources/<int:rsid>' methods = ['GET', 'PUT', 'DELETE'])
+def handleResourceById(rsid):
+    if request.method == 'GET':
+        return ResourceHandler().getResourceById(rsid)
+    elif request.method == 'PUT':
+        return ResourceHandler().updateResource(rsid, request.form)
+    elif request.method == 'DELETE':
+        return ResourceHandler().deleteResource(rsid)
     else:
-        return ResourceHandler().searchResourcesAvailable(request.args)
+        return jsonify(Error = "Method not allowed."), 405
 
-# Get all resources needed now
-@app.route('/ResourceApp/resources/needed')
-def getResourcesNeeded():
-    # Get all resources needed now
-    if not request.args:
-        return ResourceHandler().getResourcesNeeded()
-    # Get all resources needed by attributes (ndate, rname)
-    # Get all resources needed at a given moment
-    # Get all resources needed in a regions
+@app.route('/ResourceApp/resources/<int:rsid>/keywords') # By keyword
+def getKeywordsByResourceId(rsid):
+    return ResourceHandler().getKeywordsByResourceId(rsid)
+
+@app.route('/ResourceApp/resources/<int:rsid>/categories')
+def getCategoriesByResourceId(rsid):
+    return ResourceHandler().getCategoriesByResourceId(rsid)
+
+# ---------------------------------------------------------------------------- #
+#                        Resource_Requested routes                             #
+# ---------------------------------------------------------------------------- #
+
+@app.route('/ResourceApp/resources_requested', methods = ['GET', 'POST']) # By rrqty, rrdescription, rr_request_date, rr_changed_date
+def handleResourcesRequested():
+    if request.method == 'POST':
+        return ResourceRequestedHandler().insertResourceRequested(request.form)
     else:
-        return ResourceHandler.searchResourcesNeeded(request.args)
+        if not request.args:
+            return ResourceRequestedHandler().getAllResourcesRequested()
+        else:
+            return ResourceRequestedHandler().searchResourcesRequested(request.args)
+
+@app.route('/ResourceApp/resources_requested/<int:rrid>' methods = ['GET', 'PUT', 'DELETE'])
+def handleResourceRequestedById(rrid):
+    if request.method == 'GET':
+        return ResourceRequestedHandler().getResourceRequestedById(rrid)
+    elif request.method == 'PUT':
+        return ResourceRequestedHandler().updateResourceRequested(rrid, request.form)
+    elif request.method == 'DELETE':
+        return ResourceRequestedHandler().deleteResourceRequested(rrid)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
+@app.route('/ResourceApp/resources_requested/<int:rrid>/keywords') # By keyword
+def getKeywordsByResourceRequestedId(rrid):
+    return ResourceRequestedHandler().getKeywordsByResourceRequestedId(rrid)
+
+@app.route('/ResourceApp/resources_requested/<int:rrid>/categories')
+def getCategoriesByResourceRequestedId(rrid):
+    return ResourceRequestedHandler().getCategoriesByResourceRequestedId(rrid)
+
+# ---------------------------------------------------------------------------- #
+#                               Keyword routes                                 #
+# ---------------------------------------------------------------------------- #
+
+@app.route('/ResourceApp/keywords', methods = ['GET', 'POST']) # By keyword
+def handleKeywords():
+    if request.method == 'POST':
+        return KeywordHandler().insertKeyword(request.form)
+    else:
+        if not request.args:
+            return KeywordHandler().getAllKeywords()
+        else:
+            return KeywordHandler().searchKeywords(request.args)
+
+@app.route('/ResourceApp/keywords/<int:kid>', methods = ['GET', 'PUT', 'DELETE'])
+def handleKeywordById(kid):
+    if request.method == 'GET':
+        return KeywordHandler().getKeywordById(kid)
+    elif request.method == 'PUT':
+        return KeywordHandler().updateKeyword(kid, request.form)
+    elif request.method == 'DELETE':
+        return KeywordHandler().deleteKeyword(kid)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
+@app.route('/ResourceApp/keywords/<int:kid>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def getResourcesByKeywordId(kid):
+    return KeywordHandler().getResourcesByKeywordId(kid)
+
+@app.route('/ResourceApp/keywords/<int:kid>/resources_requested') # By rrqty, rrdescription, rr_request_date, rr_changed_date
+def getResourcesRequestedByKeywordId(kid):
+    return KeywordHandler().getResourcesRequestedByKeywordId(kid)
 
 # ---------------------------------------------------------------------------- #
 #                              Category routes                                 #
 # ---------------------------------------------------------------------------- #
 
-# Get all categories
-@app.route('/ResourceApp/categories')
-def getAllCategories():
-    return CategoryHandler().getAllCategories()
+@app.route('/ResourceApp/categories', methods = ['GET', 'POST'])
+def handleCategories():
+    if request.method == 'POST':
+        return CategoryHandler().insertCategory(request.form)
+    else:
+        if not request.args:
+            return CategoryHandler().getAllCategories()
+        else:
+            return CategoryHandler().searchCategories(request.args)
 
-# Get category by name
-@app.route('/ResourceApp/categories/<string:name>')
-def getCategoryByName(name):
-    return CategoryHandler().getCategoryByName(name)
+@app.route('/ResourceApp/categories/<string:cat_name>', methods = ['GET', 'PUT', 'DELETE'])
+def handleCategoryById(cat_name):
+    if request.method == 'GET':
+        return CategoryHandler().getCategoryById(cat_name)
+    elif request.method == 'PUT':
+        return CategoryHandler().updateCategory(cat_name, request.form)
+    elif request.method == 'DELETE':
+        return CategoryHandler().deleteCategory(cat_name)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
+@app.route('/ResourceApp/categories/<string:cat_name>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def getResourcesByCategoryName(cat_name):
+    return CategoryHandler().getResourcesByCategoryName(cat_name)
+
+@app.route('/ResourceApp/categories/<string:cat_name>/resources_requested') # By rrqty, rrdescription, rr_request_date, rr_changed_date
+def getResourcesRequestedByCategoryName(cat_name):
+    return CategoryHandler().getResourcesRequestedByCategoryName(cat_name)
+
+@app.route('/ResourceApp/categories/<string:cat_name>/categories')
+def getCategoriesByCategoryName(cat_name):
+    return CategoryHandler().getCategoriesByCategoryName(cat_name)
 
 # ---------------------------------------------------------------------------- #
-#                              Region routes                                   #
+#                            Transaction routes                                #
 # ---------------------------------------------------------------------------- #
 
-# Get all regions
-@app.route('/ResourceApp/regions')
-def getAllRegions():
-    return RegionHandler().getAllRegions()
+@app.route('/ResourceApp/transactions/<int:tid>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def getResourcesByTransactionId(tid):
+    return TransactionHandler().getResourcesByTransactionId(tid)
 
-# Get region by name
-@app.route('/ResourceApp/regions/<string:name>')
-def getRegionByName(name):
-    return RegionHandler().getRegionByName(name)
+@app.route('/ResourceApp/transactions/<int:tid>/categories')
+def getCategoriesByTransactionId(tid):
+    return TransactionHandler().getCategoriesByTransactionId(tid)
 
-# ---------- Supply Related -------------
-
-@app.route('/ResourceApp/supplier/<int:sid>/resources')
-def getSupplierResources(sid):
-    return SupplyHandler().searchSupplierResources(sid)
-
-@app.route('/ResourceApp/resource/<int:rid>/suppliers')
-def getResourceSuppliers(rid):
-    return SupplyHandler().searchResourceSupplier(rid)
-
-@app.route('/ResourceApp/supply')
-def getSupplies():
-    if not request.args:
-        return SupplyHandler().searchAllsupplies()
-    else:
-        return SupplyHandler().searchSupplies(request.args) #qty and date
-
-@app.route('/ResourceApp/supply/supplier') #check for shupplier city
-def getSuppliesbySupplier():
-    if not request.args:
-        return SupplyHandler().searchAllsupplies()
-    else:
-        return SupplyHandler().searchSuppliesSuppliers(request.args)
-
-@app.route('/ResourceApp/supply/supplier/city/region/<string:region>') #check for region name
-def getSuppliesbyRegion(region):
-    return SupplyHandler().searchSuppliesbyRegion(region)
+# ---------------------------------------------------------------------------- #
+#                            Credit_Card routes                                #
+# ---------------------------------------------------------------------------- #
 
 
-# ------------ Request Related --------------
 
-@app.route('/ResourceApp/needer/<int:nid>/resources')
-def getNeederResources(nid):
-    return RequestHandler().searchNeederResources(nid)
-
-@app.route('/ResourceApp/resource/<int:rid>/needer')
-def getResourceNeeder(rid):
-    return RequestHandler().searchResourceNeeder(rid)
-
-@app.route('/ResourceApp/request')
-def getRequests():
-    if not request.args:
-        return RequestHandler().searchAllrequest()
-    else:
-        return RequestHandler().searchRequests(request.args) #qty and date
-
-@app.route('/ResourceApp/request/needer')
-def getRequestsbyNeeder():
-    if not request.args:
-        return RequestHandler().searchAllrequest()
-    else:
-        return RequestHandler().searchRequestsNeeders(request.args)
-
-@app.route('/ResourceApp/request/needer/city/region/<string:region>')
-def getRequestbyRegion(region):
-    return RequestHandler().searchRequestbyRegion(region)
+# ---------------------------------------------------------------------------- #
+#                              Payment routes                                  #
+# ---------------------------------------------------------------------------- #
 
 
-# ------------- Transaction Related -------------
-
-@app.route('/ResourceApp/transactions')
-def getTransactions():
-    if not request.args:
-        return TransactionHandler().searchAlltransactions()
-    else:
-        return TransactionHandler().searchTransaction(request.args) #qty and date and price
-
-@app.route('/ResourceApp/resource/<int:rid>/needer/supplier')
-def getResourceTransactions(rid):
-    if not request.args:
-        return TransactionHandler().searchAllResourceTransactions(rid)
-    else:
-        return TransactionHandler().searchResourceTransactions(rid, request.args) #qty and date and price
-
-@app.route('/ResourceApp/needer/<int:nid>/resource/supplier')
-def getNeederTransactions(nid):
-    return TransactionHandler().searchAllNeederTransactions(nid)
-
-@app.route('/ResourceApp/supplier/<int:sid>/resource/needer')
-def getSupplierTransactions(sid):
-    return TransactionHandler().searchAllSupplierTransactions(sid)
-
-
-#   RESOURCEAPP PAGE ROUTE
-# =================================================
-
-@app.route('/ResourceApp')
-def resourceAppPR():
-    return jsonify(Home = 'RESOURCEAPP PR!')
-
-#   SUPPLIER ROUTES
-# =================================================
-
-@app.route('/ResourceApp/supplier')
-def getSuppliers():
-    # Listing all Suppliers
-    if not request.args:
-        return SupplierHandler().getAllSuppliers()
-    # Searching specific suppliers (pname, plname, city, email, username, region)
-    else:
-        return SupplierHandler().searchSuppliers(request.args)
-
-#   Looking for a supplier by ID
-@app.route('/ResourceApp/supplier/<int:sid>')
-def getSupplierById(sid):
-    return SupplierHandler().getSupplierById(sid)
-
-#   NEEDER ROUTES
-# =================================================
-
-@app.route('/ResourceApp/needer')
-def getNeeders():
-    # Listing all needers
-    if not request.args:
-        return NeederHandler().getAllNeeders()
-    # Searching specific needers (pname, plname, city, email, username, region)
-    else:
-        return NeederHandler().searchNeeders(request.args)
-
-# Looking for a needer by ID
-@app.route('/ResourceApp/needer/<int:nid>')
-def getNeederById(nid):
-    return NeederHandler().getNeederById(nid)
-
-
-#   ADMINISTRATOR ROUTES
-# =================================================
-
-@app.route('/ResourceApp/administrator')
-def getAdministrators():
-    # Listing all administrators
-    if not request.args:
-        return AdministratorHandler().getAllAdministrators()
-    # Searching specific administratos (pname, plname, city, email, username, region)
-    else:
-        return AdministratorHandler().searchAdministrators(request.args)
-
-# Looking for an administrator by ID
-@app.route('/ResourceApp/administrator/<int:aid>')
-def getAdministratorById(aid):
-    return AdministratorHandler().getAdministratorById(aid)
-
-
-#   ACCOUNT ROUTES
-# =================================================
-
-# Looking for a account by ID
-@app.route('/ResourceApp/account/<int:pid>')
-def getPersonById(pid):
-    return AccountHandler().getAccountByUniqueId(pid)
-
-@app.route('/ResourceApp/account')
-def getAllAccounts():
-    # Listing all accounts
-    if not request.args:
-        return AccountHandler().getAllAccounts()
-    # Searching specific accounts (pname, plname, city, email, username, region)
-    else:
-        return AccountHandler().searchAccounts(request.args)
-
-#   CITY ROUTES
-# =================================================
-@app.route('/ResourceApp/city')
-def getCities():
-    # Listing all cities
-    if not request.args:
-        return CityHandler().getAllCities()
-    # Searching for cities on a specific region
-    else:
-        return CityHandler().searchCities(request.args)
-
-# Looking or a specific city by name
-@app.route('/ResourceApp/city/<string:cname>')
-def getCityByName(cname):
-    return CityHandler().getCitiesByName(cname)
 
 if __name__ == '__main__':
     app.run()
