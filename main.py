@@ -1,4 +1,8 @@
 from flask import Flask, jsonify, request
+from handler.resource import ResourceHandler
+from handler.resource_requested import ResourceRequestedHandler
+from handler.keyword import KeywordHandler
+from handler.category import CategoryHandler
 
 app = Flask(__name__)
 
@@ -60,7 +64,7 @@ def handleResources():
         else:
             return ResourceHandler().searchResources(request.args)
 
-@app.route('/ResourceApp/resources/<int:rsid>' methods = ['GET', 'PUT', 'DELETE'])
+@app.route('/ResourceApp/resources/<int:rsid>', methods = ['GET', 'PUT', 'DELETE'])
 def handleResourceById(rsid):
     if request.method == 'GET':
         return ResourceHandler().getResourceById(rsid)
@@ -281,7 +285,7 @@ def handleResourcesRequested():
         else:
             return ResourceRequestedHandler().searchResourcesRequested(request.args)
 
-@app.route('/ResourceApp/resources_requested/<int:rrid>' methods = ['GET', 'PUT', 'DELETE'])
+@app.route('/ResourceApp/resources_requested/<int:rrid>', methods = ['GET', 'PUT', 'DELETE'])
 def handleResourceRequestedById(rrid):
     if request.method == 'GET':
         return ResourceRequestedHandler().getResourceRequestedById(rrid)
