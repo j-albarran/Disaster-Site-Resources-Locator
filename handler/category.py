@@ -1,4 +1,11 @@
 from flask import Flask, jsonify
+from dao.category import CategoryDAO
+from dao.city import CityDAO
+from dao.region import RegionDAO
+from dao.resource import ResourceDAO
+from dao.keyword import KeywordDAO
+from dao.resource_requested import ResourceRequestedDAO
+from dao.transaction import TransactionDAO
 
 class CategoryHandler:
 
