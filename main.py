@@ -1,4 +1,8 @@
 from flask import Flask, jsonify, request
+from handler.resource import ResourceHandler
+from handler.resource_requested import ResourceRequestedHandler
+from handler.keyword import KeywordHandler
+from handler.category import CategoryHandler
 
 from handler.cash import CashesHandler
 from handler.credit_card import CreditCardsHandler
