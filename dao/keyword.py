@@ -1,4 +1,5 @@
-
+from config.dbconfig import pg_config
+import psycopg2
 
 class KeywordDAO:
 
@@ -10,7 +11,7 @@ class KeywordDAO:
 
     def getAllKeywords(self):
         cursor = self.conn.cursor()
-        query = "select * from Keyword;"
+        query = "Select * from Keyword;"
         cursor.execute(query)
         result = []
         for row in cursor:
@@ -19,7 +20,7 @@ class KeywordDAO:
 
     def getKeywordsByKeyword(self, keyword):
         cursor = self.conn.cursor()
-        query = "select * from Keyword where keyword = %s;"
+        query = "Select * from Keyword where keyword = %s;"
         cursor.execute(query, (keyword,))
         result = []
         for row in cursor:
@@ -28,7 +29,7 @@ class KeywordDAO:
 
     def getKeywordById(self, kid):
         cursor = self.conn.cursor()
-        query = "select * from Keyword where kid = %s;"
+        query = "Select * from Keyword where kid = %s;"
         cursor.execute(query, (kid,))
         result = []
         for row in cursor:
@@ -37,7 +38,7 @@ class KeywordDAO:
 
     def insert(self, keyword):
         cursor = self.conn.cursor()
-        query = "insert into Keyword(kid, keyword) values (%s) returning kid;"
+        query = "insert into Keyword(keyword) values (%s) returning kid;"
         cursor.execute(query, (keyword,))
         kid = cursor.fetchone()[0]
         self.conn.commit()
@@ -59,16 +60,16 @@ class KeywordDAO:
 
     def getKeywordsByResourceId(self, rsid):
         cursor = self.conn.cursor()
-        query = "select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join Resource where rsid = %s;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword where rsid = %s;"
         cursor.execute(query, (rsid,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getKeywordsByResourceId_Keyword(self, keyword):
+    def getKeywordsByResourceIdByKeyword(self, rsid, keyword):
         cursor = self.conn.cursor()
-        query = "select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join Resource where rsid = %s and keyword = %s;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword where rsid = %s and keyword = %s;"
         cursor.execute(query, (rsid, keyword))
         result = []
         for row in cursor:
@@ -77,16 +78,16 @@ class KeywordDAO:
 
     def getKeywordsByResourceRequestedId(self, rrid):
         cursor = self.conn.cursor()
-        query = "select kid, keyword from Keyword natural inner join ResourceRequestedHasKeyword natural inner join ResourceRequested where rrid = %s;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceRequestedHasKeyword where rrid = %s;"
         cursor.execute(query, (rrid,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getKeywordsByResourceRequestedId_Keyword(self, keyword):
+    def getKeywordsByResourceRequestedIdByKeyword(self, rrid, keyword):
         cursor = self.conn.cursor()
-        query = "select kid, keyword from Keyword natural inner join ResourceRequestedHasKeyword natural inner join Resource_Requested where rrid = %s and keyword = %s;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceRequestedHasKeyword rrid = %s and keyword = %s;"
         cursor.execute(query, (rrid, keyword))
         result = []
         for row in cursor:
@@ -95,16 +96,16 @@ class KeywordDAO:
 
     def getKeywordsByCategoryName(self, cat_name):
         cursor = self.conn.cursor()
-        ***query = "select kid, keyword from (select * from Resource where cat_name = %s) as R;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join ResourceRequestedHasKeyword where cat_name = %s;"
         cursor.execute(query, (cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getKeywordsByCategoryName_Keyword(self, keyword):
+    def getKeywordsByCategoryNameByKeyword(self, cat_name, keyword):
         cursor = self.conn.cursor()
-        ***query = "select ;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join ResourceRequestedHasKeyword where cat_name = %s and keyword = %s;"
         cursor.execute(query)
         result = []
         for row in cursor:
