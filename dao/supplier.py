@@ -1,5 +1,4 @@
-from config.dbconfig import pg_config
-import psycopg2
+from config.dbconfig import conn
 
 class SupplierDAO:
     pass
