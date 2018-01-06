@@ -1,4 +1,8 @@
 from flask import Flask, jsonify
+from dao.keyword import KeywordDAO
+from dao.resource import ResourceDAO
+from dao.resource_requested import ResourceRequestedDAO
+from dao.category import CategoryDAO
 
 class KeywordHandler:
 
@@ -70,13 +74,16 @@ class KeywordHandler:
         if not dao.getKeywordById(kid):
             return jsonify(Error = "Keyword Not Found"), 404
         else:
-            keyword = form['keyword']
-            if keyword:
-                dao.update(kid, keyword)
-                result = self.build_keyword_attributes(kid, keyword)
-                return jsonify(Keyword = result), 200
+            if len(form) != 1:
+                return jsonify(Error = "Malformed Update Request"), 400
             else:
-                return jsonify(Error = "Unexpected attributes in update request"), 400
+                keyword = form['keyword']
+                if keyword:
+                    dao.update(kid, keyword)
+                    result = self.build_keyword_attributes(kid, keyword)
+                    return jsonify(Keyword = result), 200
+                else:
+                    return jsonify(Error = "Unexpected attributes in update request"), 400
 
     def deleteKeyword(self, kid):
         dao = KeywordDAO()
@@ -107,7 +114,7 @@ class KeywordHandler:
             dao = KeywordDAO()
             keyword_list = []
             if (len(args) == 1) and keyword:
-                keyword_list = dao.getKeywordsByResourceId_Keyword(keyword)
+                keyword_list = dao.getKeywordsByResourceIdByKeyword(rsid, keyword)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
@@ -140,7 +147,7 @@ class KeywordHandler:
             dao = KeywordDAO()
             keyword_list = []
             if (len(args) == 1) and keyword:
-                keyword_list = dao.getKeywordsByResourceRequestedId_Keyword(keyword)
+                keyword_list = dao.getKeywordsByResourceRequestedIdByKeyword(rrid, keyword)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
@@ -173,7 +180,7 @@ class KeywordHandler:
             dao = KeywordDAO()
             keyword_list = []
             if (len(args) == 1) and keyword:
-                keyword_list = dao.getKeywordsByCategoryName_Keyword(keyword)
+                keyword_list = dao.getKeywordsByCategoryNameByKeyword(cat_name, keyword)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
