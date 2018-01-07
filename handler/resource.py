@@ -1,5 +1,12 @@
 from flask import jsonify
 from dao.resource import ResourceDAO
+from dao.city import CityDAO
+from dao.region import RegionDAO
+from dao.supplier import SupplierDAO
+from dao.keyword import KeywordDAO
+from dao.category import CategoryDAO
+from dao.transaction import TransactionDAO
+from dao.order_info import OrderInfoDAO
 
 class ResourceHandler:
 
@@ -38,37 +45,37 @@ class ResourceHandler:
             return jsonify(Resources = result_list)
 
     def searchResources(self, args):
-        rname = args.get('rname')
+        rsname = args.get('rsname')
         r_changed_date = args.get('r_changed_date')
         rqty = args.get('rqty')
         rprice = args.get('rprice')
         r_supply_date = args.get('r_supply_date')
         dao = ResourceDAO()
         resource_list = []
-        if (len(args) == 5) and rname and r_changed_date and rqty and rprice and r_supply_date:
-            resource_list = dao.getResourcesByNameChangedDateQtyPriceSupplyDate(rname, r_changed_date, rqty, rprice, r_supply_date)
-        elif (len(args) == 4) and rname and r_changed_date and rqty and rprice:
-            resource_list = dao.getResourcesByNameChangedDateQtyPrice(rname, r_changed_date, rqty, rprice)
-        elif (len(args) == 4) and rname and r_changed_date and rqty and r_supply_date:
-            resource_list = dao.getResourcesByNameChangedDateQtySupplyDate(rname, r_changed_date, rqty, r_supply_date)
-        elif (len(args) == 4) and rname and r_changed_date and rprice and r_supply_date:
-            resource_list = dao.getResourcesByNameChangedDatePriceSupplyDate(rname, r_changed_date, rprice, r_supply_date)
-        elif (len(args) == 4) and rname and rqty and rprice and r_supply_date:
-            resource_list = dao.getResourcesByNameQtyPriceSupplyDate(rname, rqty, rprice, r_supply_date)
+        if (len(args) == 5) and rsname and r_changed_date and rqty and rprice and r_supply_date:
+            resource_list = dao.getResourcesByNameChangedDateQtyPriceSupplyDate(rsname, r_changed_date, rqty, rprice, r_supply_date)
+        elif (len(args) == 4) and rsname and r_changed_date and rqty and rprice:
+            resource_list = dao.getResourcesByNameChangedDateQtyPrice(rsname, r_changed_date, rqty, rprice)
+        elif (len(args) == 4) and rsname and r_changed_date and rqty and r_supply_date:
+            resource_list = dao.getResourcesByNameChangedDateQtySupplyDate(rsname, r_changed_date, rqty, r_supply_date)
+        elif (len(args) == 4) and rsname and r_changed_date and rprice and r_supply_date:
+            resource_list = dao.getResourcesByNameChangedDatePriceSupplyDate(rsname, r_changed_date, rprice, r_supply_date)
+        elif (len(args) == 4) and rsname and rqty and rprice and r_supply_date:
+            resource_list = dao.getResourcesByNameQtyPriceSupplyDate(rsname, rqty, rprice, r_supply_date)
         elif (len(args) == 4) and r_changed_date and rqty and rprice and r_supply_date:
             resource_list = dao.getResourcesByChangedDateQtyPriceSupplyDate(r_changed_date, rqty, rprice, r_supply_date)
-        elif (len(args) == 3) and rname and r_changed_date and rqty:
-            resource_list = dao.getResourcesByNameChangedDateQty(rname, r_changed_date, rqty)
-        elif (len(args) == 3) and rname and r_changed_date and rprice:
-            resource_list = dao.getResourcesByNameChangedDatePrice(rname, r_changed_date, rprice)
-        elif (len(args) == 3) and rname and r_changed_date and r_supply_date:
-            resource_list = dao.getResourcesByNameChangedDateSupplyDate(rname, r_changed_date, r_supply_date)
-        elif (len(args) == 3) and rname and rqty and rprice:
-            resource_list = dao.getResourcesByNameQtyPrice(rname, rqty, rprice)
-        elif (len(args) == 3) and rname and rqty and r_supply_date:
-            resource_list = dao.getResourcesByNameQtySupplyDate(rname, rqty, r_supply_date)
-        elif (len(args) == 3) and rname and rprice and r_supply_date:
-            resource_list = dao.getResourcesByNamePriceSupplyDate(rname, rprice, r_supply_date)
+        elif (len(args) == 3) and rsname and r_changed_date and rqty:
+            resource_list = dao.getResourcesByNameChangedDateQty(rsname, r_changed_date, rqty)
+        elif (len(args) == 3) and rsname and r_changed_date and rprice:
+            resource_list = dao.getResourcesByNameChangedDatePrice(rsname, r_changed_date, rprice)
+        elif (len(args) == 3) and rsname and r_changed_date and r_supply_date:
+            resource_list = dao.getResourcesByNameChangedDateSupplyDate(rsname, r_changed_date, r_supply_date)
+        elif (len(args) == 3) and rsname and rqty and rprice:
+            resource_list = dao.getResourcesByNameQtyPrice(rsname, rqty, rprice)
+        elif (len(args) == 3) and rsname and rqty and r_supply_date:
+            resource_list = dao.getResourcesByNameQtySupplyDate(rsname, rqty, r_supply_date)
+        elif (len(args) == 3) and rsname and rprice and r_supply_date:
+            resource_list = dao.getResourcesByNamePriceSupplyDate(rsname, rprice, r_supply_date)
         elif (len(args) == 3) and r_changed_date and rqty and rprice:
             resource_list = dao.getResourcesByChangedDateQtyPrice(r_changed_date, rqty, rprice)
         elif (len(args) == 3) and r_changed_date and rqty and r_supply_date:
@@ -77,14 +84,14 @@ class ResourceHandler:
             resource_list = dao.getResourcesByChangedDatePriceSupplyDate(r_changed_date, rprice, r_supply_date)
         elif (len(args) == 3) and rqty and rprice and r_supply_date:
             resource_list = dao.getResourcesByQtyPriceSupplyDate(rqty, rprice, r_supply_date)
-        elif (len(args) == 2) and rname and r_changed_date:
-            resource_list = dao.getResourcesByNameChangedDate(rname, r_changed_date)
-        elif (len(args) == 2) and rname and rqty:
-            resource_list = dao.getResourcesByNameQty(rname, rqty)
-        elif (len(args) == 2) and rname and rprice:
-            resource_list = dao.getResourcesByNamePrice(rname, rprice)
-        elif (len(args) == 2) and rname and r_supply_date:
-            resource_list = dao.getResourcesByNameSupplyDate(rname, r_supply_date)
+        elif (len(args) == 2) and rsname and r_changed_date:
+            resource_list = dao.getResourcesByNameChangedDate(rsname, r_changed_date)
+        elif (len(args) == 2) and rsname and rqty:
+            resource_list = dao.getResourcesByNameQty(rsname, rqty)
+        elif (len(args) == 2) and rsname and rprice:
+            resource_list = dao.getResourcesByNamePrice(rsname, rprice)
+        elif (len(args) == 2) and rsname and r_supply_date:
+            resource_list = dao.getResourcesByNameSupplyDate(rsname, r_supply_date)
         elif (len(args) == 2) and r_changed_date and rqty:
             resource_list = dao.getResourcesByChangedDateQty(r_changed_date, rqty)
         elif (len(args) == 2) and r_changed_date and rprice:
@@ -97,8 +104,8 @@ class ResourceHandler:
             resource_list = dao.getResourcesByQtySupplyDate(rqty, r_supply_date)
         elif (len(args) == 2) and rprice and r_supply_date:
             resource_list = dao.getResourcesByPriceSupplyDate(rprice, r_supply_date)
-        elif (len(args) == 1) and rname:
-            resource_list = dao.getResourcesByName(rname)
+        elif (len(args) == 1) and rsname:
+            resource_list = dao.getResourcesByName(rsname)
         elif (len(args) == 1) and r_changed_date:
             resource_list = dao.getResourcesByChangedDate(r_changed_date)
         elif (len(args) == 1) and rqty:
