@@ -1,20 +1,10 @@
-from config.dbconfig import pg_config
+from config.dbconfig import conn
 import psycopg2
 
 
 class TransactionDAO:
     def __init__(self):
-
-        connection_url = "dbname=%s host=%s port=%s user=%s password=%s sslmode=%s" % (
-        pg_config['dbname'], pg_config['host'],
-        pg_config['port'], pg_config['user'],
-        pg_config['password'], pg_config['sslmode'])
-
-        # "dbname=%s user=%s host=%s password=%s" % (pg_config['dbname'],
-        #                                               pg_config['user'], pg_config['host'],
-        #                                              pg_config['passwd'])
-
-        self.conn = psycopg2._connect(connection_url)
+        self.conn = conn
 
     def getTransactionById(self, tid):
         cursor = self.conn.cursor()

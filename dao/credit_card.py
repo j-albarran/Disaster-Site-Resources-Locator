@@ -1,15 +1,8 @@
-from config.dbconfig import pg_config
-import psycopg2
+from config.dbconfig import conn
 
 class CreditCardDAO:
     def __init__(self):
-
-        connection_url = "dbname=%s host=%s port=%s user=%s password=%s sslmode=%s" % (
-        pg_config['dbname'], pg_config['host'],
-        pg_config['port'], pg_config['user'],
-        pg_config['password'], pg_config['sslmode'])
-
-        self.conn = psycopg2._connect(connection_url)
+        self.conn = conn
 
     def getAllCreditCards(self):
         cursor = self.conn.cursor()
