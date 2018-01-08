@@ -30,7 +30,7 @@ class ResourceRequestedHandler:
         dao = ResourceRequestedDAO()
         resource_requested_list = dao.getAllResourcesRequested()
         result_list = []
-        for row in resources_requested_list:
+        for row in resource_requested_list:
             result = self.build_resource_requested_dict(row)
             result_list.append(result)
         return jsonify(Resources_Requested = result_list)
@@ -39,26 +39,27 @@ class ResourceRequestedHandler:
         rrqty = args.get('rrqty')
         rr_request_date = args.get('rr_request_date')
         rr_changed_date = args.get('rr_changed_date')
+        dao = ResourceRequestedDAO()
         resource_requested_list = []
         if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-            resource_requested_list = dao.getResourcesRequestedByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+            resource_requested_list = dao.getResourcesRequestedByQtyRequestDateChangedDate(rrqty, rr_request_date, rr_changed_date)
         elif (len(args) == 2) and rrqty and rr_request_date:
-            resource_requested_list = dao.getResourcesRequestedByQtyRequestDate(cname, rrqty, rr_request_date)
+            resource_requested_list = dao.getResourcesRequestedByQtyRequestDate(rrqty, rr_request_date)
         elif (len(args) == 2) and rrqty and rr_changed_date:
-            resource_requested_list = dao.getResourcesRequestedByQtyChangedDate(cname, rrqty, rr_changed_date)
+            resource_requested_list = dao.getResourcesRequestedByQtyChangedDate(rrqty, rr_changed_date)
         elif (len(args) == 2) and rr_request_date and rr_changed_date:
-            resource_requested_list = dao.getResourcesRequestedByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+            resource_requested_list = dao.getResourcesRequestedByRequestDateChangedDate(rr_request_date, rr_changed_date)
         elif (len(args) == 1) and rrqty:
-            resource_requested_list = dao.getResourcesRequestedByQty(cname, rrqty)
+            resource_requested_list = dao.getResourcesRequestedByQty(rrqty)
         elif (len(args) == 1) and rr_request_date:
-            resource_requested_list = dao.getResourcesRequestedByRequestDate(cname, rr_request_date)
+            resource_requested_list = dao.getResourcesRequestedByRequestDate(rr_request_date)
         elif (len(args) == 1) and rr_changed_date:
-            resource_requested_list = dao.getResourcesRequestedByChangedDate(cname, rr_changed_date)
+            resource_requested_list = dao.getResourcesRequestedByChangedDate(rr_changed_date)
         else:
             return jsonify(Error = "Malformed Query String"), 400
         result_list = []
         for row in resource_requested_list:
-            result = self.build_resource_dict(row)
+            result = self.build_resource_requested_dict(row)
             result_list.append(result)
         if not result_list:
             return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -159,7 +160,7 @@ class ResourceRequestedHandler:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -190,24 +191,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByQtyRequestDateChangedDate(rname, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByQtyRequestDate(rname, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByQtyChangedDate(rname, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByRequestDateChangedDate(rname, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByQty(rname, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByRequestDate(rname, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionNameByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionNameByChangedDate(rname, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -238,24 +239,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQtyRequestDateChangedDate(kid, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQtyRequestDate(kid, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQtyChangedDate(kid, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByRequestDateChangedDate(kid, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByQty(kid, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByRequestDate(kid, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordIdByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordIdByChangedDate(kid, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -286,24 +287,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQtyRequestDateChangedDate(rid, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQtyRequestDate(rid, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQtyChangedDate(rid, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByRequestDateChangedDate(rid, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByQty(rid, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByRequestDate(rid, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterIdByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterIdByChangedDate(rid, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -334,24 +335,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQtyRequestDateChangedDate(cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQtyRequestDate(cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQtyChangedDate(cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByRequestDateChangedDate(cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByQty(cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByRequestDate(cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCategoryNameByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCategoryNameByChangedDate(cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -390,24 +391,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQtyRequestDateChangedDate(cname, kid, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQtyRequestDate(cname, kid, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQtyChangedDate(cname, kid, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByRequestDateChangedDate(cname, kid, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByQty(cname, kid, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByRequestDate(cname, kid, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordByChangedDate(cname, kid, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -446,24 +447,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQtyRequestDateChangedDate(cname, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQtyRequestDate(cname, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQtyChangedDate(cname, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByRequestDateChangedDate(cname, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByQty(cname, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByRequestDate(cname, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityCategoryByChangedDate(cname, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -502,24 +503,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQtyRequestDateChangedDate(rname, kid, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQtyRequestDate(rname, kid, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQtyChangedDate(rname, kid, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByRequestDateChangedDate(rname, kid, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByQty(rname, kid, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByRequestDate(rname, kid, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordByChangedDate(rname, kid, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -558,24 +559,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQtyRequestDateChangedDate(rname, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQtyRequestDate(rname, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQtyChangedDate(rname, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByRequestDateChangedDate(rname, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByQty(rname, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByRequestDate(rname, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionCategoryByChangedDate(rname, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -614,24 +615,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQtyRequestDateChangedDate(kid, rid, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQtyRequestDate(kid, rid, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQtyChangedDate(kid, rid, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByRequestDateChangedDate(kid, rid, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByQty(kid, rid, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByRequestDate(kid, rid, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterByChangedDate(kid, rid, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -670,24 +671,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQtyRequestDateChangedDate(kid, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQtyRequestDate(kid, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQtyChangedDate(kid, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByRequestDateChangedDate(kid, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByQty(kid, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByRequestDate(kid, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordCategoryByChangedDate(kid, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -726,24 +727,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQtyRequestDateChangedDate(rid, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQtyRequestDate(rid, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQtyChangedDate(rid, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByRequestDateChangedDate(rid, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByQty(rid, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByRequestDate(rid, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRequesterCategoryByChangedDate(rid, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -794,24 +795,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQtyRequestDateChangedDate(cname, kid, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQtyRequestDate(cname, kid, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQtyChangedDate(cname, kid, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByRequestDateChangedDate(cname, kid, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByQty(cname, kid, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByRequestDate(cname, kid, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByCityKeywordCategoryByChangedDate(cname, kid, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -862,24 +863,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQtyRequestDateChangedDate(rname, kid, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQtyRequestDate(rname, kid, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQtyChangedDate(rname, kid, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByRequestDateChangedDate(rname, kid, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByQty(rname, kid, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByRequestDate(rname, kid, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByRegionKeywordCategoryByChangedDate(rname, kid, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404
@@ -930,24 +931,24 @@ class ResourceRequestedHandler:
             dao = ResourceRequestedDAO()
             resource_requested_list = []
             if (len(args) == 3) and rrqty and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDateChangedDate(cname, rrqty, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDateChangedDate(kid, rid, cat_name, rrqty, rr_request_date, rr_changed_date)
             elif (len(args) == 2) and rrqty and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDate(cname, rrqty, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDate(kid, rid, cat_name, rrqty, rr_request_date)
             elif (len(args) == 2) and rrqty and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQtyChangedDate(cname, rrqty, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQtyChangedDate(kid, rid, cat_name, rrqty, rr_changed_date)
             elif (len(args) == 2) and rr_request_date and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByRequestDateChangedDate(cname, rr_request_date, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByRequestDateChangedDate(kid, rid, cat_name, rr_request_date, rr_changed_date)
             elif (len(args) == 1) and rrqty:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQty(cname, rrqty)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByQty(kid, rid, cat_name, rrqty)
             elif (len(args) == 1) and rr_request_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByRequestDate(cname, rr_request_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByRequestDate(kid, rid, cat_name, rr_request_date)
             elif (len(args) == 1) and rr_changed_date:
-                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByChangedDate(cname, rr_changed_date)
+                resource_requested_list = dao.getResourcesRequestedByKeywordRequesterCategoryByChangedDate(kid, rid, cat_name, rr_changed_date)
             else:
                 return jsonify(Error = "Malformed Query String"), 400
             result_list = []
             for row in resource_requested_list:
-                result = self.build_resource_dict(row)
+                result = self.build_resource_requested_dict(row)
                 result_list.append(result)
             if not result_list:
                 return jsonify(Error = "ResourceRequested Not Found"), 404

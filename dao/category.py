@@ -18,9 +18,7 @@ class CategoryDAO:
         cursor = self.conn.cursor()
         query = "select * from Category where cat_name = %s;"
         cursor.execute(query, (cat_name,))
-        result = []
-        for row in cursor:
-            result.append(row)
+        result = cursor.fetchone()
         return result
 
     def insert(self, cat_name, cat_pname):
@@ -55,7 +53,7 @@ class CategoryDAO:
 
     def getCategoriesByRegionName(self, rname):
         cursor = self.conn.cursor()
-        query = "Select cat_name, cat_pname from Category natural inner join Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City where rname = %s;"
+        query = "Select cat_name, cat_pname from (Category natural inner join Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City where rname = %s;"
         cursor.execute(query, (rname, ))
         result = []
         for row in cursor:

@@ -339,11 +339,11 @@ def getResourcesRequestedByCityKeyword(cname, kid):
         return ResourceRequestedHandler().searchResourcesRequestedByCityKeyword(cname, kid, request.args)
 
 @app.route('/ResourceApp/cities/<string:cname>/categories/<string:cat_name>/resources_requested')
-def getResourcesRequestedByCityCategory(cname, cay_name):
+def getResourcesRequestedByCityCategory(cname, cat_name):
     if not request.args:
-        return ResourceRequestedHandler().getResourcesRequestedByCityCategory(cname, cay_name)
+        return ResourceRequestedHandler().getResourcesRequestedByCityCategory(cname, cat_name)
     else:
-        return ResourceRequestedHandler().searchResourcesRequestedByCityCategory(cname, cay_name, request.args)
+        return ResourceRequestedHandler().searchResourcesRequestedByCityCategory(cname, cat_name, request.args)
 
 @app.route('/ResourceApp/regions/<string:rname>/keywords/<int:kid>/resources_requested')
 def getResourcesRequestedByRegionKeyword(rname, kid):
@@ -463,9 +463,9 @@ def handleCategories():
             return CategoryHandler().searchCategories(request.args)
 
 @app.route('/ResourceApp/categories/<string:cat_name>', methods = ['GET', 'PUT', 'DELETE'])
-def handleCategoryById(cat_name):
+def handleCategoryByName(cat_name):
     if request.method == 'GET':
-        return CategoryHandler().getCategoryById(cat_name)
+        return CategoryHandler().getCategoryByName(cat_name)
     elif request.method == 'PUT':
         return CategoryHandler().updateCategory(cat_name, request.form)
     elif request.method == 'DELETE':
@@ -508,12 +508,12 @@ def getCategoriesByResourceRequestedId(rrid):
     else:
         return CategoryHandler().searchCategoriesByResourceRequestedId(rrid, request.args)
 
-@app.route('/ResourceApp/categories/<string:cat_name>/categories')
-def getCategoriesByCategoryName(cat_name):
+@app.route('/ResourceApp/categories/<string:cat_pname>/categories')
+def getCategoriesByCategoryName(cat_pname):
     if not request.args:
-        return CategoryHandler().getCategoriesByCategoryName(cat_name)
+        return CategoryHandler().getCategoriesByCategoryName(cat_pname)
     else:
-        return CategoryHandler().searchCategoriesByCategoryName(cat_name, request.args)
+        return CategoryHandler().searchCategoriesByCategoryName(cat_pname, request.args)
 
 @app.route('/ResourceApp/transactions/<int:tid>/categories')
 def getCategoriesByTransactionId(tid):

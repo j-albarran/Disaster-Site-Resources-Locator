@@ -111,6 +111,7 @@ class KeywordHandler:
         if not ResourceDAO().getResourceById(rsid):
             return jsonify(Error = "Resource Not Found"), 404
         else:
+            keyword = args.get('keyword')
             dao = KeywordDAO()
             keyword_list = []
             if (len(args) == 1) and keyword:
@@ -144,6 +145,7 @@ class KeywordHandler:
         if not ResourceRequestedDAO().getResourceRequestedById(rrid):
             return jsonify(Error = "ResourceRequested Not Found"), 404
         else:
+            keyword = args.get('keyword')
             dao = KeywordDAO()
             keyword_list = []
             if (len(args) == 1) and keyword:
@@ -177,6 +179,7 @@ class KeywordHandler:
         if not CategoryDAO().getCategoryByName(cat_name):
             return jsonify(Error = "Category Not Found"), 404
         else:
+            keyword = args.get('keyword')
             dao = KeywordDAO()
             keyword_list = []
             if (len(args) == 1) and keyword:
