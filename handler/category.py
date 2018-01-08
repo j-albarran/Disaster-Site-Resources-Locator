@@ -12,11 +12,13 @@ class CategoryHandler:
     def build_category_dict(self, row):
         result = {}
         result['cat_name'] = row[0]
+        result['cat_pname'] = row[1]
         return result
 
-    def build_category_attributes(self, cat_name):
+    def build_category_attributes(self, cat_name, cat_pname):
         result = {}
         result['cat_name'] = cat_name
+        result['cat_pname'] = cat_pname
         return result
 
     def getAllCategories(self):

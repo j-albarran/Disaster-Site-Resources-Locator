@@ -14,64 +14,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByQtyRequestDateChangedDate(self, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByQtyRequestDate(self, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByQtyChangedDate(self, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRequestDateChangedDate(self, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByQty(self, cname, rrqty):
+    def getResourcesRequestedByQty(self, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rrqty = %s;"
+        cursor.execute(query, (rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRequestDate(self, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rr_request_date = %s;"
+        cursor.execute(query, (rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequested1ByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByChangedDate(self, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rr_changed_date = %s;"
+        cursor.execute(query, (rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -81,9 +81,7 @@ class ResourceRequestedDAO:
         cursor = self.conn.cursor()
         query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested where rrid = %s;"
         cursor.execute(query, (rrid,))
-        result = []
-        for row in cursor:
-            result.append(row)
+        result = cursor.fetchone()
         return result
 
     def insert(self, rrqty, rrdescription, rr_request_date, rr_changed_date):
@@ -189,64 +187,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionNameByQtyRequestDateChangedDate(self, rname, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByRegionNameByQtyRequestDate(self, rname, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rname, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByRegionNameByQtyChangedDate(self, rname, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionNameByRequestDateChangedDate(self, rname, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByQty(self, cname, rrqty):
+    def getResourcesRequestedByRegionNameByQty(self, rname, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rrqty = %s;"
+        cursor.execute(query, (rname, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRegionNameByRequestDate(self, rname, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rr_request_date = %s;"
+        cursor.execute(query, (rname, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionNameByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByRegionNameByChangedDate(self, rname, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City where rname = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -261,64 +259,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordIdByQtyRequestDateChangedDate(self, kid, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByKeywordIdByQtyRequestDate(self, kid, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (kid, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByKeywordIdByQtyChangedDate(self, kid, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordIdByRequestDateChangedDate(self, kid, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByQty(self, cname, rrqty):
+    def getResourcesRequestedByKeywordIdByQty(self, kid, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rrqty = %s;"
+        cursor.execute(query, (kid, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByKeywordIdByRequestDate(self, kid, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rr_request_date = %s;"
+        cursor.execute(query, (kid, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordIdByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByKeywordIdByChangedDate(self, kid, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword where kid = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -333,64 +331,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRequesterIdByQtyRequestDateChangedDate(self, rid, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByRequesterIdByQtyRequestDate(self, rid, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rid, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByRequesterIdByQtyChangedDate(self, rid, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRequesterIdByRequestDateChangedDate(self, rid, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByQty(self, cname, rrqty):
+    def getResourcesRequestedByRequesterIdByQty(self, rid, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rrqty = %s;"
+        cursor.execute(query, (rid, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRequesterIdByRequestDate(self, rid, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rr_request_date = %s;"
+        cursor.execute(query, (rid, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterIdByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByRequesterIdByChangedDate(self, rid, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester where rid = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -398,71 +396,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByCategoryName(self, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cat_name = %s;"
-        cursor.execute(query, (cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCategoryNameByQtyRequestDateChangedDate(self, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByCategoryNameByQtyRequestDate(self, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByCategoryNameByQtyChangedDate(self, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCategoryNameByRequestDateChangedDate(self, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByQty(self, cname, rrqty):
+    def getResourcesRequestedByCategoryNameByQty(self, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByCategoryNameByRequestDate(self, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCategoryNameByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByCategoryNameByChangedDate(self, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Category where (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -477,64 +475,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCityKeywordByQtyRequestDateChangedDate(self, cname, kid, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByCityKeywordByQtyRequestDate(self, cname, kid, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (cname, kid, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByCityKeywordByQtyChangedDate(self, cname, kid, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCityKeywordByRequestDateChangedDate(self, cname, kid, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByQty(self, cname, rrqty):
+    def getResourcesRequestedByCityKeywordByQty(self, cname, kid, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rrqty = %s;"
+        cursor.execute(query, (cname, kid, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByCityKeywordByRequestDate(self, cname, kid, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rr_request_date = %s;"
+        cursor.execute(query, (cname, kid, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByCityKeywordByChangedDate(self, cname, kid, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword where cname = %s and kid = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -542,71 +540,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByCityCategory(self, cname, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and cat_name = %s;"
-        cursor.execute(query, (cname, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (cname, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCityCategoryByQtyRequestDateChangedDate(self, cname, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByCityCategoryByQtyRequestDate(self, cname, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByCityCategoryByQtyChangedDate(self, cname, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCityCategoryByRequestDateChangedDate(self, cname, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByCityCategoryByQty(self, cname, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByCityCategoryByRequestDate(self, cname, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByCityCategoryByChangedDate(self, cname, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join Category where cname = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (cname, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -621,64 +619,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordByQtyRequestDateChangedDate(self, rname, kid, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByRegionKeywordByQtyRequestDate(self, rname, kid, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rname, kid, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordByQtyChangedDate(self, rname, kid, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordByRequestDateChangedDate(self, rname, kid, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByQty(self, cname, rrqty):
+    def getResourcesRequestedByRegionKeywordByQty(self, rname, kid, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rrqty = %s;"
+        cursor.execute(query, (rname, kid, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRegionKeywordByRequestDate(self, rname, kid, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rr_request_date = %s;"
+        cursor.execute(query, (rname, kid, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordByChangedDate(self, rname, kid, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword where rname = %s and kid = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -686,71 +684,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByRegionCategory(self, rname, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and cat_name = %s;"
-        cursor.execute(query, (rname, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (rname, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionCategoryByQtyRequestDateChangedDate(self, rname, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByRegionCategoryByQtyRequestDate(self, rname, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByRegionCategoryByQtyChangedDate(self, rname, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionCategoryByRequestDateChangedDate(self, rname, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByRegionCategoryByQty(self, rname, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRegionCategoryByRequestDate(self, rname, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByRegionCategoryByChangedDate(self, rname, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join Category where rname = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (rname, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -765,64 +763,64 @@ class ResourceRequestedDAO:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterByQtyRequestDateChangedDate(self, kid, rid, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByKeywordRequesterByQtyRequestDate(self, kid, rid, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (kid, rid, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterByQtyChangedDate(self, kid, rid, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterByRequestDateChangedDate(self, kid, rid, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByQty(self, cname, rrqty):
+    def getResourcesRequestedByKeywordRequesterByQty(self, kid, rid, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rrqty = %s;"
+        cursor.execute(query, (kid, rid, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByKeywordRequesterByRequestDate(self, kid, rid, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rr_request_date = %s;"
+        cursor.execute(query, (kid, rid, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterByChangedDate(self, kid, rid, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join ResourceRequestedHasKeyword where kid = %s and rid = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -830,71 +828,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByKeywordCategory(self, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and cat_name = %s;"
-        cursor.execute(query, (kid, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (kid, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordCategoryByQtyRequestDateChangedDate(self, kid, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByKeywordCategoryByQtyRequestDate(self, kid, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByKeywordCategoryByQtyChangedDate(self, kid, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordCategoryByRequestDateChangedDate(self, kid, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByKeywordCategoryByQty(self, kid, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByKeywordCategoryByRequestDate(self, kid, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByKeywordCategoryByChangedDate(self, kid, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (kid, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -902,71 +900,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByRequesterCategory(self, rid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and cat_name = %s;"
-        cursor.execute(query, (rid, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (rid, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRequesterCategoryByQtyRequestDateChangedDate(self, rid, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByRequesterCategoryByQtyRequestDate(self, rid, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByRequesterCategoryByQtyChangedDate(self, rid, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRequesterCategoryByRequestDateChangedDate(self, rid, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByRequesterCategoryByQty(self, rid, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRequesterCategoryByRequestDate(self, rid, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRequesterCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByRequesterCategoryByChangedDate(self, rid, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join Requester natural inner join Category where rid = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (rid, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -974,71 +972,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByCityKeywordCategory(self, cname, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and cat_name = %s;"
-        cursor.execute(query, (cname, kid, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (cname, kid, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCityKeywordCategoryByQtyRequestDateChangedDate(self, cname, kid, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByCityKeywordCategoryByQtyRequestDate(self, cname, kid, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByCityKeywordCategoryByQtyChangedDate(self, cname, kid, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByCityKeywordCategoryByRequestDateChangedDate(self, cname, kid, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByCityKeywordCategoryByQty(self, cname, kid, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByCityKeywordCategoryByRequestDate(self, cname, kid, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByCityKeywordCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByCityKeywordCategoryByChangedDate(self, cname, kid, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (cname, kid, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -1046,71 +1044,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByRegionKeywordCategory(self, rname, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and cat_name = %s;"
-        cursor.execute(query, (rname, kid, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (rname, kid, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordCategoryByQtyRequestDateChangedDate(self, rname, kid, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByRegionKeywordCategoryByQtyRequestDate(self, rname, kid, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordCategoryByQtyChangedDate(self, rname, kid, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordCategoryByRequestDateChangedDate(self, rname, kid, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByRegionKeywordCategoryByQty(self, rname, kid, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByRegionKeywordCategoryByRequestDate(self, rname, kid, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByRegionKeywordCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByRegionKeywordCategoryByChangedDate(self, rname, kid, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from (Resource_Requested natural inner join Supplier) as R inner join Account as A on R.rid = A.aid natural inner join Address natural inner join City natural inner join ResourceRequestedHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (rname, kid, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
@@ -1118,71 +1116,71 @@ class ResourceRequestedDAO:
 
     def getResourcesRequestedByKeywordRequesterCategory(self, kid, rid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and cat_name = %s;"
-        cursor.execute(query, (kid, rid, cat_name,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (kid, rid, cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDateChangedDate(self, cname, rrqty, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDateChangedDate(self, kid, rid, cat_name, rrqty, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rrqty, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDate(self, cname, rrqty, rr_request_date):
+    def getResourcesRequestedByKeywordRequesterCategoryByQtyRequestDate(self, kid, rid, cat_name, rrqty, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rrqty = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_request_date = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rrqty, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByQtyChangedDate(self, cname, rrqty, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterCategoryByQtyChangedDate(self, kid, rid, cat_name, rrqty, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rrqty = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rrqty, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rrqty, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByRequestDateChangedDate(self, cname, rr_request_date, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterCategoryByRequestDateChangedDate(self, kid, rid, cat_name, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rr_request_date = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_request_date, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rr_request_date, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByQty(self, cname, rrqty):
+    def getResourcesRequestedByKeywordRequesterCategoryByQty(self, kid, rid, cat_name, rrqty):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rrqty = %s;"
-        cursor.execute(query, (cname, rrqty,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rrqty = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rrqty,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByRequestDate(self, cname, rr_request_date):
+    def getResourcesRequestedByKeywordRequesterCategoryByRequestDate(self, kid, rid, cat_name, rr_request_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rr_request_date = %s;"
-        cursor.execute(query, (cname, rr_request_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rr_request_date = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rr_request_date,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getResourcesRequestedByKeywordRequesterCategoryByChangedDate(self, cname, rr_changed_date):
+    def getResourcesRequestedByKeywordRequesterCategoryByChangedDate(self, kid, rid, cat_name, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where cname = %s and rr_changed_date = %s;"
-        cursor.execute(query, (cname, rr_changed_date,))
+        query = "Select rrid, rrqty, rrdescription, rr_request_date, rr_changed_date from Resource_Requested natural inner join ResourceRequestedHasKeyword natural inner join Requester natural inner join Category where kid = %s and rid = %s and (cat_name = %s or cat_pname = %s) and rr_changed_date = %s;"
+        cursor.execute(query, (kid, rid, cat_name, cat_name, rr_changed_date,))
         result = []
         for row in cursor:
             result.append(row)

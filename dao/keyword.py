@@ -27,9 +27,7 @@ class KeywordDAO:
         cursor = self.conn.cursor()
         query = "Select * from Keyword where kid = %s;"
         cursor.execute(query, (kid,))
-        result = []
-        for row in cursor:
-            result.append(row)
+        result = cursor.fetchone()
         return result
 
     def insert(self, keyword):
@@ -83,7 +81,7 @@ class KeywordDAO:
 
     def getKeywordsByResourceRequestedIdByKeyword(self, rrid, keyword):
         cursor = self.conn.cursor()
-        query = "Select kid, keyword from Keyword natural inner join ResourceRequestedHasKeyword rrid = %s and keyword = %s;"
+        query = "Select kid, keyword from Keyword natural inner join ResourceRequestedHasKeyword where rrid = %s and keyword = %s;"
         cursor.execute(query, (rrid, keyword))
         result = []
         for row in cursor:
@@ -92,8 +90,8 @@ class KeywordDAO:
 
     def getKeywordsByCategoryName(self, cat_name):
         cursor = self.conn.cursor()
-        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join ResourceRequestedHasKeyword where cat_name = %s;"
-        cursor.execute(query, (cat_name,))
+        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join Resource natural inner join Category where (cat_name = %s or cat_pname = %s);"
+        cursor.execute(query, (cat_name, cat_name,))
         result = []
         for row in cursor:
             result.append(row)
@@ -101,8 +99,8 @@ class KeywordDAO:
 
     def getKeywordsByCategoryNameByKeyword(self, cat_name, keyword):
         cursor = self.conn.cursor()
-        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join ResourceRequestedHasKeyword where cat_name = %s and keyword = %s;"
-        cursor.execute(query)
+        query = "Select kid, keyword from Keyword natural inner join ResourceHasKeyword natural inner join Resource natural inner join Category where (cat_name = %s or cat_pname = %s) and keyword = %s;"
+        cursor.execute(query, (cat_name, cat_name, keyword))
         result = []
         for row in cursor:
             result.append(row)
