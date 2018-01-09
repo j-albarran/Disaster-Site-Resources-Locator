@@ -316,6 +316,27 @@ def getAdministratorsOnThisAddressID(addId):
 #                              Resource routes                                 #
 # ---------------------------------------------------------------------------- #
 
+@app.route('/ResourceApp/resources', methods = ['GET', 'POST']) # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
+def handleResources():
+    if request.method == 'POST':
+        return ResourceHandler().insertResource(request.form)
+    else:
+        if not request.args:
+            return ResourceHandler().getAllResources()
+        else:
+            return ResourceHandler().searchResources(request.args)
+
+@app.route('/ResourceApp/resources/<int:rsid>', methods = ['GET', 'PUT', 'DELETE'])
+def handleResourceById(rsid):
+    if request.method == 'GET':
+        return ResourceHandler().getResourceById(rsid)
+    elif request.method == 'PUT':
+        return ResourceHandler().updateResource(rsid, request.form)
+    elif request.method == 'DELETE':
+        return ResourceHandler().deleteResource(rsid)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
 @app.route('/ResourceApp/cities/<string:cname>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
 def getResourcesByCityName(cname):
     if not request.args:
@@ -614,6 +635,27 @@ def getSuppliersOfThisOrder(oid):
 #                           Resource Requested routes                          #
 # ---------------------------------------------------------------------------- #
 
+@app.route('/ResourceApp/resources_requested', methods = ['GET', 'POST']) # By rrqty, rrdescription, rr_request_date, rr_changed_date
+def handleResourcesRequested():
+    if request.method == 'POST':
+        return ResourceRequestedHandler().insertResourceRequested(request.form)
+    else:
+        if not request.args:
+            return ResourceRequestedHandler().getAllResourcesRequested()
+        else:
+            return ResourceRequestedHandler().searchResourcesRequested(request.args)
+
+@app.route('/ResourceApp/resources_requested/<int:rrid>', methods = ['GET', 'PUT', 'DELETE'])
+def handleResourceRequestedById(rrid):
+    if request.method == 'GET':
+        return ResourceRequestedHandler().getResourceRequestedById(rrid)
+    elif request.method == 'PUT':
+        return ResourceRequestedHandler().updateResourceRequested(rrid, request.form)
+    elif request.method == 'DELETE':
+        return ResourceRequestedHandler().deleteResourceRequested(rrid)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
 @app.route('/ResourceApp/cities/<string:cname>/resources_requested') # By rrqty, rrdescription, rr_request_date, rr_changed_date
 def getResourcesRequestedByCityName(cname):
     if not request.args:
@@ -822,6 +864,27 @@ def getRequesterOfThisOrder(oid):
 #                              Keyword Routes                                  #
 # ---------------------------------------------------------------------------- #
 
+@app.route('/ResourceApp/keywords', methods = ['GET', 'POST']) # By keyword
+def handleKeywords():
+    if request.method == 'POST':
+        return KeywordHandler().insertKeyword(request.form)
+    else:
+        if not request.args:
+            return KeywordHandler().getAllKeywords()
+        else:
+            return KeywordHandler().searchKeywords(request.args)
+
+@app.route('/ResourceApp/keywords/<int:kid>', methods = ['GET', 'PUT', 'DELETE'])
+def handleKeywordById(kid):
+    if request.method == 'GET':
+        return KeywordHandler().getKeywordById(kid)
+    elif request.method == 'PUT':
+        return KeywordHandler().updateKeyword(kid, request.form)
+    elif request.method == 'DELETE':
+        return KeywordHandler().deleteKeyword(kid)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
 @app.route('/ResourceApp/resources/<int:rsid>/keywords') # By keyword
 def getKeywordsByResourceId(rsid):
     if not request.args:
@@ -917,6 +980,16 @@ def getAccountCredentials(aid):
 # ---------------------------------------------------------------------------- #
 #                             Categories routes                                #
 # ---------------------------------------------------------------------------- #
+
+@app.route('/ResourceApp/categories', methods = ['GET', 'POST'])
+def handleCategories():
+    if request.method == 'POST':
+        return CategoryHandler().insertCategory(request.form)
+    else:
+        if not request.args:
+            return CategoryHandler().getAllCategories()
+        else:
+            return CategoryHandler().searchCategories(request.args)
 
 @app.route('/ResourceApp/cities/<string:cname>/categories')
 def getCategoriesByCityName(cname):

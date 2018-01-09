@@ -6,7 +6,7 @@ from dao.supplier import SupplierDAO
 from dao.keyword import KeywordDAO
 from dao.category import CategoryDAO
 from dao.transaction import TransactionDAO
-from dao.order_info import OrderDAO
+from dao.order import OrderDAO
 
 class ResourceHandler:
 
