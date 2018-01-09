@@ -1188,7 +1188,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordId(self, kid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s order by rsname;"
         cursor.execute(query, (kid,))
         result = []
         for row in cursor:
@@ -1197,7 +1197,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDateQtyPriceSupplyDate(self, kid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1206,7 +1206,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDateQtyPrice(self, kid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -1215,7 +1215,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDateQtySupplyDate(self, kid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -1224,7 +1224,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDatePriceSupplyDate(self, kid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1233,7 +1233,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameQtyPriceSupplyDate(self, kid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1242,7 +1242,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDateQtyPriceSupplyDate(self, kid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1251,7 +1251,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDateQty(self, kid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -1260,7 +1260,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDatePrice(self, kid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -1269,7 +1269,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDateSupplyDate(self, kid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -1278,7 +1278,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameQtyPrice(self, kid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -1287,7 +1287,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameQtySupplyDate(self, kid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -1296,7 +1296,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNamePriceSupplyDate(self, kid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1305,7 +1305,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDateQtyPrice(self, kid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -1314,7 +1314,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDateQtySupplyDate(self, kid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -1323,7 +1323,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDatePriceSupplyDate(self, kid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1332,7 +1332,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByQtyPriceSupplyDate(self, kid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1341,7 +1341,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameChangedDate(self, kid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -1350,7 +1350,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameQty(self, kid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -1359,7 +1359,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNamePrice(self, kid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -1368,7 +1368,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByNameSupplyDate(self, kid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -1377,7 +1377,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDateQty(self, kid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -1386,7 +1386,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDatePrice(self, kid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -1395,7 +1395,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDateSupplyDate(self, kid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -1404,7 +1404,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByQtyPrice(self, kid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -1413,7 +1413,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByQtySupplyDate(self, kid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -1422,7 +1422,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByPriceSupplyDate(self, kid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -1431,7 +1431,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByName(self, kid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (kid, rsname,))
         result = []
         for row in cursor:
@@ -1440,7 +1440,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByChangedDate(self, kid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, r_changed_date,))
         result = []
         for row in cursor:
@@ -1449,7 +1449,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByQty(self, kid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, rqty,))
         result = []
         for row in cursor:
@@ -1458,7 +1458,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdByPrice(self, kid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, rprice,))
         result = []
         for row in cursor:
@@ -1467,7 +1467,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordIdBySupplyDate(self, kid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword where kid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, r_supply_date,))
         result = []
         for row in cursor:
@@ -2340,7 +2340,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeyword(self, cname, kid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s order by rsname;"
         cursor.execute(query, (cname, kid,))
         result = []
         for row in cursor:
@@ -2349,7 +2349,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDateQtyPriceSupplyDate(self, cname, kid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2358,7 +2358,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDateQtyPrice(self, cname, kid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -2367,7 +2367,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDateQtySupplyDate(self, cname, kid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -2376,7 +2376,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDatePriceSupplyDate(self, cname, kid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2385,7 +2385,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameQtyPriceSupplyDate(self, cname, kid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2394,7 +2394,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDateQtyPriceSupplyDate(self, cname, kid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2403,7 +2403,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDateQty(self, cname, kid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -2412,7 +2412,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDatePrice(self, cname, kid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -2421,7 +2421,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDateSupplyDate(self, cname, kid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -2430,7 +2430,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameQtyPrice(self, cname, kid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -2439,7 +2439,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameQtySupplyDate(self, cname, kid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -2448,7 +2448,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNamePriceSupplyDate(self, cname, kid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2457,7 +2457,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDateQtyPrice(self, cname, kid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -2466,7 +2466,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDateQtySupplyDate(self, cname, kid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -2475,7 +2475,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDatePriceSupplyDate(self, cname, kid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2484,7 +2484,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByQtyPriceSupplyDate(self, cname, kid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2493,7 +2493,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameChangedDate(self, cname, kid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -2502,7 +2502,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameQty(self, cname, kid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -2511,7 +2511,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNamePrice(self, cname, kid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -2520,7 +2520,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByNameSupplyDate(self, cname, kid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -2529,7 +2529,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDateQty(self, cname, kid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -2538,7 +2538,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDatePrice(self, cname, kid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -2547,7 +2547,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDateSupplyDate(self, cname, kid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -2556,7 +2556,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByQtyPrice(self, cname, kid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -2565,7 +2565,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByQtySupplyDate(self, cname, kid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -2574,7 +2574,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByPriceSupplyDate(self, cname, kid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2583,7 +2583,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByName(self, cname, kid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (cname, kid, rsname,))
         result = []
         for row in cursor:
@@ -2592,7 +2592,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByChangedDate(self, cname, kid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_changed_date,))
         result = []
         for row in cursor:
@@ -2601,7 +2601,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByQty(self, cname, kid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, rqty,))
         result = []
         for row in cursor:
@@ -2610,7 +2610,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordByPrice(self, cname, kid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, rprice,))
         result = []
         for row in cursor:
@@ -2619,7 +2619,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordBySupplyDate(self, cname, kid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword where cname = %s and kid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, r_supply_date,))
         result = []
         for row in cursor:
@@ -2916,7 +2916,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeyword(self, rname, kid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s order by rsname;"
         cursor.execute(query, (rname, kid,))
         result = []
         for row in cursor:
@@ -2925,7 +2925,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDateQtyPriceSupplyDate(self, rname, kid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2934,7 +2934,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDateQtyPrice(self, rname, kid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -2943,7 +2943,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDateQtySupplyDate(self, rname, kid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -2952,7 +2952,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDatePriceSupplyDate(self, rname, kid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2961,7 +2961,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameQtyPriceSupplyDate(self, rname, kid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2970,7 +2970,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDateQtyPriceSupplyDate(self, rname, kid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -2979,7 +2979,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDateQty(self, rname, kid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -2988,7 +2988,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDatePrice(self, rname, kid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -2997,7 +2997,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDateSupplyDate(self, rname, kid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -3006,7 +3006,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameQtyPrice(self, rname, kid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3015,7 +3015,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameQtySupplyDate(self, rname, kid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3024,7 +3024,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNamePriceSupplyDate(self, rname, kid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3033,7 +3033,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDateQtyPrice(self, rname, kid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3042,7 +3042,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDateQtySupplyDate(self, rname, kid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3051,7 +3051,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDatePriceSupplyDate(self, rname, kid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3060,7 +3060,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByQtyPriceSupplyDate(self, rname, kid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3069,7 +3069,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameChangedDate(self, rname, kid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -3078,7 +3078,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameQty(self, rname, kid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -3087,7 +3087,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNamePrice(self, rname, kid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -3096,7 +3096,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByNameSupplyDate(self, rname, kid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -3105,7 +3105,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDateQty(self, rname, kid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -3114,7 +3114,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDatePrice(self, rname, kid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -3123,7 +3123,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDateSupplyDate(self, rname, kid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -3132,7 +3132,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByQtyPrice(self, rname, kid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3141,7 +3141,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByQtySupplyDate(self, rname, kid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3150,7 +3150,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByPriceSupplyDate(self, rname, kid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3159,7 +3159,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByName(self, rname, kid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (rname, kid, rsname,))
         result = []
         for row in cursor:
@@ -3168,7 +3168,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByChangedDate(self, rname, kid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_changed_date,))
         result = []
         for row in cursor:
@@ -3177,7 +3177,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByQty(self, rname, kid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, rqty,))
         result = []
         for row in cursor:
@@ -3186,7 +3186,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordByPrice(self, rname, kid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, rprice,))
         result = []
         for row in cursor:
@@ -3195,7 +3195,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordBySupplyDate(self, rname, kid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword where rname = %s and kid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, r_supply_date,))
         result = []
         for row in cursor:
@@ -3492,7 +3492,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeyword(self, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s order by rsname;"
         cursor.execute(query, (sid, kid,))
         result = []
         for row in cursor:
@@ -3501,7 +3501,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDateQtyPriceSupplyDate(self, sid, kid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3510,7 +3510,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDateQtyPrice(self, sid, kid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3519,7 +3519,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDateQtySupplyDate(self, sid, kid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3528,7 +3528,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDatePriceSupplyDate(self, sid, kid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3537,7 +3537,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameQtyPriceSupplyDate(self, sid, kid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3546,7 +3546,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDateQtyPriceSupplyDate(self, sid, kid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3555,7 +3555,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDateQty(self, sid, kid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -3564,7 +3564,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDatePrice(self, sid, kid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -3573,7 +3573,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDateSupplyDate(self, sid, kid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -3582,7 +3582,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameQtyPrice(self, sid, kid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3591,7 +3591,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameQtySupplyDate(self, sid, kid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3600,7 +3600,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNamePriceSupplyDate(self, sid, kid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3609,7 +3609,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDateQtyPrice(self, sid, kid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3618,7 +3618,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDateQtySupplyDate(self, sid, kid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3627,7 +3627,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDatePriceSupplyDate(self, sid, kid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3636,7 +3636,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByQtyPriceSupplyDate(self, sid, kid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3645,7 +3645,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameChangedDate(self, sid, kid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -3654,7 +3654,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameQty(self, sid, kid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -3663,7 +3663,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNamePrice(self, sid, kid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -3672,7 +3672,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByNameSupplyDate(self, sid, kid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -3681,7 +3681,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDateQty(self, sid, kid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -3690,7 +3690,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDatePrice(self, sid, kid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -3699,7 +3699,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDateSupplyDate(self, sid, kid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -3708,7 +3708,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByQtyPrice(self, sid, kid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -3717,7 +3717,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByQtySupplyDate(self, sid, kid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -3726,7 +3726,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByPriceSupplyDate(self, sid, kid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -3735,7 +3735,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByName(self, sid, kid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (sid, kid, rsname,))
         result = []
         for row in cursor:
@@ -3744,7 +3744,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByChangedDate(self, sid, kid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_changed_date,))
         result = []
         for row in cursor:
@@ -3753,7 +3753,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByQty(self, sid, kid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, rqty,))
         result = []
         for row in cursor:
@@ -3762,7 +3762,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordByPrice(self, sid, kid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, rprice,))
         result = []
         for row in cursor:
@@ -3771,7 +3771,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordBySupplyDate(self, sid, kid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword where sid = %s and kid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, r_supply_date,))
         result = []
         for row in cursor:
@@ -4356,7 +4356,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategory(self, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s);"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name,))
         result = []
         for row in cursor:
@@ -4365,7 +4365,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDateQtyPriceSupplyDate(self, kid, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4374,7 +4374,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDateQtyPrice(self, kid, cat_name, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4383,7 +4383,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDateQtySupplyDate(self, kid, cat_name, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4392,7 +4392,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDatePriceSupplyDate(self, kid, cat_name, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4401,7 +4401,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameQtyPriceSupplyDate(self, kid, cat_name, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4410,7 +4410,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDateQtyPriceSupplyDate(self, kid, cat_name, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4419,7 +4419,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDateQty(self, kid, cat_name, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -4428,7 +4428,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDatePrice(self, kid, cat_name, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -4437,7 +4437,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDateSupplyDate(self, kid, cat_name, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -4446,7 +4446,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameQtyPrice(self, kid, cat_name, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4455,7 +4455,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameQtySupplyDate(self, kid, cat_name, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4464,7 +4464,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNamePriceSupplyDate(self, kid, cat_name, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4473,7 +4473,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDateQtyPrice(self, kid, cat_name, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4482,7 +4482,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDateQtySupplyDate(self, kid, cat_name, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4491,7 +4491,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDatePriceSupplyDate(self, kid, cat_name, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4500,7 +4500,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByQtyPriceSupplyDate(self, kid, cat_name, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4509,7 +4509,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameChangedDate(self, kid, cat_name, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -4518,7 +4518,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameQty(self, kid, cat_name, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, rqty,))
         result = []
         for row in cursor:
@@ -4527,7 +4527,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNamePrice(self, kid, cat_name, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, rprice,))
         result = []
         for row in cursor:
@@ -4536,7 +4536,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByNameSupplyDate(self, kid, cat_name, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -4545,7 +4545,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDateQty(self, kid, cat_name, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -4554,7 +4554,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDatePrice(self, kid, cat_name, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -4563,7 +4563,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDateSupplyDate(self, kid, cat_name, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -4572,7 +4572,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByQtyPrice(self, kid, cat_name, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4581,7 +4581,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByQtySupplyDate(self, kid, cat_name, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4590,7 +4590,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByPriceSupplyDate(self, kid, cat_name, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4599,7 +4599,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByName(self, kid, cat_name, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rsname,))
         result = []
         for row in cursor:
@@ -4608,7 +4608,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByChangedDate(self, kid, cat_name, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_changed_date,))
         result = []
         for row in cursor:
@@ -4617,7 +4617,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByQty(self, kid, cat_name, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rqty,))
         result = []
         for row in cursor:
@@ -4626,7 +4626,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryByPrice(self, kid, cat_name, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, rprice,))
         result = []
         for row in cursor:
@@ -4635,7 +4635,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryBySupplyDate(self, kid, cat_name, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category where kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, r_supply_date,))
         result = []
         for row in cursor:
@@ -4644,7 +4644,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrder(self, kid, oid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s order by rsname;"
         cursor.execute(query, (kid, oid,))
         result = []
         for row in cursor:
@@ -4653,7 +4653,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDateQtyPriceSupplyDate(self, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4662,7 +4662,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDateQtyPrice(self, kid, oid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4671,7 +4671,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDateQtySupplyDate(self, kid, oid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4680,7 +4680,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDatePriceSupplyDate(self, kid, oid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4689,7 +4689,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameQtyPriceSupplyDate(self, kid, oid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4698,7 +4698,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDateQtyPriceSupplyDate(self, kid, oid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4707,7 +4707,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDateQty(self, kid, oid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -4716,7 +4716,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDatePrice(self, kid, oid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -4725,7 +4725,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDateSupplyDate(self, kid, oid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -4734,7 +4734,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameQtyPrice(self, kid, oid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4743,7 +4743,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameQtySupplyDate(self, kid, oid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4752,7 +4752,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNamePriceSupplyDate(self, kid, oid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4761,7 +4761,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDateQtyPrice(self, kid, oid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4770,7 +4770,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDateQtySupplyDate(self, kid, oid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4779,7 +4779,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDatePriceSupplyDate(self, kid, oid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4788,7 +4788,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByQtyPriceSupplyDate(self, kid, oid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4797,7 +4797,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameChangedDate(self, kid, oid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -4806,7 +4806,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameQty(self, kid, oid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -4815,7 +4815,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNamePrice(self, kid, oid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -4824,7 +4824,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByNameSupplyDate(self, kid, oid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -4833,7 +4833,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDateQty(self, kid, oid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -4842,7 +4842,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDatePrice(self, kid, oid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -4851,7 +4851,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDateSupplyDate(self, kid, oid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -4860,7 +4860,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByQtyPrice(self, kid, oid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -4869,7 +4869,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByQtySupplyDate(self, kid, oid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -4878,7 +4878,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByPriceSupplyDate(self, kid, oid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -4887,7 +4887,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByName(self, kid, oid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (kid, oid, rsname,))
         result = []
         for row in cursor:
@@ -4896,7 +4896,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByChangedDate(self, kid, oid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_changed_date,))
         result = []
         for row in cursor:
@@ -4905,7 +4905,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByQty(self, kid, oid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, oid, rqty,))
         result = []
         for row in cursor:
@@ -4914,7 +4914,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderByPrice(self, kid, oid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, oid, rprice,))
         result = []
         for row in cursor:
@@ -4923,7 +4923,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordOrderBySupplyDate(self, kid, oid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Transaction where kid = %s and oid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, oid, r_supply_date,))
         result = []
         for row in cursor:
@@ -5508,7 +5508,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategory(self, cname, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s);"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name,))
         result = []
         for row in cursor:
@@ -5517,7 +5517,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDateQtyPriceSupplyDate(self, cname, kid, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5526,7 +5526,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDateQtyPrice(self, cname, kid, cat_name, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5535,7 +5535,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDateQtySupplyDate(self, cname, kid, cat_name, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5544,7 +5544,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDatePriceSupplyDate(self, cname, kid, cat_name, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5553,7 +5553,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameQtyPriceSupplyDate(self, cname, kid, cat_name, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5562,7 +5562,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDateQtyPriceSupplyDate(self, cname, kid, cat_name, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5571,7 +5571,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDateQty(self, cname, kid, cat_name, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -5580,7 +5580,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDatePrice(self, cname, kid, cat_name, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -5589,7 +5589,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDateSupplyDate(self, cname, kid, cat_name, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -5598,7 +5598,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameQtyPrice(self, cname, kid, cat_name, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5607,7 +5607,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameQtySupplyDate(self, cname, kid, cat_name, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5616,7 +5616,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNamePriceSupplyDate(self, cname, kid, cat_name, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5625,7 +5625,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDateQtyPrice(self, cname, kid, cat_name, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5634,7 +5634,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDateQtySupplyDate(self, cname, kid, cat_name, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5643,7 +5643,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDatePriceSupplyDate(self, cname, kid, cat_name, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5652,7 +5652,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByQtyPriceSupplyDate(self, cname, kid, cat_name, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5661,7 +5661,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameChangedDate(self, cname, kid, cat_name, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -5670,7 +5670,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameQty(self, cname, kid, cat_name, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, rqty,))
         result = []
         for row in cursor:
@@ -5679,7 +5679,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNamePrice(self, cname, kid, cat_name, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, rprice,))
         result = []
         for row in cursor:
@@ -5688,7 +5688,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByNameSupplyDate(self, cname, kid, cat_name, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -5697,7 +5697,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDateQty(self, cname, kid, cat_name, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -5706,7 +5706,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDatePrice(self, cname, kid, cat_name, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -5715,7 +5715,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDateSupplyDate(self, cname, kid, cat_name, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -5724,7 +5724,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByQtyPrice(self, cname, kid, cat_name, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5733,7 +5733,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByQtySupplyDate(self, cname, kid, cat_name, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5742,7 +5742,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByPriceSupplyDate(self, cname, kid, cat_name, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5751,7 +5751,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByName(self, cname, kid, cat_name, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rsname,))
         result = []
         for row in cursor:
@@ -5760,7 +5760,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByChangedDate(self, cname, kid, cat_name, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_changed_date,))
         result = []
         for row in cursor:
@@ -5769,7 +5769,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByQty(self, cname, kid, cat_name, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rqty,))
         result = []
         for row in cursor:
@@ -5778,7 +5778,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryByPrice(self, cname, kid, cat_name, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, rprice,))
         result = []
         for row in cursor:
@@ -5787,7 +5787,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordCategoryBySupplyDate(self, cname, kid, cat_name, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Category where cname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, cat_name, cat_name, r_supply_date,))
         result = []
         for row in cursor:
@@ -5796,7 +5796,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrder(self, cname, kid, oid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid,))
         result = []
         for row in cursor:
@@ -5805,7 +5805,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDateQtyPriceSupplyDate(self, cname, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5814,7 +5814,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDateQtyPrice(self, cname, kid, oid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5823,7 +5823,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDateQtySupplyDate(self, cname, kid, oid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5832,7 +5832,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDatePriceSupplyDate(self, cname, kid, oid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5841,7 +5841,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameQtyPriceSupplyDate(self, cname, kid, oid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5850,7 +5850,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDateQtyPriceSupplyDate(self, cname, kid, oid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5859,7 +5859,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDateQty(self, cname, kid, oid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -5868,7 +5868,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDatePrice(self, cname, kid, oid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -5877,7 +5877,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDateSupplyDate(self, cname, kid, oid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -5886,7 +5886,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameQtyPrice(self, cname, kid, oid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5895,7 +5895,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameQtySupplyDate(self, cname, kid, oid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5904,7 +5904,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNamePriceSupplyDate(self, cname, kid, oid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5913,7 +5913,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDateQtyPrice(self, cname, kid, oid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -5922,7 +5922,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDateQtySupplyDate(self, cname, kid, oid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -5931,7 +5931,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDatePriceSupplyDate(self, cname, kid, oid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5940,7 +5940,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByQtyPriceSupplyDate(self, cname, kid, oid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -5949,7 +5949,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameChangedDate(self, cname, kid, oid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -5958,7 +5958,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameQty(self, cname, kid, oid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -5967,7 +5967,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNamePrice(self, cname, kid, oid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -5976,7 +5976,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByNameSupplyDate(self, cname, kid, oid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -5985,7 +5985,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDateQty(self, cname, kid, oid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -5994,7 +5994,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDatePrice(self, cname, kid, oid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -6003,7 +6003,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDateSupplyDate(self, cname, kid, oid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -6012,7 +6012,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByQtyPrice(self, cname, kid, oid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6021,7 +6021,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByQtySupplyDate(self, cname, kid, oid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6030,7 +6030,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByPriceSupplyDate(self, cname, kid, oid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6039,7 +6039,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByName(self, cname, kid, oid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rsname,))
         result = []
         for row in cursor:
@@ -6048,7 +6048,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByChangedDate(self, cname, kid, oid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_changed_date,))
         result = []
         for row in cursor:
@@ -6057,7 +6057,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByQty(self, cname, kid, oid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rqty,))
         result = []
         for row in cursor:
@@ -6066,7 +6066,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderByPrice(self, cname, kid, oid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, rprice,))
         result = []
         for row in cursor:
@@ -6075,7 +6075,7 @@ class ResourceDAO:
 
     def getResourcesByCityKeywordOrderBySupplyDate(self, cname, kid, oid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join ResourceHasKeyword natural inner join Transaction where cname = %s and kid = %s and oid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (cname, kid, oid, r_supply_date,))
         result = []
         for row in cursor:
@@ -6372,7 +6372,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategory(self, rname, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s);"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name,))
         result = []
         for row in cursor:
@@ -6381,7 +6381,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDateQtyPriceSupplyDate(self, rname, kid, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6390,7 +6390,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDateQtyPrice(self, rname, kid, cat_name, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6399,7 +6399,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDateQtySupplyDate(self, rname, kid, cat_name, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6408,7 +6408,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDatePriceSupplyDate(self, rname, kid, cat_name, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6417,7 +6417,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameQtyPriceSupplyDate(self, rname, kid, cat_name, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6426,7 +6426,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDateQtyPriceSupplyDate(self, rname, kid, cat_name, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6435,7 +6435,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDateQty(self, rname, kid, cat_name, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -6444,7 +6444,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDatePrice(self, rname, kid, cat_name, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -6453,7 +6453,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDateSupplyDate(self, rname, kid, cat_name, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -6462,7 +6462,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameQtyPrice(self, rname, kid, cat_name, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6471,7 +6471,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameQtySupplyDate(self, rname, kid, cat_name, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6480,7 +6480,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNamePriceSupplyDate(self, rname, kid, cat_name, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6489,7 +6489,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDateQtyPrice(self, rname, kid, cat_name, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6498,7 +6498,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDateQtySupplyDate(self, rname, kid, cat_name, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6507,7 +6507,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDatePriceSupplyDate(self, rname, kid, cat_name, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6516,7 +6516,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByQtyPriceSupplyDate(self, rname, kid, cat_name, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6525,7 +6525,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameChangedDate(self, rname, kid, cat_name, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -6534,7 +6534,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameQty(self, rname, kid, cat_name, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, rqty,))
         result = []
         for row in cursor:
@@ -6543,7 +6543,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNamePrice(self, rname, kid, cat_name, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, rprice,))
         result = []
         for row in cursor:
@@ -6552,7 +6552,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByNameSupplyDate(self, rname, kid, cat_name, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -6561,7 +6561,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDateQty(self, rname, kid, cat_name, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -6570,7 +6570,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDatePrice(self, rname, kid, cat_name, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -6579,7 +6579,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDateSupplyDate(self, rname, kid, cat_name, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -6588,7 +6588,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByQtyPrice(self, rname, kid, cat_name, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6597,7 +6597,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByQtySupplyDate(self, rname, kid, cat_name, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6606,7 +6606,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByPriceSupplyDate(self, rname, kid, cat_name, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6615,7 +6615,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByName(self, rname, kid, cat_name, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rsname,))
         result = []
         for row in cursor:
@@ -6624,7 +6624,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByChangedDate(self, rname, kid, cat_name, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_changed_date,))
         result = []
         for row in cursor:
@@ -6633,7 +6633,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByQty(self, rname, kid, cat_name, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rqty,))
         result = []
         for row in cursor:
@@ -6642,7 +6642,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryByPrice(self, rname, kid, cat_name, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, rprice,))
         result = []
         for row in cursor:
@@ -6651,7 +6651,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordCategoryBySupplyDate(self, rname, kid, cat_name, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Category where rname = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, cat_name, cat_name, r_supply_date,))
         result = []
         for row in cursor:
@@ -6660,7 +6660,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrder(self, rname, kid, oid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid,))
         result = []
         for row in cursor:
@@ -6669,7 +6669,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDateQtyPriceSupplyDate(self, rname, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6678,7 +6678,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDateQtyPrice(self, rname, kid, oid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6687,7 +6687,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDateQtySupplyDate(self, rname, kid, oid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6696,7 +6696,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDatePriceSupplyDate(self, rname, kid, oid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6705,7 +6705,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameQtyPriceSupplyDate(self, rname, kid, oid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6714,7 +6714,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDateQtyPriceSupplyDate(self, rname, kid, oid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6723,7 +6723,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDateQty(self, rname, kid, oid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -6732,7 +6732,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDatePrice(self, rname, kid, oid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -6741,7 +6741,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDateSupplyDate(self, rname, kid, oid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -6750,7 +6750,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameQtyPrice(self, rname, kid, oid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6759,7 +6759,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameQtySupplyDate(self, rname, kid, oid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6768,7 +6768,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNamePriceSupplyDate(self, rname, kid, oid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6777,7 +6777,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDateQtyPrice(self, rname, kid, oid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6786,7 +6786,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDateQtySupplyDate(self, rname, kid, oid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6795,7 +6795,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDatePriceSupplyDate(self, rname, kid, oid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6804,7 +6804,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByQtyPriceSupplyDate(self, rname, kid, oid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6813,7 +6813,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameChangedDate(self, rname, kid, oid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -6822,7 +6822,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameQty(self, rname, kid, oid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -6831,7 +6831,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNamePrice(self, rname, kid, oid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -6840,7 +6840,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByNameSupplyDate(self, rname, kid, oid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -6849,7 +6849,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDateQty(self, rname, kid, oid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -6858,7 +6858,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDatePrice(self, rname, kid, oid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -6867,7 +6867,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDateSupplyDate(self, rname, kid, oid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -6876,7 +6876,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByQtyPrice(self, rname, kid, oid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -6885,7 +6885,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByQtySupplyDate(self, rname, kid, oid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -6894,7 +6894,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByPriceSupplyDate(self, rname, kid, oid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -6903,7 +6903,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByName(self, rname, kid, oid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rsname,))
         result = []
         for row in cursor:
@@ -6912,7 +6912,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByChangedDate(self, rname, kid, oid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_changed_date,))
         result = []
         for row in cursor:
@@ -6921,7 +6921,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByQty(self, rname, kid, oid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rqty,))
         result = []
         for row in cursor:
@@ -6930,7 +6930,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderByPrice(self, rname, kid, oid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, rprice,))
         result = []
         for row in cursor:
@@ -6939,7 +6939,7 @@ class ResourceDAO:
 
     def getResourcesByRegionKeywordOrderBySupplyDate(self, rname, kid, oid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from (Resource natural inner join Supplier) as S inner join Account as A on S.sid = A.aid natural inner join Address natural inner join City natural inner join ResourceHasKeyword natural inner join Transaction where rname = %s and kid = %s and oid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (rname, kid, oid, r_supply_date,))
         result = []
         for row in cursor:
@@ -7236,7 +7236,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategory(self, sid, kid, cat_name):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s);"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name,))
         result = []
         for row in cursor:
@@ -7245,7 +7245,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDateQtyPriceSupplyDate(self, sid, kid, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7254,7 +7254,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDateQtyPrice(self, sid, kid, cat_name, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7263,7 +7263,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDateQtySupplyDate(self, sid, kid, cat_name, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7272,7 +7272,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDatePriceSupplyDate(self, sid, kid, cat_name, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7281,7 +7281,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameQtyPriceSupplyDate(self, sid, kid, cat_name, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7290,7 +7290,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDateQtyPriceSupplyDate(self, sid, kid, cat_name, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7299,7 +7299,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDateQty(self, sid, kid, cat_name, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -7308,7 +7308,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDatePrice(self, sid, kid, cat_name, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -7317,7 +7317,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDateSupplyDate(self, sid, kid, cat_name, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -7326,7 +7326,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameQtyPrice(self, sid, kid, cat_name, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7335,7 +7335,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameQtySupplyDate(self, sid, kid, cat_name, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7344,7 +7344,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNamePriceSupplyDate(self, sid, kid, cat_name, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7353,7 +7353,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDateQtyPrice(self, sid, kid, cat_name, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7362,7 +7362,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDateQtySupplyDate(self, sid, kid, cat_name, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7371,7 +7371,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDatePriceSupplyDate(self, sid, kid, cat_name, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7380,7 +7380,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByQtyPriceSupplyDate(self, sid, kid, cat_name, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7389,7 +7389,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameChangedDate(self, sid, kid, cat_name, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -7398,7 +7398,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameQty(self, sid, kid, cat_name, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, rqty,))
         result = []
         for row in cursor:
@@ -7407,7 +7407,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNamePrice(self, sid, kid, cat_name, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, rprice,))
         result = []
         for row in cursor:
@@ -7416,7 +7416,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByNameSupplyDate(self, sid, kid, cat_name, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -7425,7 +7425,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDateQty(self, sid, kid, cat_name, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -7434,7 +7434,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDatePrice(self, sid, kid, cat_name, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -7443,7 +7443,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDateSupplyDate(self, sid, kid, cat_name, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -7452,7 +7452,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByQtyPrice(self, sid, kid, cat_name, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7461,7 +7461,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByQtySupplyDate(self, sid, kid, cat_name, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7470,7 +7470,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByPriceSupplyDate(self, sid, kid, cat_name, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7479,7 +7479,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByName(self, sid, kid, cat_name, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rsname = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rsname,))
         result = []
         for row in cursor:
@@ -7488,7 +7488,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByChangedDate(self, sid, kid, cat_name, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_changed_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_changed_date,))
         result = []
         for row in cursor:
@@ -7497,7 +7497,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByQty(self, sid, kid, cat_name, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rqty,))
         result = []
         for row in cursor:
@@ -7506,7 +7506,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryByPrice(self, sid, kid, cat_name, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, rprice,))
         result = []
         for row in cursor:
@@ -7515,7 +7515,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordCategoryBySupplyDate(self, sid, kid, cat_name, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Category where sid = %s and kid = %s and (cat_name = %s or cat_pname = %s) and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, cat_name, cat_name, r_supply_date,))
         result = []
         for row in cursor:
@@ -7524,7 +7524,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrder(self, sid, kid, oid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid,))
         result = []
         for row in cursor:
@@ -7533,7 +7533,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDateQtyPriceSupplyDate(self, sid, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7542,7 +7542,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDateQtyPrice(self, sid, kid, oid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7551,7 +7551,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDateQtySupplyDate(self, sid, kid, oid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7560,7 +7560,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDatePriceSupplyDate(self, sid, kid, oid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7569,7 +7569,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameQtyPriceSupplyDate(self, sid, kid, oid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7578,7 +7578,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDateQtyPriceSupplyDate(self, sid, kid, oid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7587,7 +7587,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDateQty(self, sid, kid, oid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -7596,7 +7596,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDatePrice(self, sid, kid, oid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -7605,7 +7605,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDateSupplyDate(self, sid, kid, oid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -7614,7 +7614,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameQtyPrice(self, sid, kid, oid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7623,7 +7623,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameQtySupplyDate(self, sid, kid, oid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7632,7 +7632,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNamePriceSupplyDate(self, sid, kid, oid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7641,7 +7641,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDateQtyPrice(self, sid, kid, oid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7650,7 +7650,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDateQtySupplyDate(self, sid, kid, oid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7659,7 +7659,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDatePriceSupplyDate(self, sid, kid, oid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7668,7 +7668,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByQtyPriceSupplyDate(self, sid, kid, oid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7677,7 +7677,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameChangedDate(self, sid, kid, oid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -7686,7 +7686,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameQty(self, sid, kid, oid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -7695,7 +7695,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNamePrice(self, sid, kid, oid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -7704,7 +7704,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByNameSupplyDate(self, sid, kid, oid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -7713,7 +7713,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDateQty(self, sid, kid, oid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -7722,7 +7722,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDatePrice(self, sid, kid, oid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -7731,7 +7731,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDateSupplyDate(self, sid, kid, oid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -7740,7 +7740,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByQtyPrice(self, sid, kid, oid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -7749,7 +7749,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByQtySupplyDate(self, sid, kid, oid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -7758,7 +7758,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByPriceSupplyDate(self, sid, kid, oid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -7767,7 +7767,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByName(self, sid, kid, oid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rsname,))
         result = []
         for row in cursor:
@@ -7776,7 +7776,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByChangedDate(self, sid, kid, oid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_changed_date,))
         result = []
         for row in cursor:
@@ -7785,7 +7785,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByQty(self, sid, kid, oid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rqty,))
         result = []
         for row in cursor:
@@ -7794,7 +7794,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderByPrice(self, sid, kid, oid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, rprice,))
         result = []
         for row in cursor:
@@ -7803,7 +7803,7 @@ class ResourceDAO:
 
     def getResourcesBySupplierKeywordOrderBySupplyDate(self, sid, kid, oid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join Supplier natural inner join ResourceHasKeyword natural inner join Transaction where sid = %s and kid = %s and oid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (sid, kid, oid, r_supply_date,))
         result = []
         for row in cursor:
@@ -8100,7 +8100,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrder(self, kid, cat_name, oid):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid,))
         result = []
         for row in cursor:
@@ -8109,7 +8109,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDateQtyPriceSupplyDate(self, kid, cat_name, oid, rsname, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8118,7 +8118,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDateQtyPrice(self, kid, cat_name, oid, rsname, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -8127,7 +8127,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDateQtySupplyDate(self, kid, cat_name, oid, rsname, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -8136,7 +8136,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDatePriceSupplyDate(self, kid, cat_name, oid, rsname, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8145,7 +8145,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameQtyPriceSupplyDate(self, kid, cat_name, oid, rsname, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8154,7 +8154,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDateQtyPriceSupplyDate(self, kid, cat_name, oid, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8163,7 +8163,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDateQty(self, kid, cat_name, oid, rsname, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -8172,7 +8172,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDatePrice(self, kid, cat_name, oid, rsname, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -8181,7 +8181,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDateSupplyDate(self, kid, cat_name, oid, rsname, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -8190,7 +8190,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameQtyPrice(self, kid, cat_name, oid, rsname, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, rqty, rprice,))
         result = []
         for row in cursor:
@@ -8199,7 +8199,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameQtySupplyDate(self, kid, cat_name, oid, rsname, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -8208,7 +8208,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNamePriceSupplyDate(self, kid, cat_name, oid, rsname, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8217,7 +8217,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDateQtyPrice(self, kid, cat_name, oid, r_changed_date, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, rqty, rprice,))
         result = []
         for row in cursor:
@@ -8226,7 +8226,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDateQtySupplyDate(self, kid, cat_name, oid, r_changed_date, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -8235,7 +8235,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDatePriceSupplyDate(self, kid, cat_name, oid, r_changed_date, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8244,7 +8244,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByQtyPriceSupplyDate(self, kid, cat_name, oid, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rqty, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8253,7 +8253,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameChangedDate(self, kid, cat_name, oid, rsname, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_changed_date,))
         result = []
         for row in cursor:
@@ -8262,7 +8262,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameQty(self, kid, cat_name, oid, rsname, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, rqty,))
         result = []
         for row in cursor:
@@ -8271,7 +8271,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNamePrice(self, kid, cat_name, oid, rsname, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, rprice,))
         result = []
         for row in cursor:
@@ -8280,7 +8280,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByNameSupplyDate(self, kid, cat_name, oid, rsname, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname, r_supply_date,))
         result = []
         for row in cursor:
@@ -8289,7 +8289,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDateQty(self, kid, cat_name, oid, r_changed_date, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, rqty,))
         result = []
         for row in cursor:
@@ -8298,7 +8298,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDatePrice(self, kid, cat_name, oid, r_changed_date, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, rprice,))
         result = []
         for row in cursor:
@@ -8307,7 +8307,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDateSupplyDate(self, kid, cat_name, oid, r_changed_date, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date, r_supply_date,))
         result = []
         for row in cursor:
@@ -8316,7 +8316,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByQtyPrice(self, kid, cat_name, oid, rqty, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rqty, rprice,))
         result = []
         for row in cursor:
@@ -8325,7 +8325,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByQtySupplyDate(self, kid, cat_name, oid, rqty, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rqty, r_supply_date,))
         result = []
         for row in cursor:
@@ -8334,7 +8334,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByPriceSupplyDate(self, kid, cat_name, oid, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rprice = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rprice = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rprice, r_supply_date,))
         result = []
         for row in cursor:
@@ -8343,7 +8343,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByName(self, kid, cat_name, oid, rsname):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rsname = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rsname,))
         result = []
         for row in cursor:
@@ -8352,7 +8352,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByChangedDate(self, kid, cat_name, oid, r_changed_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_changed_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_changed_date,))
         result = []
         for row in cursor:
@@ -8361,7 +8361,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByQty(self, kid, cat_name, oid, rqty):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rqty = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rqty,))
         result = []
         for row in cursor:
@@ -8370,7 +8370,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderByPrice(self, kid, cat_name, oid, rprice):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rprice = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and rprice = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, rprice,))
         result = []
         for row in cursor:
@@ -8379,7 +8379,7 @@ class ResourceDAO:
 
     def getResourcesByKeywordCategoryOrderBySupplyDate(self, kid, cat_name, oid, r_supply_date):
         cursor = self.conn.cursor()
-        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_supply_date = %s;"
+        query = "Select rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date from Resource natural inner join ResourceHasKeyword natural inner join Category natural inner join Transaction where kid = %s and (cat_name = %s or cat_pname = %s) and oid = %s and r_supply_date = %s order by rsname;"
         cursor.execute(query, (kid, cat_name, cat_name, oid, r_supply_date,))
         result = []
         for row in cursor:
