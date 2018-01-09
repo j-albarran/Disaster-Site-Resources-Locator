@@ -3631,7 +3631,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceQtyDateStatus(self, tprice, tqty, tdate, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tqty = %s and tdate = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tqty = %s and tdate = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tqty, tdate, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3640,7 +3640,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceQtyDate(self, tprice, tqty, tdate, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tqty = %s and tdate = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tqty = %s and tdate = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tqty, tdate, sid, kid))
         result = []
         for row in cursor:
@@ -3649,7 +3649,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceQtyStatus(self, tprice, tqty, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tqty = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tqty = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tqty, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3658,7 +3658,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceDateStatus(self, tprice, tdate, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tdate = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tdate = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tdate, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3667,7 +3667,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordQtyDateStatus(self, tqty, tdate, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tqty = %s and tdate = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tqty = %s and tdate = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tqty, tdate, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3676,7 +3676,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceQty(self, tprice, tqty, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tqty = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tqty = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tqty, sid, kid))
         result = []
         for row in cursor:
@@ -3685,7 +3685,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceDate(self, tprice, tdate, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tdate = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tdate = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tdate, sid, kid))
         result = []
         for row in cursor:
@@ -3694,7 +3694,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPriceStatus(self, tprice, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3703,7 +3703,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordQtyDate(self, tqty, tdate, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tqty = %s and tdate = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tqty = %s and tdate = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tqty, tdate, sid, kid))
         result = []
         for row in cursor:
@@ -3712,7 +3712,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordQtyStatus(self, tqty, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tqty = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tqty = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tqty, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3721,7 +3721,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordDateStatus(self, tdate, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tdate = %s and tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tdate = %s and tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tdate, tstatus, sid, kid))
         result = []
         for row in cursor:
@@ -3730,7 +3730,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordPrice(self, tprice, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tprice = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tprice = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tprice, sid, kid))
         result = []
         for row in cursor:
@@ -3739,7 +3739,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordQty(self, tqty, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tqty = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tqty = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tqty, sid, kid))
         result = []
         for row in cursor:
@@ -3748,7 +3748,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordDate(self, tdate, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tdate = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tdate = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tdate, sid, kid))
         result = []
         for row in cursor:
@@ -3757,7 +3757,7 @@ class TransactionDAO:
 
     def getAllTransactionsBySupplierKeywordStatus(self, tstatus, sid, kid):
         cursor = self.conn.cursor()
-        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword tstatus = %s and sid = %s and kid = %s;"
+        query = "Select tid, tprice, tqty, tdate, tstatus from transaction natural inner join supplier natural inner join resource natural inner join ResourceHasKeyword natural inner join keyword where tstatus = %s and sid = %s and kid = %s;"
         cursor.execute(query, (tstatus, sid, kid))
         result = []
         for row in cursor:
