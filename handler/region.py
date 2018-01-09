@@ -89,7 +89,7 @@ class RegionHandler:
     def getRegionOfThisAddress(self, addId):
 
         daoAdd = AddressDAO()
-        dao = RegionDAO
+        dao = RegionDAO()
 
         if not daoAdd.getAddressById(addId):
             return jsonify(Error = 'Address Not Found'), 404
@@ -97,7 +97,7 @@ class RegionHandler:
         regions_list = dao.getRegionOfThisAddress(addId)
         result_list = []
         for row in regions_list:
-            result = self.build_city_dict(row)
+            result = self.build_region_dict(row)
             result_list.append(result)
         return jsonify(Region = result_list)
 

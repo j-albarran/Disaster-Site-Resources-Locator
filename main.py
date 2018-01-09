@@ -107,7 +107,7 @@ def getRequesterRegion(rid):
 
 @app.route('/ResourceApp/suppliers/<int:sid>/regions')
 def getSupplierRegion(sid):
-        return RegionHandler().getSupplierCity(sid)
+        return RegionHandler().getSupplierRegion(sid)
 
 @app.route('/ResourceApp/addresses/<int:addId>/regions')
 def getRegionOfThisAddress(addId):
@@ -163,7 +163,7 @@ def getSupplierAddress(sid):
         # By street, number, unit, zip_code
         return AddressHandler().searchSupplierAddress(sid, request.args)
 
-@app.route('/ResourceApp/requester/<int:rid>/addresses')
+@app.route('/ResourceApp/requesters/<int:rid>/addresses')
 def getRequesterAddress(rid):
     if not request.args:
         return AddressHandler().getRequesterAddress(rid)

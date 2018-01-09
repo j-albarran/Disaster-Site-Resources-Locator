@@ -7,7 +7,7 @@ from dao.city import CityDAO
 from dao.region import RegionDAO
 from dao.resource import ResourceDAO
 from dao.transaction import TransactionDAO
-from dao.order_info import OrderDAO
+from dao.order import OrderDAO
 from dao.category import CategoryDAO
 
 class SupplierHandler:
@@ -48,7 +48,7 @@ class SupplierHandler:
         if not row:
             return jsonify(Error = "Supplier Not Found"), 404
         else:
-            supplier = self.build_address_dict(row)
+            supplier = self.build_supplier_dict(row)
             return jsonify(Supplier = supplier)
 
     def searchSuppliers(self, args):

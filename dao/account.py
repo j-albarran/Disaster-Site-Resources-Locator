@@ -17,14 +17,14 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountById(aid, self):
+    def getAccountById(self, aid):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where aid = %s;"
         cursor.execute(query, (aid,))
         result = cursor.fetchone()
         return result
 
-    def getAccountsByAFirstALastEmailPhone(afirst, alast, email, phone, self):
+    def getAccountsByAFirstALastEmailPhone(self,afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select * from account natural inner join phone where afirst = %s and alast = %s and email = %s and phone =%s;"
         cursor.execute(query, (afirst, alast, email, phone, ))
@@ -33,7 +33,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirstALastEmail(afirst, alast, email, self):
+    def getAccountsByAFirstALastEmail(self,afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s and alast = %s and email =%s;"
         cursor.execute(query, (afirst, alast, email, ))
@@ -42,7 +42,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirstALastPhone(afirst, alast, phone, self):
+    def getAccountsByAFirstALastPhone(self,afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s and alast = %s and phone =%s;"
         cursor.execute(query, (afirst, alast, phone, ))
@@ -51,7 +51,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirstPhoneEmail(afirst, phone, email, self):
+    def getAccountsByAFirstPhoneEmail(self,afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s and phone = %s and email =%s;"
         cursor.execute(query, (afirst, phone, email, ))
@@ -60,7 +60,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByALastEmailPhone(alast, email, phone, self):
+    def getAccountsByALastEmailPhone(self,alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where alast = %s and email = %s and phone =%s;"
         cursor.execute(query, (alast, email, phone, ))
@@ -69,7 +69,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirstALast(afirst, alast, self):
+    def getAccountsByAFirstALast(self,afirst, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s and alast = %s;"
         cursor.execute(query, (afirst, alast, ))
@@ -78,7 +78,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirstEmail(afirst, email, self):
+    def getAccountsByAFirstEmail(self,afirst, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s and email = %s;"
         cursor.execute(query, (afirst, email, ))
@@ -87,7 +87,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirstPhone(afirst, phone, self):
+    def getAccountsByAFirstPhone(self,afirst, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s and phone = %s;"
         cursor.execute(query, (afirst, phone, ))
@@ -96,7 +96,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByALastEmail(alast, email, self):
+    def getAccountsByALastEmail(self,alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where alast = %s and email = %s;"
         cursor.execute(query, (alast, email, ))
@@ -105,7 +105,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByALastPhone(alast, phone, self):
+    def getAccountsByALastPhone(self,alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where alast = %s and phone = %s;"
         cursor.execute(query, (alast, phone, ))
@@ -114,7 +114,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByEmailPhone(email, phone, self):
+    def getAccountsByEmailPhone(self,email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where email = %s and phone = %s;"
         cursor.execute(query, (email, phone, ))
@@ -123,7 +123,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByAFirst(afirst, self):
+    def getAccountsByAFirst(self,afirst):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where afirst = %s;"
         cursor.execute(query, (afirst, ))
@@ -132,7 +132,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByALast(alast, self):
+    def getAccountsByALast(self,alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where alast = %s;"
         cursor.execute(query, (alast, ))
@@ -141,7 +141,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByEmail(email, self):
+    def getAccountsByEmail(self,email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where email = %s;"
         cursor.execute(query, (email, ))
@@ -150,7 +150,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsByPhone(phone, self):
+    def getAccountsByPhone(self,phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone where phone = %s;"
         cursor.execute(query, (phone, ))
@@ -159,119 +159,151 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsWithThisAddressID(addId, self):
+    def getAccountsWithThisAddressID(self,addId):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s;"
         cursor.execute(query, (addId, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstAlastEmailPhone(addId, afirst, alast, email, phone, self):
+    def getAccountsOnThisAddressIDByAfirstAlastEmailPhone(self,addId, afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstAlastEmail(addId, afirst, alast, email, self):
+    def getAccountsOnThisAddressIDByAfirstAlastEmail(self,addId, afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (addId, afirst, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstAlastPhone(addId, afirst, alast, phone, self):
+    def getAccountsOnThisAddressIDByAfirstAlastPhone(self,addId, afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstPhoneEmail(addId, afirst, phone, email, self):
+    def getAccountsOnThisAddressIDByAfirstPhoneEmail(self,addId, afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (addId, afirst, phone, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAlastEmailPhone(addId, alast, email, phone, self):
+    def getAccountsOnThisAddressIDByAlastEmailPhone(self,addId, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstAlast(addId, afirst, alast, self):
+    def getAccountsOnThisAddressIDByAfirstAlast(self,addId, afirst, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (addId, afirst, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstEmail(addId, afirst, email, self):
+    def getAccountsOnThisAddressIDByAfirstEmail(self,addId, afirst, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and email = %s;"
         cursor.execute(query, (addId, afirst, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirstPhone(addId, afirst, phone, self):
+    def getAccountsOnThisAddressIDByAfirstPhone(self,addId, afirst, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAlastEmail(addId, alast, email, self):
+    def getAccountsOnThisAddressIDByAlastEmail(self,addId, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and alast = %s and email = %s;"
         cursor.execute(query, (addId, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAlastPhone(addId, alast, phone, self):
+    def getAccountsOnThisAddressIDByAlastPhone(self,addId, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and alast = %s and phone = %s;"
         cursor.execute(query, (addId, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByEmailPhone(addId, email, phone, self):
+    def getAccountsOnThisAddressIDByEmailPhone(self,addId, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAfirst(addId, afirst, self):
+    def getAccountsOnThisAddressIDByAfirst(self,addId, afirst):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and afirst = %s;"
         cursor.execute(query, (addId, afirst, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByAlast(addId, alast, self):
+    def getAccountsOnThisAddressIDByAlast(self,addId, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and alast = %s;"
         cursor.execute(query, (addId, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByEmail(addId, email, self):
+    def getAccountsOnThisAddressIDByEmail(self,addId, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and email = %s;"
         cursor.execute(query, (addId, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisAddressIDByPhone(addId, phone, self):
+    def getAccountsOnThisAddressIDByPhone(self,addId, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where addId = %s and phone = %s;"
         cursor.execute(query, (addId, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsOnThisCity(cname, self):
+    def getAccountsOnThisCity(self,cname):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s;"
         cursor.execute(query, (cname, ))
@@ -280,7 +312,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityAfirstAlastEmailPhone(cname, afirst, alast, email, phone, self):
+    def getAccountsOnThisCityAfirstAlastEmailPhone(self,cname, afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, alast, email, phone, ))
@@ -289,7 +321,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirstAlastEmail(cname, afirst, alast, email, self):
+    def getAccountsOnThisCityByAfirstAlastEmail(self,cname, afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, afirst, alast, email, ))
@@ -298,7 +330,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirstAlastPhone(cname, afirst, alast, phone, self):
+    def getAccountsOnThisCityByAfirstAlastPhone(self,cname, afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, alast, phone, ))
@@ -307,7 +339,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirstPhoneEmail(cname, afirst, phone, email, self):
+    def getAccountsOnThisCityByAfirstPhoneEmail(self,cname, afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (cname, afirst, phone, email, ))
@@ -316,7 +348,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAlastEmailPhone(cname, alast, email, phone, self):
+    def getAccountsOnThisCityByAlastEmailPhone(self,cname, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, alast, email, phone, ))
@@ -325,7 +357,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirstAlast(cname, afirst, alast, self):
+    def getAccountsOnThisCityByAfirstAlast(self,cname, afirst, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (cname, afirst, alast, ))
@@ -334,7 +366,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirstEmail(cname, afirst, email, self):
+    def getAccountsOnThisCityByAfirstEmail(self,cname, afirst, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and email = %s;"
         cursor.execute(query, (cname, afirst, email, ))
@@ -343,7 +375,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirstPhone(cname, afirst, phone, self):
+    def getAccountsOnThisCityByAfirstPhone(self,cname, afirst, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, phone, ))
@@ -352,7 +384,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAlastEmail(cname, alast, email, self):
+    def getAccountsOnThisCityByAlastEmail(self,cname, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, alast, email, ))
@@ -361,7 +393,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAlastPhone(cname, alast, phone, self):
+    def getAccountsOnThisCityByAlastPhone(self,cname, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, alast, phone, ))
@@ -370,7 +402,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByEmailPhone(cname, email, phone, self):
+    def getAccountsOnThisCityByEmailPhone(self,cname, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, email, phone, ))
@@ -379,7 +411,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAfirst(cname, afirst, self):
+    def getAccountsOnThisCityByAfirst(self,cname, afirst):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and afirst = %s;"
         cursor.execute(query, (cname, afirst, ))
@@ -388,7 +420,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByAlast(cname, alast, self):
+    def getAccountsOnThisCityByAlast(self,cname, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and alast = %s;"
         cursor.execute(query, (cname, alast, ))
@@ -397,7 +429,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByEmail(cname, email, self):
+    def getAccountsOnThisCityByEmail(self,cname, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and email = %s;"
         cursor.execute(query, (cname, email, ))
@@ -406,7 +438,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisCityByPhone(cname, phone, self):
+    def getAccountsOnThisCityByPhone(self,cname, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address where cname = %s and phone = %s;"
         cursor.execute(query, (cname, phone, ))
@@ -415,7 +447,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegion(rname, self):
+    def getAccountsOnThisRegion(self,rname):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s;"
         cursor.execute(query, (rname, ))
@@ -424,7 +456,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionAfirstAlastEmailPhone(rname, afirst, alast, email, phone, self):
+    def getAccountsOnThisRegionAfirstAlastEmailPhone(self,rname, afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and alast =%s and email =%s and phone = %s;"
         cursor.execute(query, (rname, afirst, alast, email, phone, ))
@@ -433,7 +465,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirstAlastEmail(rname, afirst, alast, email, self):
+    def getAccountsOnThisRegionByAfirstAlastEmail(self,rname, afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and alast =%s and email =%s;"
         cursor.execute(query, (rname, afirst, alast, email, ))
@@ -442,7 +474,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirstAlastPhone(rname, afirst, alast, phone, self):
+    def getAccountsOnThisRegionByAfirstAlastPhone(self,rname, afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and alast =%s and phone =%s;"
         cursor.execute(query, (rname, afirst, alast, phone, ))
@@ -451,7 +483,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirstPhoneEmail(rname, afirst, phone, email, self):
+    def getAccountsOnThisRegionByAfirstPhoneEmail(self,rname, afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and phone =%s and email =%s;"
         cursor.execute(query, (rname, afirst, phone, email, ))
@@ -460,7 +492,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAlastEmailPhone(rname, alast, email, phone, self):
+    def getAccountsOnThisRegionByAlastEmailPhone(self,rname, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and alast = %s and email =%s and phone =%s;"
         cursor.execute(query, (rname, alast, email, phone, ))
@@ -469,7 +501,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirstAlast(rname, afirst, alast, self):
+    def getAccountsOnThisRegionByAfirstAlast(self,rname, afirst, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and alast =%s;"
         cursor.execute(query, (rname, afirst, alast, ))
@@ -478,7 +510,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirstEmail(rname, afirst, email, self):
+    def getAccountsOnThisRegionByAfirstEmail(self,rname, afirst, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and email =%s;"
         cursor.execute(query, (rname, afirst, email, ))
@@ -487,7 +519,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirstPhone(rname, afirst, phone, self):
+    def getAccountsOnThisRegionByAfirstPhone(self,rname, afirst, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s and phone =%s;"
         cursor.execute(query, (rname, afirst, phone, ))
@@ -496,7 +528,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAlastEmail(rname, alast, email, self):
+    def getAccountsOnThisRegionByAlastEmail(self,rname, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and alast = %s and email =%s;"
         cursor.execute(query, (rname, alast, email, ))
@@ -505,7 +537,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAlastPhone(rname, alast, phone, self):
+    def getAccountsOnThisRegionByAlastPhone(self,rname, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and alast = %s and phone =%s;"
         cursor.execute(query, (rname, alast, phone, ))
@@ -514,7 +546,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByEmailPhone(rname, email, phone, self):
+    def getAccountsOnThisRegionByEmailPhone(self,rname, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and email = %s and phone =%s;"
         cursor.execute(query, (rname, email, phone, ))
@@ -523,7 +555,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAfirst(rname, afirst, self):
+    def getAccountsOnThisRegionByAfirst(self,rname, afirst):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and afirst = %s;"
         cursor.execute(query, (rname, afirst, ))
@@ -532,7 +564,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByAlast(rname, alast, self):
+    def getAccountsOnThisRegionByAlast(self,rname, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and alast = %s;"
         cursor.execute(query, (rname, alast, ))
@@ -541,7 +573,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByEmail(rname, email, self):
+    def getAccountsOnThisRegionByEmail(self, rname, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and email = %s;"
         cursor.execute(query, (rname, email, ))
@@ -550,7 +582,7 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountsOnThisRegionByPhone(rname, phone, self):
+    def getAccountsOnThisRegionByPhone(self, rname, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city where rname = %s and phone = %s;"
         cursor.execute(query, (rname, phone, ))
@@ -559,114 +591,146 @@ class AccountDAO:
             result.append(row)
         return result
 
-    def getAccountWithThisUsername(username, self):
+    def getAccountWithThisUsername(self, username):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s;"
         cursor.execute(query, (username, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstAlastEmailPhone(username, afirst, alast, email, phone, self):
+    def getAccountsWithThisUsernameByAfirstAlastEmailPhone(self, username, afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (username, afirst, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstAlastEmail(username, afirst, alast, email, self):
+    def getAccountsWithThisUsernameByAfirstAlastEmail(self, username, afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (username, afirst, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstAlastPhone(username, afirst, alast, phone, self):
+    def getAccountsWithThisUsernameByAfirstAlastPhone(self, username, afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (username, afirst, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstPhoneEmail(username, afirst, phone, email, self):
+    def getAccountsWithThisUsernameByAfirstPhoneEmail(self, username, afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (username, afirst, phone, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAlastEmailPhone(username, alast, email, phone, self):
+    def getAccountsWithThisUsernameByAlastEmailPhone(self, username, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (username, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstAlast(username, afirst, alast, self):
+    def getAccountsWithThisUsernameByAfirstAlast(self, username, afirst, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (username, afirst, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstEmail(username, afirst, email, self):
+    def getAccountsWithThisUsernameByAfirstEmail(self, username, afirst, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and email = %s;"
         cursor.execute(query, (username, afirst, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirstPhone(username, afirst, phone, self):
+    def getAccountsWithThisUsernameByAfirstPhone(self, username, afirst, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (username, afirst, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAlastEmail(username, alast, email, self):
+    def getAccountsWithThisUsernameByAlastEmail(self, username, alast, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and alast = %s and email = %s;"
         cursor.execute(query, (username, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAlastPhone(username, alast, phone, self):
+    def getAccountsWithThisUsernameByAlastPhone(self, username, alast, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and alast = %s and phone = %s;"
         cursor.execute(query, (username, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByEmailPhone(username, email, phone, self):
+    def getAccountsWithThisUsernameByEmailPhone(self, username, email, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and email = %s and phone = %s;"
         cursor.execute(query, (username, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAfirst(username, afirst, self):
+    def getAccountsWithThisUsernameByAfirst(self, username, afirst):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and afirst = %s;"
         cursor.execute(query, (username, afirst, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByAlast(username, alast, self):
+    def getAccountsWithThisUsernameByAlast(self, username, alast):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and alast = %s;"
         cursor.execute(query, (username, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByEmail(username, email, self):
+    def getAccountsWithThisUsernameByEmail(self, username, email):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and email = %s;"
         cursor.execute(query, (username, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountsWithThisUsernameByPhone(username, phone, self):
+    def getAccountsWithThisUsernameByPhone(self, username, phone):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone natural inner join credentials where username = %s and phone = %s;"
         cursor.execute(query, (username, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result

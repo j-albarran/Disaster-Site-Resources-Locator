@@ -20,7 +20,7 @@ class AddressHandler:
         result['street'] = row[1]
         result['number'] = row[2]
         result['unit'] = row[3]
-        result['zip_code'] = row[4]
+        result['zipcode'] = row[4]
         return result
 
 # =========================================================================== #
@@ -62,40 +62,40 @@ class AddressHandler:
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getAddressByStreetNumberUnitZipCode(street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getAddressByStreetNumberUnitZipCode(street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getAddressesByStreetNumberUnit(street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getAddressesByStreetNumberZipCode(street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getAddressesByStreetZipCodeUnit(street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getAddressesByNumberUnitZipCode(number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getAddressesByStreetNumberZipCode(street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getAddressesByStreetZipCodeUnit(street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getAddressesByNumberUnitZipCode(number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getAddressesByStreetNumber(street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getAddressesByStreetUnit(street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getAddressesByStreetZipCode(street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getAddressesByStreetZipCode(street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getAddressesByNumberUnit(number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getAddressesByNumberZipCode(number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getAddressesByUnitZipCode(unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getAddressesByNumberZipCode(number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getAddressesByUnitZipCode(unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getAddressesByStreet(street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getAddressesByNumber(number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getAddressesByUnit(unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getAddressesByZipCode(zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getAddressesByZipCode(zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -114,7 +114,7 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoAcc.getAccountById(aid):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Account Not Found'), 404
 
         address_list = dao.getAccountAddress(aid)
         results_list = []
@@ -129,45 +129,45 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoAcc.getAccountById(aid):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Account Not Found'), 404
 
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getAccountAddressesByStreetNumberUnitZipCode(aid, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getAccountAddressesByStreetNumberUnitZipCode(aid, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getAccountAddressesByStreetNumberUnit(aid, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getAccountAddressesByStreetNumberZipCode(aid, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getAccountAddressesByStreetZipCodeUnit(aid, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getAccountAddressesByNumberUnitZipCode(aid, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getAccountAddressesByStreetNumberZipCode(aid, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getAccountAddressesByStreetZipCodeUnit(aid, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getAccountAddressesByNumberUnitZipCode(aid, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getAccountAddressesByStreetNumber(aid, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getAccountAddressesByStreetUnit(aid, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getAccountAddressesByStreetZipCode(aid, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getAccountAddressesByStreetZipCode(aid, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getAccountAddressesByNumberUnit(aid, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getAccountAddressesByNumberZipCode(aid, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getAccountAddressesByUnitZipCode(aid, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getAccountAddressesByNumberZipCode(aid, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getAccountAddressesByUnitZipCode(aid, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getAccountAddressesByStreet(aid, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getAccountAddressesByNumber(aid, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getAccountAddressesByUnit(aid, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getAccountAddressesByZipCode(aid, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getAccountAddressesByZipCode(aid, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -185,7 +185,7 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoAdmin.getAdministratorById(adminId):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Administrator Not Found'), 404
 
         address_list = dao.getAdministratorAddress(adminId)
         results_list = []
@@ -200,45 +200,45 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoAdmin.getAdministratorById(adminId):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Administrator Not Found'), 404
 
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getAdministratorAddressesByStreetNumberUnitZipCode(adminId, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getAdministratorAddressesByStreetNumberUnitZipCode(adminId, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getAdministratorAddressesByStreetNumberUnit(adminId, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getAdministratorAddressesByStreetNumberZipCode(adminId, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getAdministratorAddressesByStreetZipCodeUnit(adminId, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getAdministratorAddressesByNumberUnitZipCode(adminId, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getAdministratorAddressesByStreetNumberZipCode(adminId, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getAdministratorAddressesByStreetZipCodeUnit(adminId, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getAdministratorAddressesByNumberUnitZipCode(adminId, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getAdministratorAddressesByStreetNumber(adminId, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getAdministratorAddressesByStreetUnit(adminId, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getAdministratorAddressesByStreetZipCode(adminId, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getAdministratorAddressesByStreetZipCode(adminId, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getAdministratorAddressesByNumberUnit(adminId, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getAdministratorAddressesByNumberZipCode(adminId, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getAdministratorAddressesByUnitZipCode(adminId, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getAdministratorAddressesByNumberZipCode(adminId, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getAdministratorAddressesByUnitZipCode(adminId, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getAdministratorAddressesByStreet(adminId, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getAdministratorAddressesByNumber(adminId, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getAdministratorAddressesByUnit(adminId, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getAdministratorAddressesByZipCode(adminId, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getAdministratorAddressesByZipCode(adminId, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -257,7 +257,7 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoSup.getSupplierById(sid):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Supplier Not Found'), 404
 
         address_list = dao.getSupplierAddress(sid)
 
@@ -274,45 +274,45 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoSup.getSupplierById(sid):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Supplier Not Found'), 404
 
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getSupplierAddressesByStreetNumberUnitZipCode(sid, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getSupplierAddressesByStreetNumberUnitZipCode(sid, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getSupplierAddressesByStreetNumberUnit(sid, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getSupplierAddressesByStreetNumberZipCode(sid, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getSupplierAddressesByStreetZipCodeUnit(sid, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getSupplierAddressesByNumberUnitZipCode(sid, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getSupplierAddressesByStreetNumberZipCode(sid, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getSupplierAddressesByStreetZipCodeUnit(sid, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getSupplierAddressesByNumberUnitZipCode(sid, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getSupplierAddressesByStreetNumber(sid, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getSupplierAddressesByStreetUnit(sid, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getSupplierAddressesByStreetZipCode(sid, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getSupplierAddressesByStreetZipCode(sid, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getSupplierAddressesByNumberUnit(sid, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getSupplierAddressesByNumberZipCode(sid, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getSupplierAddressesByUnitZipCode(sid, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getSupplierAddressesByNumberZipCode(sid, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getSupplierAddressesByUnitZipCode(sid, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getSupplierAddressesByStreet(sid, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getSupplierAddressesByNumber(sid, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getSupplierAddressesByUnit(sid, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getSupplierAddressesByZipCode(sid, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getSupplierAddressesByZipCode(sid, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -331,7 +331,7 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoReq.getRequesterById(rid):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Requester Not Found'), 404
 
         address_list = dao.getRequesterAddress(rid)
 
@@ -347,45 +347,45 @@ class AddressHandler:
         dao = AddressDAO()
 
         if not daoReq.getRequesterById(rid):
-            return jsonify(Error = 'Address Not Found'), 404
+            return jsonify(Error = 'Requester Not Found'), 404
 
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getRequesterAddressesByStreetNumberUnitZipCode(rid, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getRequesterAddressesByStreetNumberUnitZipCode(rid, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getRequesterAddressesByStreetNumberUnit(rid, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getRequesterAddressesByStreetNumberZipCode(rid, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getRequesterAddressesByStreetZipCodeUnit(rid, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getRequesterAddressesByNumberUnitZipCode(rid, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getRequesterAddressesByStreetNumberZipCode(rid, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getRequesterAddressesByStreetZipCodeUnit(rid, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getRequesterAddressesByNumberUnitZipCode(rid, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getRequesterAddressesByStreetNumber(rid, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getRequesterAddressesByStreetUnit(rid, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getRequesterAddressesByStreetZipCode(rid, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getRequesterAddressesByStreetZipCode(rid, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getRequesterAddressesByNumberUnit(rid, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getRequesterAddressesByNumberZipCode(rid, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getRequesterAddressesByUnitZipCode(rid, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getRequesterAddressesByNumberZipCode(rid, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getRequesterAddressesByUnitZipCode(rid, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getRequesterAddressesByStreet(rid, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getRequesterAddressesByNumber(rid, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getRequesterAddressesByUnit(rid, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getRequesterAddressesByZipCode(rid, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getRequesterAddressesByZipCode(rid, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -425,40 +425,40 @@ class AddressHandler:
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getAddressOnThisCityByStreetNumberUnitZipCode(cname, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getAddressOnThisCityByStreetNumberUnitZipCode(cname, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getAddressesOnThisCityByStreetNumberUnit(cname, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getAddressesOnThisCityByStreetNumberZipCode(cname, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getAddressesOnThisCityByStreetZipCodeUnit(cname, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getAddressesOnThisCityByNumberUnitZipCode(cname, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getAddressesOnThisCityByStreetNumberZipCode(cname, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getAddressesOnThisCityByStreetZipCodeUnit(cname, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getAddressesOnThisCityByNumberUnitZipCode(cname, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getAddressesOnThisCityByStreetNumber(cname, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getAddressesOnThisCityByStreetUnit(cname, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getAddressesOnThisCityByStreetZipCode(cname, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getAddressesOnThisCityByStreetZipCode(cname, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getAddressesOnThisCityByNumberUnit(cname, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getAddressesOnThisCityByNumberZipCode(cname, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getAddressesOnThisCityByUnitZipCode(cname, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getAddressesOnThisCityByNumberZipCode(cname, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getAddressesOnThisCityByUnitZipCode(cname, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getAddressesOnThisCityByStreet(cname, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getAddressesOnThisCityByNumber(cname, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getAddressesOnThisCityByUnit(cname, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getAddressesOnThisCityByZipCode(cname, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getAddressesOnThisCityByZipCode(cname, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -497,40 +497,40 @@ class AddressHandler:
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getAddressOnThisRegionByStreetNumberUnitZipCode(rname, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getAddressOnThisRegionByStreetNumberUnitZipCode(rname, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getAddressesOnThisRegionByStreetNumberUnit(rname, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getAddressesOnThisRegionByStreetNumberZipCode(rname, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getAddressesOnThisRegionByStreetZipCodeUnit(rname, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getAddressesOnThisRegionByNumberUnitZipCode(rname, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getAddressesOnThisRegionByStreetNumberZipCode(rname, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getAddressesOnThisRegionByStreetZipCodeUnit(rname, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getAddressesOnThisRegionByNumberUnitZipCode(rname, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getAddressesOnThisRegionByStreetNumber(rname, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getAddressesOnThisRegionByStreetUnit(rname, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getAddressesOnThisRegionByStreetZipCode(rname, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getAddressesOnThisRegionByStreetZipCode(rname, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getAddressesOnThisRegionByNumberUnit(rname, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getAddressesOnThisRegionByNumberZipCode(rname, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getAddressesOnThisRegionByUnitZipCode(rname, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getAddressesOnThisRegionByNumberZipCode(rname, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getAddressesOnThisRegionByUnitZipCode(rname, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getAddressesOnThisRegionByStreet(rname, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getAddressesOnThisRegionByNumber(rname, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getAddressesOnThisRegionByUnit(rname, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getAddressesOnThisRegionByZipCode(rname, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getAddressesOnThisRegionByZipCode(rname, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
@@ -571,40 +571,40 @@ class AddressHandler:
         street = args.get('street')
         number = args.get('number')
         unit = args.get('unit')
-        zip_code = args.get('zip_code')
+        zipcode = args.get('zipcode')
 
         addresses_list = []
 
-        if(len(args) == 4) and street and number and unit and zip_code:
-            addresses_list = dao.getAddressOnThisCreditCardByStreetNumberUnitZipCode(cid, street, number, unit, zip_code)
+        if(len(args) == 4) and street and number and unit and zipcode:
+            addresses_list = dao.getAddressOnThisCreditCardByStreetNumberUnitZipCode(cid, street, number, unit, zipcode)
         elif(len(args) == 3) and street and number and unit:
             addresses_list = dao.getAddressesOnThisCreditCardByStreetNumberUnit(cid, street, number, unit)
-        elif(len(args) == 3) and street and number and zip_code:
-            addresses_list = dao.getAddressesOnThisCreditCardByStreetNumberZipCode(cid, street, number, zip_code)
-        elif(len(args) == 3) and street and zip_code and unit:
-            addresses_list = dao.getAddressesOnThisCreditCardByStreetZipCodeUnit(cid, street, zip_code, unit)
-        elif(len(args) == 3) and number and unit and zip_code:
-            addresses_list = dao.getAddressesOnThisCreditCardByNumberUnitZipCode(cid, number, unit, zip_code)
+        elif(len(args) == 3) and street and number and zipcode:
+            addresses_list = dao.getAddressesOnThisCreditCardByStreetNumberZipCode(cid, street, number, zipcode)
+        elif(len(args) == 3) and street and zipcode and unit:
+            addresses_list = dao.getAddressesOnThisCreditCardByStreetZipCodeUnit(cid, street, zipcode, unit)
+        elif(len(args) == 3) and number and unit and zipcode:
+            addresses_list = dao.getAddressesOnThisCreditCardByNumberUnitZipCode(cid, number, unit, zipcode)
         elif(len(args) == 2) and street and number:
             addresses_list = dao.getAddressesOnThisCreditCardByStreetNumber(cid, street, number)
         elif(len(args) == 2) and street and unit:
             addresses_list = dao.getAddressesOnThisCreditCardByStreetUnit(cid, street, unit)
-        elif(len(args) == 2) and street and zip_code:
-            addresses_list = dao.getAddressesOnThisCreditCardByStreetZipCode(cid, street, zip_code)
+        elif(len(args) == 2) and street and zipcode:
+            addresses_list = dao.getAddressesOnThisCreditCardByStreetZipCode(cid, street, zipcode)
         elif(len(args) == 2) and number and unit:
             addresses_list = dao.getAddressesOnThisCreditCardByNumberUnit(cid, number, unit)
-        elif(len(args) == 2) and number and zip_code:
-            addresses_list = dao.getAddressesOnThisCreditCardByNumberZipCode(cid, number, zip_code)
-        elif(len(args) == 2) and unit and zip_code:
-            addresses_list = dao.getAddressesOnThisCreditCardByUnitZipCode(cid, unit, zip_code)
+        elif(len(args) == 2) and number and zipcode:
+            addresses_list = dao.getAddressesOnThisCreditCardByNumberZipCode(cid, number, zipcode)
+        elif(len(args) == 2) and unit and zipcode:
+            addresses_list = dao.getAddressesOnThisCreditCardByUnitZipCode(cid, unit, zipcode)
         elif(len(args) == 1) and street:
             addresses_list = dao.getAddressesOnThisCreditCardByStreet(cid, street)
         elif(len(args) == 1) and number:
             addresses_list = dao.getAddressesOnThisCreditCardByNumber(cid, number)
         elif(len(args) == 1) and unit:
             addresses_list = dao.getAddressesOnThisCreditCardByUnit(cid, unit)
-        elif(len(args) == 1) and zip_code:
-            addresses_list = dao.getAddressesOnThisCreditCardByZipCode(cid, zip_code)
+        elif(len(args) == 1) and zipcode:
+            addresses_list = dao.getAddressesOnThisCreditCardByZipCode(cid, zipcode)
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []

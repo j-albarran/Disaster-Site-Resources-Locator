@@ -1,6 +1,5 @@
 from config.dbconfig import conn
 
-
 class SupplierDAO:
     def __init__(self):
         self.conn = conn
@@ -17,14 +16,14 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSupplierById(sid, self):
+    def getSupplierById(self, sid):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where supplier.sid = %s;"
         cursor.execute(query, (sid,))
         result = cursor.fetchone()
         return result
 
-    def getSuppliersByAFirstALastEmailPhone(afirst, alast, email, phone, self):
+    def getSuppliersByAFirstALastEmailPhone(self,afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (afirst, alast, email, phone,))
@@ -33,7 +32,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirstALastEmail(afirst, alast, email, self):
+    def getSuppliersByAFirstALastEmail(self,afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (afirst, alast, email,))
@@ -42,7 +41,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirstALastPhone(afirst, alast, phone, self):
+    def getSuppliersByAFirstALastPhone(self,afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (afirst, alast, phone,))
@@ -51,7 +50,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirstPhoneEmail(afirst, phone, email, self):
+    def getSuppliersByAFirstPhoneEmail(self,afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (afirst, phone, email,))
@@ -60,7 +59,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByALastEmailPhone(alast, email, phone, self):
+    def getSuppliersByALastEmailPhone(self,alast, email, phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (alast, email, phone,))
@@ -69,7 +68,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirstALast(afirst, alast, self):
+    def getSuppliersByAFirstALast(self,afirst, alast):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and alast = %s;"
         cursor.execute(query, (afirst, alast,))
@@ -78,7 +77,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirstEmail(afirst, email, self):
+    def getSuppliersByAFirstEmail(self,afirst, email):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and email = %s;"
         cursor.execute(query, (afirst, email,))
@@ -87,7 +86,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirstPhone(afirst, phone, self):
+    def getSuppliersByAFirstPhone(self,afirst, phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s and phone = %s;"
         cursor.execute(query, (afirst, phone,))
@@ -96,7 +95,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByALastEmail(alast, email, self):
+    def getSuppliersByALastEmail(self,alast, email):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where alast = %s and email = %s;"
         cursor.execute(query, (alast, email,))
@@ -105,7 +104,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByALastPhone(alast, phone, self):
+    def getSuppliersByALastPhone(self,alast, phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where alast = %s and phone = %s;"
         cursor.execute(query, (alast, phone,))
@@ -114,7 +113,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByEmailPhone(email, phone, self):
+    def getSuppliersByEmailPhone(self,email, phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where email = %s and phone = %s;"
         cursor.execute(query, (email, phone,))
@@ -123,7 +122,7 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByAFirst(afirst, self):
+    def getSuppliersByAFirst(self,afirst):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where afirst = %s;"
         cursor.execute(query, (afirst,))
@@ -132,25 +131,25 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersByALast(alast, self):
+    def getSuppliersByALast(self,alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sidinner join supplier on account.aid = supplier.sidinner join supplier on account.aid = supplier.sid where alast = %s;"
         cursor.execute(query, (alast,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersByEmail(email, self):
+    def getSuppliersByEmail(self,email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sidinner join supplier on account.aid = supplier.sid where email = %s;"
         cursor.execute(query, (email,))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersByPhone(phone, self):
+    def getSuppliersByPhone(self,phone):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid where phone = %s;"
         cursor.execute(query, (phone,))
@@ -159,1088 +158,1152 @@ class SupplierDAO:
             result.append(row)
         return result
 
-    def getSuppliersWithThisAddressID(addId, self):
+    def getSuppliersWithThisAddressID(self,addId):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s;"
         cursor.execute(query, (addId, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstAlastEmailPhone(addId, afirst, alast, email, phone, self):
+    def getSuppliersOnThisAddressIDByAfirstAlastEmailPhone(self,addId, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstAlastEmail(addId, afirst, alast, email, self):
+    def getSuppliersOnThisAddressIDByAfirstAlastEmail(self,addId, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (addId, afirst, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstAlastPhone(addId, afirst, alast, phone, self):
+    def getSuppliersOnThisAddressIDByAfirstAlastPhone(self,addId, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstPhoneEmail(addId, afirst, phone, email, self):
+    def getSuppliersOnThisAddressIDByAfirstPhoneEmail(self,addId, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (addId, afirst, phone, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAlastEmailPhone(addId, alast, email, phone, self):
+    def getSuppliersOnThisAddressIDByAlastEmailPhone(self,addId, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstAlast(addId, afirst, alast, self):
+    def getSuppliersOnThisAddressIDByAfirstAlast(self,addId, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (addId, afirst, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstEmail(addId, afirst, email, self):
+    def getSuppliersOnThisAddressIDByAfirstEmail(self,addId, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and afirst = %s and email = %s;"
         cursor.execute(query, (addId, afirst, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirstPhone(addId, afirst, phone, self):
+    def getSuppliersOnThisAddressIDByAfirstPhone(self,addId, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where addId = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAlastEmail(addId, alast, email, self):
+    def getSuppliersOnThisAddressIDByAlastEmail(self,addId, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and alast = %s and email = %s;"
         cursor.execute(query, (addId, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAlastPhone(addId, alast, phone, self):
+    def getSuppliersOnThisAddressIDByAlastPhone(self,addId, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and alast = %s and phone = %s;"
         cursor.execute(query, (addId, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByEmailPhone(addId, email, phone, self):
+    def getSuppliersOnThisAddressIDByEmailPhone(self,addId, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAfirst(addId, afirst, self):
+    def getSuppliersOnThisAddressIDByAfirst(self,addId, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and afirst = %s;"
         cursor.execute(query, (addId, afirst, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByAlast(addId, alast, self):
+    def getSuppliersOnThisAddressIDByAlast(self,addId, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and alast = %s;"
         cursor.execute(query, (addId, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByEmail(addId, email, self):
+    def getSuppliersOnThisAddressIDByEmail(self,addId, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where addId = %s and email = %s;"
         cursor.execute(query, (addId, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisAddressIDByPhone(addId, phone, self):
+    def getSuppliersOnThisAddressIDByPhone(self,addId, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where addId = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sidnatural inner join address where addId = %s and phone = %s;"
         cursor.execute(query, (addId, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOnThisCity(cname, self):
+    def getSuppliersOnThisCity(self,cname):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where cname = %s;"
         cursor.execute(query, (cname, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityAfirstAlastEmailPhone(cname, afirst, alast, email, phone, self):
+    def getSuppliersOnThisCityAfirstAlastEmailPhone(self,cname, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where cname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirstAlastEmail(cname, afirst, alast, email, self):
+    def getSuppliersOnThisCityByAfirstAlastEmail(self,cname, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address where cname = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirstAlastPhone(cname, afirst, alast, phone, self):
+    def getSuppliersOnThisCityByAfirstAlastPhone(self,cname, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirstPhoneEmail(cname, afirst, phone, email, self):
+    def getSuppliersOnThisCityByAfirstPhoneEmail(self,cname, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (cname, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAlastEmailPhone(cname, alast, email, phone, self):
+    def getSuppliersOnThisCityByAlastEmailPhone(self,cname, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirstAlast(cname, afirst, alast, self):
+    def getSuppliersOnThisCityByAfirstAlast(self,cname, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (cname, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirstEmail(cname, afirst, email, self):
+    def getSuppliersOnThisCityByAfirstEmail(self,cname, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and afirst = %s and email = %s;"
         cursor.execute(query, (cname, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirstPhone(cname, afirst, phone, self):
+    def getSuppliersOnThisCityByAfirstPhone(self,cname, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAlastEmail(cname, alast, email, self):
+    def getSuppliersOnThisCityByAlastEmail(self,cname, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAlastPhone(cname, alast, phone, self):
+    def getSuppliersOnThisCityByAlastPhone(self,cname, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByEmailPhone(cname, email, phone, self):
+    def getSuppliersOnThisCityByEmailPhone(self,cname, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAfirst(cname, afirst, self):
+    def getSuppliersOnThisCityByAfirst(self,cname, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone ninner join supplier on account.aid = supplier.sid atural inner join address  where cname = %s and afirst = %s;"
         cursor.execute(query, (cname, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByAlast(cname, alast, self):
+    def getSuppliersOnThisCityByAlast(self,cname, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and alast = %s;"
         cursor.execute(query, (cname, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByEmail(cname, email, self):
+    def getSuppliersOnThisCityByEmail(self,cname, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and email = %s;"
         cursor.execute(query, (cname, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisCityByPhone(cname, phone, self):
+    def getSuppliersOnThisCityByPhone(self,cname, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join supplier on account.aid = supplier.sid where cname = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and phone = %s;"
         cursor.execute(query, (cname, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegion(rname, self):
+    def getSuppliersOnThisRegion(self,rname):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s;"
         cursor.execute(query, (rname, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionAfirstAlastEmailPhone(rname, afirst, alast, email, phone, self):
+    def getSuppliersOnThisRegionAfirstAlastEmailPhone(self,rname, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirstAlastEmail(rname, afirst, alast, email, self):
+    def getSuppliersOnThisRegionByAfirstAlastEmail(self,rname, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (rname, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirstAlastPhone(rname, afirst, alast, phone, self):
+    def getSuppliersOnThisRegionByAfirstAlastPhone(self,rname, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rname, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirstPhoneEmail(rname, afirst, phone, email, self):
+    def getSuppliersOnThisRegionByAfirstPhoneEmail(self,rname, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (rname, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAlastEmailPhone(rname, alast, email, phone, self):
+    def getSuppliersOnThisRegionByAlastEmailPhone(self,rname, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirstAlast(rname, afirst, alast, self):
+    def getSuppliersOnThisRegionByAfirstAlast(self,rname, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (rname, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirstEmail(rname, afirst, email, self):
+    def getSuppliersOnThisRegionByAfirstEmail(self,rname, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and email = %s;"
         cursor.execute(query, (rname, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirstPhone(rname, afirst, phone, self):
+    def getSuppliersOnThisRegionByAfirstPhone(self,rname, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (rname, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAlastEmail(rname, alast, email, self):
+    def getSuppliersOnThisRegionByAlastEmail(self,rname, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and alast = %s and email = %s;"
         cursor.execute(query, (rname, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAlastPhone(rname, alast, phone, self):
+    def getSuppliersOnThisRegionByAlastPhone(self,rname, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rname, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByEmailPhone(rname, email, phone, self):
+    def getSuppliersOnThisRegionByEmailPhone(self,rname, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAfirst(rname, afirst, self):
+    def getSuppliersOnThisRegionByAfirst(self,rname, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and afirst = %s;"
         cursor.execute(query, (rname, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByAlast(rname, alast, self):
+    def getSuppliersOnThisRegionByAlast(self,rname, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and alast = %s;"
         cursor.execute(query, (rname, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByEmail(rname, email, self):
+    def getSuppliersOnThisRegionByEmail(self,rname, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and email = %s;"
         cursor.execute(query, (rname, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSuppliersOnThisRegionByPhone(rname, phone, self):
+    def getSuppliersOnThisRegionByPhone(self,rname, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where rname = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city  where rname = %s and phone = %s;"
         cursor.execute(query, (rname, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisBankAccount(bid, self):
+    def getSupplierOfThisBankAccount(self,bid):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s;"
         cursor.execute(query, (bid, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstAlastEmailPhone(bid, afirst, alast, email, phone, self):
+    def getSupplierOfThisBankAccountByAfirstAlastEmailPhone(self,bid, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (bid, afirst, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstAlastEmail(bid, afirst, alast, email, self):
+    def getSupplierOfThisBankAccountByAfirstAlastEmail(self,bid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (bid, afirst, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstAlastPhone(bid, afirst, alast, phone, self):
+    def getSupplierOfThisBankAccountByAfirstAlastPhone(self,bid, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (bid, afirst, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstPhoneEmail(bid, afirst, phone, email, self):
+    def getSupplierOfThisBankAccountByAfirstPhoneEmail(self,bid, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (bid, afirst, phone, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAlastEmailPhone(bid, alast, email, phone, self):
+    def getSupplierOfThisBankAccountByAlastEmailPhone(self,bid, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (bid, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstAlast(bid, afirst, alast, self):
+    def getSupplierOfThisBankAccountByAfirstAlast(self,bid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (bid, afirst, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstEmail(bid, afirst, email, self):
+    def getSupplierOfThisBankAccountByAfirstEmail(self,bid, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and email = %s;"
         cursor.execute(query, (bid, afirst, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirstPhone(bid, afirst, phone, self):
+    def getSupplierOfThisBankAccountByAfirstPhone(self,bid, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (bid, afirst, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAlastEmail(bid, alast, email, self):
+    def getSupplierOfThisBankAccountByAlastEmail(self,bid, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and alast = %s and email = %s;"
         cursor.execute(query, (bid, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAlastPhone(bid, alast, phone, self):
+    def getSupplierOfThisBankAccountByAlastPhone(self,bid, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and alast = %s and phone = %s;"
         cursor.execute(query, (bid, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByEmailPhone(bid, email, phone, self):
+    def getSupplierOfThisBankAccountByEmailPhone(self,bid, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and email = %s and phone = %s;"
         cursor.execute(query, (bid, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAfirst(bid, afirst, self):
+    def getSupplierOfThisBankAccountByAfirst(self,bid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s;"
         cursor.execute(query, (bid, afirst, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByAlast(bid, alast, self):
+    def getSupplierOfThisBankAccountByAlast(self,bid, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and alast = %s;"
         cursor.execute(query, (bid, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByEmail(bid, email, self):
+    def getSupplierOfThisBankAccountByEmail(self,bid, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account where bid = %s and email = %s;"
         cursor.execute(query, (bid, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierOfThisBankAccountByPhone(bid, phone, self):
+    def getSupplierOfThisBankAccountByPhone(self,bid, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join bank_account inner join supplier on account.aid = supplier.sid where bid = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and phone = %s;"
         cursor.execute(query, (bid, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSuppliersOfThisResource(rsid, self):
+    def getSuppliersOfThisResource(self,rsid):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource join supplier on account.aid = supplier.sid where rsid = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource where rsid = %s;"
         cursor.execute(query, (rsid, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstAlastEmailPhone(rsid, afirst, alast, email, phone, self):
+    def getSupplierOfThisResourceByAfirstAlastEmailPhone(self,rsid, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rsid, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstAlastEmail(rsid, afirst, alast, email, self):
+    def getSupplierOfThisResourceByAfirstAlastEmail(self,rsid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (rsid, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstAlastPhone(rsid, afirst, alast, phone, self):
+    def getSupplierOfThisResourceByAfirstAlastPhone(self,rsid, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rsid, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstPhoneEmail(rsid, afirst, phone, email, self):
+    def getSupplierOfThisResourceByAfirstPhoneEmail(self,rsid, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (rsid, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAlastEmailPhone(rsid, alast, email, phone, self):
+    def getSupplierOfThisResourceByAlastEmailPhone(self,rsid, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rsid, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstAlast(rsid, afirst, alast, self):
+    def getSupplierOfThisResourceByAfirstAlast(self,rsid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (rsid, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstEmail(rsid, afirst, email, self):
+    def getSupplierOfThisResourceByAfirstEmail(self,rsid, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and email = %s;"
         cursor.execute(query, (rsid, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirstPhone(rsid, afirst, phone, self):
+    def getSupplierOfThisResourceByAfirstPhone(self,rsid, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (rsid, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAlastEmail(rsid, alast, email, self):
+    def getSupplierOfThisResourceByAlastEmail(self,rsid, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and alast = %s and email = %s;"
         cursor.execute(query, (rsid, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAlastPhone(rsid, alast, phone, self):
+    def getSupplierOfThisResourceByAlastPhone(self,rsid, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rsid, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByEmailPhone(rsid, email, phone, self):
+    def getSupplierOfThisResourceByEmailPhone(self,rsid, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and email = %s and phone = %s;"
         cursor.execute(query, (rsid, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAfirst(rsid, afirst, self):
+    def getSupplierOfThisResourceByAfirst(self,rsid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s;"
         cursor.execute(query, (rsid, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByAlast(rsid, alast, self):
+    def getSupplierOfThisResourceByAlast(self,rsid, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and alast = %s;"
         cursor.execute(query, (rsid, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByEmail(rsid, email, self):
+    def getSupplierOfThisResourceByEmail(self,rsid, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and email = %s;"
         cursor.execute(query, (rsid, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisResourceByPhone(rsid, phone, self):
+    def getSupplierOfThisResourceByPhone(self,rsid, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where rsid = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and phone = %s;"
         cursor.execute(query, (rsid, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategory(cat_name, self):
+    def getSupplierOfThisCategory(self,cat_name):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource_requested inner join supplier on account.aid = supplier.sid where cat_name = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource_requested  where cat_name = %s;"
         cursor.execute(query, (cat_name, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstAlastEmailPhone(cat_name, afirst, alast, email, phone, self):
+    def getSupplierOfThisCategoryByAfirstAlastEmailPhone(self,cat_name, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource_requested inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource_requested  where cat_name = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cat_name, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstAlastEmail(cat_name, afirst, alast, email, self):
+    def getSupplierOfThisCategoryByAfirstAlastEmail(self,cat_name, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource_requested inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource_requested  where cat_name = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (cat_name, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstAlastPhone(cat_name, afirst, alast, phone, self):
+    def getSupplierOfThisCategoryByAfirstAlastPhone(self,cat_name, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cat_name, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstPhoneEmail(cat_name, afirst, phone, email, self):
+    def getSupplierOfThisCategoryByAfirstPhoneEmail(self,cat_name, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (cat_name, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAlastEmailPhone(cat_name, alast, email, phone, self):
+    def getSupplierOfThisCategoryByAlastEmailPhone(self,cat_name, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cat_name, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstAlast(cat_name, afirst, alast, self):
+    def getSupplierOfThisCategoryByAfirstAlast(self,cat_name, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (cat_name, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstEmail(cat_name, afirst, email, self):
+    def getSupplierOfThisCategoryByAfirstEmail(self,cat_name, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and email = %s;"
         cursor.execute(query, (cat_name, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirstPhone(cat_name, afirst, phone, self):
+    def getSupplierOfThisCategoryByAfirstPhone(self,cat_name, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (cat_name, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAlastEmail(cat_name, alast, email, self):
+    def getSupplierOfThisCategoryByAlastEmail(self,cat_name, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and alast = %s and email = %s;"
         cursor.execute(query, (cat_name, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAlastPhone(cat_name, alast, phone, self):
+    def getSupplierOfThisCategoryByAlastPhone(self,cat_name, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cat_name, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByEmailPhone(cat_name, email, phone, self):
+    def getSupplierOfThisCategoryByEmailPhone(self,cat_name, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and email = %s and phone = %s;"
         cursor.execute(query, (cat_name, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAfirst(cat_name, afirst, self):
+    def getSupplierOfThisCategoryByAfirst(self,cat_name, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s;"
         cursor.execute(query, (cat_name, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByAlast(cat_name, alast, self):
+    def getSupplierOfThisCategoryByAlast(self,cat_name, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and alast = %s;"
         cursor.execute(query, (cat_name, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByEmail(cat_name, email, self):
+    def getSupplierOfThisCategoryByEmail(self,cat_name, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and email = %s;"
         cursor.execute(query, (cat_name, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisCategoryByPhone(cat_name, phone, self):
+    def getSupplierOfThisCategoryByPhone(self,cat_name, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join resource inner join supplier on account.aid = supplier.sid where cat_name = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and phone = %s;"
         cursor.execute(query, (cat_name, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransaction(tid, self):
+    def getSupplierOfThisTransaction(self,tid):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s;"
         cursor.execute(query, (tid, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstAlastEmailPhone(tid, afirst, alast, email, phone, self):
+    def getSupplierOfThisTransactionByAfirstAlastEmailPhone(self,tid, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (tid, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstAlastEmail(tid, afirst, alast, email, self):
+    def getSupplierOfThisTransactionByAfirstAlastEmail(self,tid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (tid, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstAlastPhone(tid, afirst, alast, phone, self):
+    def getSupplierOfThisTransactionByAfirstAlastPhone(self,tid, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (tid, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstPhoneEmail(tid, afirst, phone, email, self):
+    def getSupplierOfThisTransactionByAfirstPhoneEmail(self,tid, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (tid, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAlastEmailPhone(tid, alast, email, phone, self):
+    def getSupplierOfThisTransactionByAlastEmailPhone(self,tid, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (tid, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstAlast(tid, afirst, alast, self):
+    def getSupplierOfThisTransactionByAfirstAlast(self,tid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (tid, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstEmail(tid, afirst, email, self):
+    def getSupplierOfThisTransactionByAfirstEmail(self,tid, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and email = %s;"
         cursor.execute(query, (tid, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirstPhone(tid, afirst, phone, self):
+    def getSupplierOfThisTransactionByAfirstPhone(self,tid, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (tid, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAlastEmail(tid, alast, email, self):
+    def getSupplierOfThisTransactionByAlastEmail(self,tid, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and alast = %s and email = %s;"
         cursor.execute(query, (tid, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAlastPhone(tid, alast, phone, self):
+    def getSupplierOfThisTransactionByAlastPhone(self,tid, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and alast = %s and phone = %s;"
         cursor.execute(query, (tid, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByEmailPhone(tid, email, phone, self):
+    def getSupplierOfThisTransactionByEmailPhone(self,tid, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and email = %s and phone = %s;"
         cursor.execute(query, (tid, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAfirst(tid, afirst, self):
+    def getSupplierOfThisTransactionByAfirst(self,tid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s;"
         cursor.execute(query, (tid, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByAlast(tid, alast, self):
+    def getSupplierOfThisTransactionByAlast(self,tid, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and alast = %s;"
         cursor.execute(query, (tid, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByEmail(tid, email, self):
+    def getSupplierOfThisTransactionByEmail(self,tid, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and email = %s;"
         cursor.execute(query, (tid, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisTransactionByPhone(tid, phone, self):
+    def getSupplierOfThisTransactionByPhone(self,tid, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where tid = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and phone = %s;"
         cursor.execute(query, (tid, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfo(oid, self):
+    def getSupplierOfThisOrderInfo(self,oid):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s;"
         cursor.execute(query, (oid, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstAlastEmailPhone(oid, afirst, alast, email, phone, self):
+    def getSupplierOfThisOrderInfoByAfirstAlastEmailPhone(self,oid, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (oid, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstAlastEmail(oid, afirst, alast, email, self):
+    def getSupplierOfThisOrderInfoByAfirstAlastEmail(self,oid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (oid, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstAlastPhone(oid, afirst, alast, phone, self):
+    def getSupplierOfThisOrderInfoByAfirstAlastPhone(self,oid, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (oid, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstPhoneEmail(oid, afirst, phone, email, self):
+    def getSupplierOfThisOrderInfoByAfirstPhoneEmail(self,oid, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (oid, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAlastEmailPhone(oid, alast, email, phone, self):
+    def getSupplierOfThisOrderInfoByAlastEmailPhone(self,oid, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (oid, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstAlast(oid, afirst, alast, self):
+    def getSupplierOfThisOrderInfoByAfirstAlast(self,oid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (oid, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstEmail(oid, afirst, email, self):
+    def getSupplierOfThisOrderInfoByAfirstEmail(self,oid, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and email = %s;"
         cursor.execute(query, (oid, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirstPhone(oid, afirst, phone, self):
+    def getSupplierOfThisOrderInfoByAfirstPhone(self,oid, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (oid, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAlastEmail(oid, alast, email, self):
+    def getSupplierOfThisOrderInfoByAlastEmail(self,oid, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and alast = %s and email = %s;"
         cursor.execute(query, (oid, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAlastPhone(oid, alast, phone, self):
+    def getSupplierOfThisOrderInfoByAlastPhone(self,oid, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and alast = %s and phone = %s;"
         cursor.execute(query, (oid, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByEmailPhone(oid, email, phone, self):
+    def getSupplierOfThisOrderInfoByEmailPhone(self,oid, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and email = %s and phone = %s;"
         cursor.execute(query, (oid, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAfirst(oid, afirst, self):
+    def getSupplierOfThisOrderInfoByAfirst(self,oid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and afirst = %s;"
         cursor.execute(query, (oid, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByAlast(oid, alast, self):
+    def getSupplierOfThisOrderInfoByAlast(self,oid, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and alast = %s;"
         cursor.execute(query, (oid, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByEmail(oid, email, self):
+    def getSupplierOfThisOrderInfoByEmail(self,oid, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and email = %s;"
         cursor.execute(query, (oid, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getSupplierOfThisOrderInfoByPhone(oid, phone, self):
+    def getSupplierOfThisOrderInfoByPhone(self,oid, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone natural inner join transaction inner join supplier on account.aid = supplier.sid where oid = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where oid = %s and phone = %s;"
         cursor.execute(query, (oid, phone, ))
         result = []
         for row in cursor:
@@ -1249,7 +1312,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCity(self, cname, rsid):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s;"
         cursor.execute(query, (cname, rsid, ))
         result = []
         for row in cursor:
@@ -1258,7 +1321,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstAlastEmailPhone(self, cname, rsid, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
@@ -1267,7 +1330,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstAlastEmail(self, cname, rsid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, rsid, afirst, alast, email, ))
         result = []
         for row in cursor:
@@ -1276,7 +1339,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstAlastPhone(self, cname, rsid, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, afirst, alast, phone, ))
         result = []
         for row in cursor:
@@ -1285,7 +1348,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstPhoneEmail(self, cname, rsid, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (cname, rsid, afirst, phone, email, ))
         result = []
         for row in cursor:
@@ -1294,7 +1357,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAlastEmailPhone(self, cname, rsid, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, alast, email, phone, ))
         result = []
         for row in cursor:
@@ -1303,7 +1366,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstAlast(self, cname, rsid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (cname, rsid, afirst, alast, ))
         result = []
         for row in cursor:
@@ -1312,7 +1375,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstEmail(self, cname, rsid, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and email = %s;"
         cursor.execute(query, (cname, rsid, afirst, email, ))
         result = []
         for row in cursor:
@@ -1321,7 +1384,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirstPhone(self, cname, rsid, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, afirst, phone, ))
         result = []
         for row in cursor:
@@ -1330,7 +1393,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAlastEmail(self, cname, rsid, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, rsid, alast, email, ))
         result = []
         for row in cursor:
@@ -1339,7 +1402,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAlastPhone(self, cname, rsid, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, alast, phone, ))
         result = []
         for row in cursor:
@@ -1348,7 +1411,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByEmailPhone(self, cname, rsid, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, email, phone, ))
         result = []
         for row in cursor:
@@ -1357,7 +1420,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAfirst(self, cname, rsid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and afirst = %s;"
         cursor.execute(query, (cname, rsid, afirst, ))
         result = []
         for row in cursor:
@@ -1366,7 +1429,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByAlast(self, cname, rsid, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and alast = %s;"
         cursor.execute(query, (cname, rsid, alast, ))
         result = []
         for row in cursor:
@@ -1375,7 +1438,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByEmail(self, cname, rsid, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and email = %s;"
         cursor.execute(query, (cname, rsid, email, ))
         result = []
         for row in cursor:
@@ -1384,7 +1447,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisCityByPhone(self, cname, rsid, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join resource inner join supplier on account.aid = supplier.sid where cname = %s and rsid = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join resource  where cname = %s and rsid = %s and phone = %s;"
         cursor.execute(query, (cname, rsid, phone, ))
         result = []
         for row in cursor:
@@ -1393,7 +1456,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegion(self, rname, rsid):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s;"
         cursor.execute(query, (rname, rsid, ))
         result = []
         for row in cursor:
@@ -1402,7 +1465,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstAlastEmailPhone(self, rname, rsid, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
@@ -1411,7 +1474,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstAlastEmail(self, rname, rsid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (rname, rsid, afirst, alast, email, ))
         result = []
         for row in cursor:
@@ -1420,7 +1483,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstAlastPhone(self, rname, rsid, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, afirst, alast, phone, ))
         result = []
         for row in cursor:
@@ -1429,7 +1492,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstPhoneEmail(self, rname, rsid, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (rname, rsid, afirst, phone, email, ))
         result = []
         for row in cursor:
@@ -1438,7 +1501,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAlastEmailPhone(self, rname, rsid, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, alast, email, phone, ))
         result = []
         for row in cursor:
@@ -1447,7 +1510,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstAlast(self, rname, rsid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (rname, rsid, afirst, alast, ))
         result = []
         for row in cursor:
@@ -1456,7 +1519,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstEmail(self, rname, rsid, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and email = %s;"
         cursor.execute(query, (rname, rsid, afirst, email, ))
         result = []
         for row in cursor:
@@ -1465,7 +1528,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirstPhone(self, rname, rsid, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, afirst, phone, ))
         result = []
         for row in cursor:
@@ -1474,7 +1537,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAlastEmail(self, rname, rsid, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and alast = %s and email = %s;"
         cursor.execute(query, (rname, rsid, alast, email, ))
         result = []
         for row in cursor:
@@ -1483,7 +1546,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAlastPhone(self, rname, rsid, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, alast, phone, ))
         result = []
         for row in cursor:
@@ -1492,7 +1555,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByEmailPhone(self, rname, rsid, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, email, phone, ))
         result = []
         for row in cursor:
@@ -1501,7 +1564,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAfirst(self, rname, rsid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and afirst = %s;"
         cursor.execute(query, (rname, rsid, afirst, ))
         result = []
         for row in cursor:
@@ -1510,7 +1573,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByAlast(self, rname, rsid, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and alast = %s;"
         cursor.execute(query, (rname, rsid, alast, ))
         result = []
         for row in cursor:
@@ -1519,7 +1582,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByEmail(self, rname, rsid, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and email = %s;"
         cursor.execute(query, (rname, rsid, email, ))
         result = []
         for row in cursor:
@@ -1528,7 +1591,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceOnThisRegionByPhone(self, rname, rsid, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone, from account natural inner join phone natural inner join address natural inner join city natural inner join resource inner join supplier on account.aid = supplier.sid where rname = %s and rsid = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city natural inner join resource  where rname = %s and rsid = %s and phone = %s;"
         cursor.execute(query, (rname, rsid, phone, ))
         result = []
         for row in cursor:

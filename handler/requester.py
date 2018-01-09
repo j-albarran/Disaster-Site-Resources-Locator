@@ -10,7 +10,7 @@ from dao.category import CategoryDAO
 from dao.transaction import TransactionDAO
 from dao.credit_card import CreditCardDAO
 from dao.payment import PaymentDAO
-from dao.order_info import OrderDAO
+from dao.order import OrderDAO
 
 class RequesterHandler:
 
@@ -51,7 +51,7 @@ class RequesterHandler:
         if not row:
             return jsonify(Error = "Requester Not Found"), 404
         else:
-            requester = self.build_address_dict(row)
+            requester = self.build_requester_dict(row)
             return jsonify(Requester = requester)
 
     def searchRequesters(self, args):
@@ -477,7 +477,7 @@ class RequesterHandler:
         dao = RequesterDAO()
         daoCat = CategoryDAO()
 
-        if not daoCat.getCategoryById(cat_name):
+        if not daoCat.getCategoryByName(cat_name):
             return jsonify(Error="Category Not Found"), 404
 
         requesters_list = dao.getRequestersOnThisCategory(cat_name)
@@ -493,7 +493,7 @@ class RequesterHandler:
         dao = RequesterDAO()
         daoCat = CategoryDAO()
 
-        if not daoCat.getResourceById(cat_name):
+        if not daoCat.getCategoryByName(cat_name):
             return jsonify(Error="Category Not Found"), 404
 
         afirst = args.get('afirst')

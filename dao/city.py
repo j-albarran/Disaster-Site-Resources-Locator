@@ -18,58 +18,74 @@ class CityDAO:
             result.append(row)
         return result
 
-    def getCityByName(cname, self):
+    def getCityByName(self, cname):
         cursor = self.conn.cursor()
         query = "select cname from city where cname = %s;"
         cursor.execute(query, (cname,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getCitiesByName(cname, self):
+    def getCitiesByName(self,cname):
         cursor = self.conn.cursor()
         query = "select cname from city where cname = %s;"
         cursor.execute(query, (cname,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getCitiesOnThisRegion(rname, self):
+    def getCitiesOnThisRegion(self,rname):
         cursor = self.conn.cursor()
         query = "select cname from city where rname = %s;"
         cursor.execute(query, (rname,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getCityOfThisAddress(addId, self):
+    def getCityOfThisAddress(self,addId):
         cursor = self.conn.cursor()
         query = "select cname from address where addId = %s;"
         cursor.execute(query, (addId,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountCity(aid, self):
+    def getAccountCity(self,aid):
         cursor = self.conn.cursor()
-        query = "select cname from account natural inner join address where aid = %s;"
+        query = "select cname from account natural inner join address natural inner join city where aid = %s;"
         cursor.execute(query, (aid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorCity(adminId, self):
+    def getAdministratorCity(self,adminId):
         cursor = self.conn.cursor()
-        query = "select cname from account natural inner join address inner join administrator on account.aid = administrator.adminId where administrator.adminId = %s;"
+        query = "select cname from account inner join administrator on account.aid = administrator.adminId natural inner join address where administrator.adminId = %s;"
         cursor.execute(query, (adminId,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierCity(sid, self):
+    def getSupplierCity(self,sid):
         cursor = self.conn.cursor()
-        query = "select cname from account natural inner join address inner join supplier on account.aid = supplier.sid where supplier.sid = %s;"
+        query = "select cname from account inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city where sid = %s;"
         cursor.execute(query, (sid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getRequesterCity(rid, self):
+    def getRequesterCity(self,rid):
         cursor = self.conn.cursor()
-        query = "select cname from account natural inner join address inner join requester on account.aid = requester.rid where requester.rid = %s;"
+        query = "select cname from account inner join requester on account.aid = requester.rid natural inner join address where requester.rid = %s;"
         cursor.execute(query, (rid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result

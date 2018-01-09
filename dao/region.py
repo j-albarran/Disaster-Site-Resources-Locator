@@ -17,58 +17,74 @@ class RegionDAO:
             result.append(row)
         return result
 
-    def getRegionByName(rname, self):
+    def getRegionByName(self, rname):
         cursor = self.conn.cursor()
         query = "select * from region where rname = %s;"
         cursor.execute(query, (rname,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getRegionsByName(rname, self):
+    def getRegionsByName(self, rname):
         cursor = self.conn.cursor()
         query = "select * from region where rname = %s;"
         cursor.execute(query, (rname,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getCityRegion(cname, self):
+    def getCityRegion(self, cname):
         cursor = self.conn.cursor()
         query = "select rname from city where cname = %s;"
         cursor.execute(query, (cname,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getRegionOfThisAddress(addId, self):
+    def getRegionOfThisAddress(self, addId):
         cursor = self.conn.cursor()
         query = "select rname from city natural inner join address where addId = %s;"
         cursor.execute(query, (addId,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAccountRegion(aid, self):
+    def getAccountRegion(self, aid):
         cursor = self.conn.cursor()
         query = "select rname from account natural inner join address natural inner join city where aid = %s;"
         cursor.execute(query, (aid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorRegion(adminId, self):
+    def getAdministratorRegion(self, adminId):
         cursor = self.conn.cursor()
-        query = "select rname from account natural inner join address natural inner join city inner join adminstrator on account.aid = administrator.adminId where administrator.adminId = %s;"
+        query = "select rname from account inner join adminstrator on account.aid = administrator.adminId natural inner join address natural inner join city where administrator.adminId = %s;"
         cursor.execute(query, (adminId,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getSupplierRegion(sid, self):
+    def getSupplierRegion(self, sid):
         cursor = self.conn.cursor()
-        query = "select cname from account natural inner join address natural inner join city inner join supplier on account.aid = supplier.sid where supplier.sid = %s;"
+        query = "select rname from account inner join supplier on account.aid = supplier.sid natural inner join address natural inner join city where supplier.sid = %s;"
         cursor.execute(query, (sid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getRequesterRegion(rid, self):
+    def getRequesterRegion(self, rid):
         cursor = self.conn.cursor()
-        query = "select cname from account natural inner join address natural inner join city inner join requester on account.aid = requester.rid where requester.rid = %s;"
+        query = "select rname from account inner join requester on account.aid = requester.rid natural inner join address natural inner join city where requester.rid = %s;"
         cursor.execute(query, (rid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result

@@ -1,7 +1,7 @@
 from flask import jsonify
 
 from dao.bank_account import BankAccountDAO
-from dao.supplier import SuppliersDAO
+from dao.supplier import SupplierDAO
 from dao.transaction import TransactionDAO
 
 class BankAccountHandler:
@@ -10,7 +10,7 @@ class BankAccountHandler:
 #                                 Builders                                    #
 # =========================================================================== #
 
-    def build_bank_account_dic(self, row):
+    def build_bank_account_dict(self, row):
         result = {}
         result['bid'] = row[0]
         result['routing'] = row[1]
@@ -27,9 +27,12 @@ class BankAccountHandler:
 # ================ #
 
     def getAllBankAccounts(self):
+
         dao = BankAccountDAO()
-        bank_account_list = dao.getAllCredentials()
+        bank_account_list = dao.getAllBankAccounts()
+
         result_list = []
+
         for bank_account in bank_account_list:
             result = self.build_bank_account_dict(bank_account)
             result_list.append(result)
@@ -72,7 +75,7 @@ class BankAccountHandler:
         results_list = []
         for row in bank_accounts_list:
             result = self.build_bank_account_dict(row)
-            results_list.append(row)
+            results_list.append(result)
         return jsonify(Bank_Account = results_list)
 
 # ================ #
@@ -82,7 +85,7 @@ class BankAccountHandler:
     def getBankAccountOfThisSupplier(self, sid):
 
         dao = BankAccountDAO()
-        daoSup = SuppliersDAO()
+        daoSup = SupplierDAO()
 
         if not daoSup.getSupplierById(sid):
             return jsonify(Error = 'Supplier Not Found'), 404
@@ -98,7 +101,7 @@ class BankAccountHandler:
     def searchBankAccountOfThisSupplier(self, sid, args):
 
         dao = BankAccountDAO()
-        daoSup = SuppliersDAO()
+        daoSup = SupplierDAO()
 
         if not daoSup.getSupplierById(sid):
             return jsonify(Error = 'Supplier Not Found'), 404
@@ -128,7 +131,7 @@ class BankAccountHandler:
         results_list = []
         for row in bank_accounts_list:
             result = self.build_bank_account_dict(row)
-            results_list.append(row)
+            results_list.append(result)
         return jsonify(Bank_Account = results_list)
 
     # ================ #
@@ -150,12 +153,12 @@ class BankAccountHandler:
             result_list.append(result)
         return jsonify(Bank_Account = result_list)
 
-    def seatchBankAccountOfThisTransaction(tid, args):
+    def seatchBankAccountOfThisTransaction(self, tid, args):
 
         dao = BankAccountDAO()
         daoTran = TransactionDAO()
 
-        if not daoTran.getSupplierById(tid):
+        if not daoTran.getTransactionById(tid):
             return jsonify(Error = 'Transaction Not Found'), 404
 
         routing = args.get('routing')
@@ -181,7 +184,8 @@ class BankAccountHandler:
         else:
             return jsonify(Error = "Malformed query string"), 400
         result_list = []
+
         for row in bank_accounts_list:
             result = self.build_bank_account_dict(row)
-            result_list.append(row)
+            result_list.append(result)
         return jsonify(Bank_Account = result_list)

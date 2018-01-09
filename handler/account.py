@@ -3,7 +3,7 @@ from flask import jsonify
 from dao.account import AccountDAO
 from dao.address import AddressDAO
 from dao.city import CityDAO
-from dao.region import RegionsDAO
+from dao.region import RegionDAO
 from dao.credentials import CredentialDAO
 
 class AccountHandler:
@@ -247,7 +247,7 @@ class AccountHandler:
 
     def getAccountsOnThisRegion(self, rname):
 
-        daoReg = RegionsDAO()
+        daoReg = RegionDAO()
         dao = AccountDAO()
 
         if not daoReg.getRegionByName(rname):
@@ -263,7 +263,7 @@ class AccountHandler:
 
     def searchAccountsOnThisRegion(self, rname, args):
 
-        daoReg = RegionsDAO()
+        daoReg = RegionDAO()
         dao = AccountDAO()
 
         if not daoReg.getRegionByName(rname):
@@ -314,75 +314,75 @@ class AccountHandler:
             result_list.append(result)
         return jsonify(Accounts = result_list)
 
-# ================ #
-#   Credentials    #
-# ================ #
+    # ================ #
+    #   Credentials    #
+    # ================ #
 
-def getAccountWithThisUsername(self, username):
+    def getAccountWithThisUsername(self, username):
 
-    daoCred = CredentialDAO()
-    dao = AccountDAO()
+        daoCred = CredentialDAO()
+        dao = AccountDAO()
 
-    if not daoCred.getCredentialsByUsername(username):
-        return jsonify(Error = 'Credentials Not Found'), 404
+        if not daoCred.getCredentialsByUsername(username):
+            return jsonify(Error = 'Credentials Not Found'), 404
 
-    accounts_list = dao.getAccountWithThisUsername(username)
+        accounts_list = dao.getAccountWithThisUsername(username)
 
-    result_list = []
-    for row in accounts_list:
-        result = self.build_account_dict(row)
-        result_list.append(result)
-    return jsonify(Accounts = result_list)
+        result_list = []
+        for row in accounts_list:
+            result = self.build_account_dict(row)
+            result_list.append(result)
+        return jsonify(Accounts = result_list)
 
-def searchAccountWithThisUsername(self, username, args):
+    def searchAccountWithThisUsername(self, username, args):
 
-    daoCred = CredentialDAO()
-    dao = AccountDAO()
+        daoCred = CredentialDAO()
+        dao = AccountDAO()
 
-    if not daoCred.getCredentialsByUsername(username):
-        return jsonify(Error = 'Credentials Not Found'), 404
+        if not daoCred.getCredentialsByUsername(username):
+            return jsonify(Error = 'Credentials Not Found'), 404
 
-    afirst = args.get('afirst')
-    alast = args.get('alast')
-    email = args.get('email')
-    phone = args.get('phone')
+        afirst = args.get('afirst')
+        alast = args.get('alast')
+        email = args.get('email')
+        phone = args.get('phone')
 
-    accounts_list = []
+        accounts_list = []
 
-    if(len(args) == 4) and afirst and alast and email and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstAlastEmailPhone(username, afirst, alast, email, phone)
-    elif(len(args) == 3) and afirst and alast and email:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstAlastEmail(username, afirst, alast, email)
-    elif(len(args) == 3) and afirst and alast and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstAlastPhone(username, afirst, alast, phone)
-    elif(len(args) == 3) and afirst and phone and email:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstPhoneEmail(username, afirst, phone, email)
-    elif(len(args) == 3) and alast and email and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByAlastEmailPhone(username, alast, email, phone)
-    elif(len(args) == 2) and afirst and alast:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstAlast(username, afirst, alast)
-    elif(len(args) == 2) and afirst and email:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstEmail(username, afirst, email)
-    elif(len(args) == 2) and afirst and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirstPhone(username, afirst, phone)
-    elif(len(args) == 2) and alast and email:
-        accounts_list = dao.getAccountsWithThisUsernameByAlastEmail(username, alast, email)
-    elif(len(args) == 2) and alast and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByAlastPhone(username, alast, phone)
-    elif(len(args) == 2) and email and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByEmailPhone(username, email, phone)
-    elif(len(args) == 1) and afirst:
-        accounts_list = dao.getAccountsWithThisUsernameByAfirst(username, afirst)
-    elif(len(args) == 1) and alast:
-        accounts_list = dao.getAccountsWithThisUsernameByAlast(username, alast)
-    elif(len(args) == 1) and email:
-        accounts_list = dao.getAccountsWithThisUsernameByEmail(username, email)
-    elif(len(args) == 1) and phone:
-        accounts_list = dao.getAccountsWithThisUsernameByPhone(username, phone)
-    else:
-        return jsonify(Error = "Malformed query string"), 400
-    result_list = []
-    for row in accounts_list:
-        result = self.build_account_dict(row)
-        result_list.append(result)
-    return jsonify(Accounts = result_list)
+        if(len(args) == 4) and afirst and alast and email and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstAlastEmailPhone(username, afirst, alast, email, phone)
+        elif(len(args) == 3) and afirst and alast and email:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstAlastEmail(username, afirst, alast, email)
+        elif(len(args) == 3) and afirst and alast and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstAlastPhone(username, afirst, alast, phone)
+        elif(len(args) == 3) and afirst and phone and email:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstPhoneEmail(username, afirst, phone, email)
+        elif(len(args) == 3) and alast and email and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByAlastEmailPhone(username, alast, email, phone)
+        elif(len(args) == 2) and afirst and alast:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstAlast(username, afirst, alast)
+        elif(len(args) == 2) and afirst and email:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstEmail(username, afirst, email)
+        elif(len(args) == 2) and afirst and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirstPhone(username, afirst, phone)
+        elif(len(args) == 2) and alast and email:
+            accounts_list = dao.getAccountsWithThisUsernameByAlastEmail(username, alast, email)
+        elif(len(args) == 2) and alast and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByAlastPhone(username, alast, phone)
+        elif(len(args) == 2) and email and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByEmailPhone(username, email, phone)
+        elif(len(args) == 1) and afirst:
+            accounts_list = dao.getAccountsWithThisUsernameByAfirst(username, afirst)
+        elif(len(args) == 1) and alast:
+            accounts_list = dao.getAccountsWithThisUsernameByAlast(username, alast)
+        elif(len(args) == 1) and email:
+            accounts_list = dao.getAccountsWithThisUsernameByEmail(username, email)
+        elif(len(args) == 1) and phone:
+            accounts_list = dao.getAccountsWithThisUsernameByPhone(username, phone)
+        else:
+            return jsonify(Error = "Malformed query string"), 400
+        result_list = []
+        for row in accounts_list:
+            result = self.build_account_dict(row)
+            result_list.append(result)
+        return jsonify(Accounts = result_list)

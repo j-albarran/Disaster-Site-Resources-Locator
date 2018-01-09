@@ -9,7 +9,7 @@ class BankAccountDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
-    def getAllCredentials(self):
+    def getAllBankAccounts(self):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account;"
         cursor.execute(query)
@@ -18,14 +18,14 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountById(bid, self):
+    def getBankAccountById(self,bid):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where bid = %s;"
         cursor.execute(query, (bid,))
         result = cursor.fetchone()
         return result
 
-    def getBankAccountByRoutingAccountNumberBankName(routing, accountNumber, BankName, self):
+    def getBankAccountByRoutingAccountNumberBankName(self,routing, accountNumber, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where routing = %s and accountNumber = %s and BankName = %s;"
         cursor.execute(query, (routing, accountNumber, BankName, ))
@@ -34,7 +34,7 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountByRoutingAccountNumber(routing, accountNumber, self):
+    def getBankAccountByRoutingAccountNumber(self,routing, accountNumber):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where routing = %s and accountNumber = %s;"
         cursor.execute(query, (routing, accountNumber, ))
@@ -43,7 +43,7 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountByRoutingBankName(routing, BankName, self):
+    def getBankAccountByRoutingBankName(self,routing, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where routing = %s and BankName = %s;"
         cursor.execute(query, (routing, BankName, ))
@@ -52,7 +52,7 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountByAccountNumberBankName(accountNumber, BankName, self):
+    def getBankAccountByAccountNumberBankName(self,accountNumber, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where accountNumber = %s and BankName = %s;"
         cursor.execute(query, (accountNumber, BankName, ))
@@ -61,7 +61,7 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountByRouting(routing, self):
+    def getBankAccountByRouting(self,routing):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where routing = %s;"
         cursor.execute(query, (routing, ))
@@ -70,7 +70,7 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountByAccountNumber(accountNumber, self):
+    def getBankAccountByAccountNumber(self,accountNumber):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where accountNumber = %s;"
         cursor.execute(query, (accountNumber, ))
@@ -79,7 +79,7 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountByBankNamet(BankName, self):
+    def getBankAccountByBankNamet(self,BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account where BankName = %s;"
         cursor.execute(query, (BankName, ))
@@ -88,114 +88,146 @@ class BankAccountDAO:
             result.append(row)
         return result
 
-    def getBankAccountOfThisTransaction(tid, self):
+    def getBankAccountOfThisTransaction(self,tid):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s;"
         cursor.execute(query, (tid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByRoutingAccountNumberBankName(tid, routing, accountNumber, BankName, self):
+    def getBankAccountOfThisTransactionByRoutingAccountNumberBankName(self,tid, routing, accountNumber, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and routing = %s and accountNumber = %s and BankName = %s;"
         cursor.execute(query, (tid, routing, accountNumber, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByRoutingAccountNumber(tid, routing, accountNumber, self):
+    def getBankAccountOfThisTransactionByRoutingAccountNumber(self,tid, routing, accountNumber):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and routing = %s and accountNumber = %s;"
         cursor.execute(query, (tid, routing, accountNumber, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByRoutingBankName(tid, routing, BankName, self):
+    def getBankAccountOfThisTransactionByRoutingBankName(self,tid, routing, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and routing = %s and BankName = %s;"
         cursor.execute(query, (tid, routing, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByAccountNumberBankName(tid, accountNumber, BankName, self):
+    def getBankAccountOfThisTransactionByAccountNumberBankName(self,tid, accountNumber, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and accountNumber = %s and BankName = %s;"
         cursor.execute(query, (tid, accountNumber, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByRouting(tid, routing, self):
+    def getBankAccountOfThisTransactionByRouting(self,tid, routing):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and routing = %s;"
         cursor.execute(query, (tid, routing, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByAccountNumber(tid, accountNumber, self):
+    def getBankAccountOfThisTransactionByAccountNumber(self,tid, accountNumber):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and accountNumber = %s;"
         cursor.execute(query, (tid, accountNumber, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisTransactionByBankName(tid, BankName, self):
+    def getBankAccountOfThisTransactionByBankName(self,tid, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where tid = %s and BankName = %s;"
         cursor.execute(query, (tid, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplier(sid, self):
+    def getBankAccountOfThisSupplier(self,sid):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s;"
         cursor.execute(query, (sid,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByRoutingAccountNumberBankName(sid, routing, accountNumber, BankName, self):
+    def getBankAccountOfThisSupplierByRoutingAccountNumberBankName(self,sid, routing, accountNumber, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and routing = %s and accountNumber = %s and BankName = %s;"
         cursor.execute(query, (sid, routing, accountNumber, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByRoutingAccountNumber(sid, routing, accountNumber, self):
+    def getBankAccountOfThisSupplierByRoutingAccountNumber(self,sid, routing, accountNumber):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and routing = %s and accountNumber = %s;"
         cursor.execute(query, (sid, routing, accountNumber, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByRoutingBankName(sid, routing, BankName, self):
+    def getBankAccountOfThisSupplierByRoutingBankName(self,sid, routing, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and routing = %s and BankName = %s;"
         cursor.execute(query, (sid, routing, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByAccountNumberBankName(sid, accountNumber, BankName, self):
+    def getBankAccountOfThisSupplierByAccountNumberBankName(self,sid, accountNumber, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and accountNumber = %s and BankName = %s;"
         cursor.execute(query, (sid, accountNumber, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByRouting(sid, routing, self):
+    def getBankAccountOfThisSupplierByRouting(self,sid, routing):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and routing = %s;"
         cursor.execute(query, (sid, routing, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByAccountNumber(sid, accountNumber, self):
+    def getBankAccountOfThisSupplierByAccountNumber(self,sid, accountNumber):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and accountNumber = %s;"
         cursor.execute(query, (sid, accountNumber, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getBankAccountOfThisSupplierByBankName(sid, BankName, self):
+    def getBankAccountOfThisSupplierByBankName(self,sid, BankName):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account natural inner join transaction where sid = %s and BankName = %s;"
         cursor.execute(query, (sid, BankName, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result

@@ -18,14 +18,16 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorById(adminId, self):
+    def getAdministratorById(self,adminId):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where administrator.adminId = %s;"
         cursor.execute(query, (adminId,))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsByAFirstALastEmailPhone(afirst, alast, email, phone, self):
+    def getAdministratorsByAFirstALastEmailPhone(self,afirst, alast, email, phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (afirst, alast, email, phone,))
@@ -34,7 +36,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirstALastEmail(afirst, alast, email, self):
+    def getAdministratorsByAFirstALastEmail(self,afirst, alast, email):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (afirst, alast, email,))
@@ -43,7 +45,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirstALastPhone(afirst, alast, phone, self):
+    def getAdministratorsByAFirstALastPhone(self,afirst, alast, phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (afirst, alast, phone,))
@@ -52,7 +54,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirstPhoneEmail(afirst, phone, email, self):
+    def getAdministratorsByAFirstPhoneEmail(self,afirst, phone, email):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (afirst, phone, email,))
@@ -61,7 +63,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByALastEmailPhone(alast, email, phone, self):
+    def getAdministratorsByALastEmailPhone(self,alast, email, phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (alast, email, phone,))
@@ -70,7 +72,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirstALast(afirst, alast, self):
+    def getAdministratorsByAFirstALast(self,afirst, alast):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and alast = %s;"
         cursor.execute(query, (afirst, alast,))
@@ -79,7 +81,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirstEmail(afirst, email, self):
+    def getAdministratorsByAFirstEmail(self,afirst, email):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and email = %s;"
         cursor.execute(query, (afirst, email,))
@@ -88,7 +90,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirstPhone(afirst, phone, self):
+    def getAdministratorsByAFirstPhone(self,afirst, phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s and phone = %s;"
         cursor.execute(query, (afirst, phone,))
@@ -97,7 +99,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByALastEmail(alast, email, self):
+    def getAdministratorsByALastEmail(self,alast, email):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where alast = %s and email = %s;"
         cursor.execute(query, (alast, email,))
@@ -106,7 +108,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByALastPhone(alast, phone, self):
+    def getAdministratorsByALastPhone(self,alast, phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where alast = %s and phone = %s;"
         cursor.execute(query, (alast, phone,))
@@ -115,7 +117,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByEmailPhone(email, phone, self):
+    def getAdministratorsByEmailPhone(self,email, phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where email = %s and phone = %s;"
         cursor.execute(query, (email, phone,))
@@ -124,7 +126,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByAFirst(afirst, self):
+    def getAdministratorsByAFirst(self,afirst):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where afirst = %s;"
         cursor.execute(query, (afirst,))
@@ -133,7 +135,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByALast(alast, self):
+    def getAdministratorsByALast(self,alast):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where alast = %s;"
         cursor.execute(query, (alast,))
@@ -142,7 +144,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByEmail(email, self):
+    def getAdministratorsByEmail(self,email):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where email = %s;"
         cursor.execute(query, (email,))
@@ -151,7 +153,7 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsByPhone(phone, self):
+    def getAdministratorsByPhone(self,phone):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId where phone = %s;"
         cursor.execute(query, (phone,))
@@ -160,400 +162,432 @@ class AdministratorDAO:
             result.append(row)
         return result
 
-    def getAdministratorsWithThisAddressID(addId, self):
+    def getAdministratorsWithThisAddressID(self,addId):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s;"
         cursor.execute(query, (addId, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstAlastEmailPhone(addId, afirst, alast, email, phone, self):
+    def getAdministratorsOnThisAddressIDByAfirstAlastEmailPhone(self,addId, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstAlastEmail(addId, afirst, alast, email, self):
+    def getAdministratorsOnThisAddressIDByAfirstAlastEmail(self,addId, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (addId, afirst, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstAlastPhone(addId, afirst, alast, phone, self):
+    def getAdministratorsOnThisAddressIDByAfirstAlastPhone(self,addId, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstPhoneEmail(addId, afirst, phone, email, self):
+    def getAdministratorsOnThisAddressIDByAfirstPhoneEmail(self,addId, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (addId, afirst, phone, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAlastEmailPhone(addId, alast, email, phone, self):
+    def getAdministratorsOnThisAddressIDByAlastEmailPhone(self,addId, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and alast = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, alast, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstAlast(addId, afirst, alast, self):
+    def getAdministratorsOnThisAddressIDByAfirstAlast(self,addId, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and alast = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (addId, afirst, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstEmail(addId, afirst, email, self):
+    def getAdministratorsOnThisAddressIDByAfirstEmail(self,addId, afirst, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and email = %s;"
         cursor.execute(query, (addId, afirst, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirstPhone(addId, afirst, phone, self):
+    def getAdministratorsOnThisAddressIDByAfirstPhone(self,addId, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (addId, afirst, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAlastEmail(addId, alast, email, self):
+    def getAdministratorsOnThisAddressIDByAlastEmail(self,addId, alast, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and alast = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and alast = %s and email = %s;"
         cursor.execute(query, (addId, alast, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAlastPhone(addId, alast, phone, self):
+    def getAdministratorsOnThisAddressIDByAlastPhone(self,addId, alast, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and alast = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and alast = %s and phone = %s;"
         cursor.execute(query, (addId, alast, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByEmailPhone(addId, email, phone, self):
+    def getAdministratorsOnThisAddressIDByEmailPhone(self,addId, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and email = %s and phone = %s;"
         cursor.execute(query, (addId, email, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAfirst(addId, afirst, self):
+    def getAdministratorsOnThisAddressIDByAfirst(self,addId, afirst):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and afirst = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and afirst = %s;"
         cursor.execute(query, (addId, afirst, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByAlast(addId, alast, self):
+    def getAdministratorsOnThisAddressIDByAlast(self,addId, alast):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and alast = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and alast = %s;"
         cursor.execute(query, (addId, alast, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByEmail(addId, email, self):
+    def getAdministratorsOnThisAddressIDByEmail(self,addId, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and email = %s;"
         cursor.execute(query, (addId, email, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisAddressIDByPhone(addId, phone, self):
+    def getAdministratorsOnThisAddressIDByPhone(self,addId, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where addId = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where addId = %s and phone = %s;"
         cursor.execute(query, (addId, phone, ))
-        result = cursor.fetchone()
+        result = []
+        for row in cursor:
+            result.append(row)
         return result
 
-    def getAdministratorsOnThisCity(cname, self):
+    def getAdministratorsOnThisCity(self,cname):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s;"
         cursor.execute(query, (cname, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityAfirstAlastEmailPhone(cname, afirst, alast, email, phone, self):
+    def getAdministratorsOnThisCityAfirstAlastEmailPhone(self,cname, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirstAlastEmail(cname, afirst, alast, email, self):
+    def getAdministratorsOnThisCityByAfirstAlastEmail(self,cname, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirstAlastPhone(cname, afirst, alast, phone, self):
+    def getAdministratorsOnThisCityByAfirstAlastPhone(self,cname, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirstPhoneEmail(cname, afirst, phone, email, self):
+    def getAdministratorsOnThisCityByAfirstPhoneEmail(self,cname, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (cname, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAlastEmailPhone(cname, alast, email, phone, self):
+    def getAdministratorsOnThisCityByAlastEmailPhone(self,cname, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and alast = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirstAlast(cname, afirst, alast, self):
+    def getAdministratorsOnThisCityByAfirstAlast(self,cname, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and alast = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (cname, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirstEmail(cname, afirst, email, self):
+    def getAdministratorsOnThisCityByAfirstEmail(self,cname, afirst, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and email = %s;"
         cursor.execute(query, (cname, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirstPhone(cname, afirst, phone, self):
+    def getAdministratorsOnThisCityByAfirstPhone(self,cname, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (cname, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAlastEmail(cname, alast, email, self):
+    def getAdministratorsOnThisCityByAlastEmail(self,cname, alast, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and alast = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAlastPhone(cname, alast, phone, self):
+    def getAdministratorsOnThisCityByAlastPhone(self,cname, alast, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and alast = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cname, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByEmailPhone(cname, email, phone, self):
+    def getAdministratorsOnThisCityByEmailPhone(self,cname, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and email = %s and phone = %s;"
         cursor.execute(query, (cname, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAfirst(cname, afirst, self):
+    def getAdministratorsOnThisCityByAfirst(self,cname, afirst):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and afirst = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and afirst = %s;"
         cursor.execute(query, (cname, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByAlast(cname, alast, self):
+    def getAdministratorsOnThisCityByAlast(self,cname, alast):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and alast = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and alast = %s;"
         cursor.execute(query, (cname, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByEmail(cname, email, self):
+    def getAdministratorsOnThisCityByEmail(self,cname, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and email = %s;"
         cursor.execute(query, (cname, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisCityByPhone(cname, phone, self):
+    def getAdministratorsOnThisCityByPhone(self,cname, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address inner join administrator on account.aid = administrator.adminId where cname = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address  where cname = %s and phone = %s;"
         cursor.execute(query, (cname, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegion(rname, self):
+    def getAdministratorsOnThisRegion(self,rname):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s;"
         cursor.execute(query, (rname, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionAfirstAlastEmailPhone(rname, afirst, alast, email, phone, self):
+    def getAdministratorsOnThisRegionAfirstAlastEmailPhone(self,rname, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirstAlastEmail(rname, afirst, alast, email, self):
+    def getAdministratorsOnThisRegionByAfirstAlastEmail(self,rname, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (rname, afirst, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirstAlastPhone(rname, afirst, alast, phone, self):
+    def getAdministratorsOnThisRegionByAfirstAlastPhone(self,rname, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rname, afirst, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirstPhoneEmail(rname, afirst, phone, email, self):
+    def getAdministratorsOnThisRegionByAfirstPhoneEmail(self,rname, afirst, phone, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and phone = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and phone = %s and email = %s;"
         cursor.execute(query, (rname, afirst, phone, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAlastEmailPhone(rname, alast, email, phone, self):
+    def getAdministratorsOnThisRegionByAlastEmailPhone(self,rname, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and alast = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, alast, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirstAlast(rname, afirst, alast, self):
+    def getAdministratorsOnThisRegionByAfirstAlast(self,rname, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and alast = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (rname, afirst, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirstEmail(rname, afirst, email, self):
+    def getAdministratorsOnThisRegionByAfirstEmail(self,rname, afirst, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and email = %s;"
         cursor.execute(query, (rname, afirst, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirstPhone(rname, afirst, phone, self):
+    def getAdministratorsOnThisRegionByAfirstPhone(self,rname, afirst, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s and phone = %s;"
         cursor.execute(query, (rname, afirst, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAlastEmail(rname, alast, email, self):
+    def getAdministratorsOnThisRegionByAlastEmail(self,rname, alast, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and alast = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and alast = %s and email = %s;"
         cursor.execute(query, (rname, alast, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAlastPhone(rname, alast, phone, self):
+    def getAdministratorsOnThisRegionByAlastPhone(self,rname, alast, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and alast = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and alast = %s and phone = %s;"
         cursor.execute(query, (rname, alast, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByEmailPhone(rname, email, phone, self):
+    def getAdministratorsOnThisRegionByEmailPhone(self,rname, email, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and email = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and email = %s and phone = %s;"
         cursor.execute(query, (rname, email, phone, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAfirst(rname, afirst, self):
+    def getAdministratorsOnThisRegionByAfirst(self,rname, afirst):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and afirst = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and afirst = %s;"
         cursor.execute(query, (rname, afirst, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByAlast(rname, alast, self):
+    def getAdministratorsOnThisRegionByAlast(self,rname, alast):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and alast = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and alast = %s;"
         cursor.execute(query, (rname, alast, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByEmail(rname, email, self):
+    def getAdministratorsOnThisRegionByEmail(self,rname, email):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and email = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and email = %s;"
         cursor.execute(query, (rname, email, ))
         result = []
         for row in cursor:
             result.append(row)
         return result
 
-    def getAdministratorsOnThisRegionByPhone(rname, phone, self):
+    def getAdministratorsOnThisRegionByPhone(self,rname, phone):
         cursor = self.conn.cursor()
-        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone natural inner join address natural inner join city inner join administrator on account.aid = administrator.adminId where rname = %s and phone = %s;"
+        query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId natural inner join address natural inner join city  where rname = %s and phone = %s;"
         cursor.execute(query, (rname, phone, ))
         result = []
         for row in cursor:
