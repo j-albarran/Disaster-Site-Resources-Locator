@@ -12,16 +12,16 @@ class ResourceRequestedHandler:
         result = {}
         result['rrid'] = row[0]
         result['rrqty'] = row[1]
-        result['rrdescription'] = row[2]
+        result['rrname'] = row[2]
         result['rr_request_date'] = row[3]
         result['rr_changed_date'] = row[4]
         return result
 
-    def build_resource_requested_attributes(self, rrid, rrqty, rrdescription, rr_request_date, rr_changed_date):
+    def build_resource_requested_attributes(self, rrid, rrqty, rrname, rr_request_date, rr_changed_date):
         result = {}
         result['rrid'] = rrid
         result['rrqty'] = rrqty
-        result['rrdescription'] = rrdescription
+        result['rrname'] = rrname
         result['rr_request_date'] = rr_request_date
         result['rr_changed_date'] = rr_changed_date
         return result
@@ -80,13 +80,13 @@ class ResourceRequestedHandler:
             return jsonify(Error = "Malformed Post Request"), 400
         else:
             rrqty = form['rrqty']
-            rrdescription = form['rrdescription']
+            rrname = form['rrname']
             rr_request_date = form['rr_request_date']
             rr_changed_date = form['rr_changed_date']
-            if rrqty and rrdescription and rr_request_date and rr_changed_date:
+            if rrqty and rrname and rr_request_date and rr_changed_date:
                 dao = ResourceRequestedDAO()
-                rrid = dao.insert(rrqty, rrdescription, rr_request_date, rr_changed_date)
-                result = self.build_resource_requested_attributes(rrid, rrqty, rrdescription, rr_request_date, rr_changed_date)
+                rrid = dao.insert(rrqty, rrname, rr_request_date, rr_changed_date)
+                result = self.build_resource_requested_attributes(rrid, rrqty, rrname, rr_request_date, rr_changed_date)
                 return jsonify(Resource_Requested = result), 201
             else:
                 return jsonify(Error = "Unexpected attributes in post request"), 400
@@ -100,13 +100,13 @@ class ResourceRequestedHandler:
                 return jsonify(Error = "Malformed Update Request"), 400
             else:
                 rrqty = form['rrqty']
-                rrdescription = form['rrdescription']
+                rrname = form['rrname']
                 rr_request_date = form['rr_request_date']
                 rr_changed_date = form['rr_changed_date']
-                if rrqty and rrdescription and rr_request_date and rr_changed_date:
+                if rrqty and rrname and rr_request_date and rr_changed_date:
                     dao = ResourceRequestedDAO()
-                    dao.update(rrid, rrqty, rrdescription, rr_request_date, rr_changed_date)
-                    result = self.build_resource_requested_attributes(rrid, rrqty, rrdescription, rr_request_date, rr_changed_date)
+                    dao.update(rrid, rrqty, rrname, rr_request_date, rr_changed_date)
+                    result = self.build_resource_requested_attributes(rrid, rrqty, rrname, rr_request_date, rr_changed_date)
                     return jsonify(Resource_Requested = result), 201
                 else:
                     return jsonify(Error = "Unexpected attributes in post request"), 400
