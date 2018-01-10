@@ -220,3 +220,146 @@ class OrderDAO:
             result.append(row)
         return result
 
+    def getAllOrdersBySupplier(self, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where sid = %s;"
+        cursor.execute(query, (sid, ))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierDatePriceStatus(self,odate,oprice,ostatus, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where odate = %s and oprice = %s and ostatus = %s and sid = %s;"
+        cursor.execute(query, ( odate, oprice, ostatus, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierDatePrice(self,odate,oprice, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where odate = %s and oprice = %s and sid = %s;"
+        cursor.execute(query, ( odate, oprice, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierDateStatus(self,odate,ostatus, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where odate = %s and ostatus = %s and sid = %s;"
+        cursor.execute(query, ( odate, ostatus, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierPriceStatus(self,oprice,ostatus, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where oprice = %s and ostatus = %s and sid = %s"
+        cursor.execute(query, ( oprice, ostatus, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierDate(self,odate, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where odate = %s and sid = %s;"
+        cursor.execute(query, ( odate, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierPrice(self,oprice, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where oprice = %s and sid = %s;"
+        cursor.execute(query, ( oprice, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersBySupplierStatus(self,ostatus, sid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction natural inner join supplier where ostatus = %s and sid = %s;"
+        cursor.execute(query, ( ostatus, sid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransaction(self, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where tid = %s;"
+        cursor.execute(query, (tid, ))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionDatePriceStatus(self,odate,oprice,ostatus, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where odate = %s and oprice = %s and ostatus = %s and tid = %s;"
+        cursor.execute(query, ( odate, oprice, ostatus, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionDatePrice(self,odate,oprice, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where odate = %s and oprice = %s and tid = %s;"
+        cursor.execute(query, ( odate, oprice, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionDateStatus(self,odate,ostatus, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where odate = %s and ostatus = %s and tid = %s;"
+        cursor.execute(query, ( odate, ostatus, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionPriceStatus(self,oprice,ostatus, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where oprice = %s and ostatus = %s and tid = %s"
+        cursor.execute(query, ( oprice, ostatus, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionDate(self,odate, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where odate = %s and tid = %s;"
+        cursor.execute(query, ( odate, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionPrice(self,oprice, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where oprice = %s and tid = %s;"
+        cursor.execute(query, ( oprice, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
+    def getAllOrdersByTransactionStatus(self,ostatus, tid):
+        cursor = self.conn.cursor()
+        query = "Select distinct oid, odate, oprice, ostatus from Order_Info natural inner join transaction where ostatus = %s and tid = %s;"
+        cursor.execute(query, ( ostatus, tid))
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result

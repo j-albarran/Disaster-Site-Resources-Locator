@@ -140,7 +140,88 @@ class OrdersHandler:
         else:
             return jsonify(Orders=result_list)
 
+    def getOrdersBySupplier(self, sid):
+        dao = OrderDAO()
+        orders_list = dao.getAllOrdersBySupplier(sid) #Select oid, odate, oprice, ostatus from Order_Info where rid = %s
+        result_list = []
+        for row in orders_list:
+            result = self.build_orders_dict(row)
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Order Not Found"), 404
+        else:
+            return jsonify(Orders=result_list)
 
+    def searchOrdersBySupplier(self, sid, args):
+        date = args.get("odate")
+        price = args.get("oprice")
+        status = args.get("ostatus")
+        dao = OrderDAO()
+        orders_list = []
+        if (len(args) == 3) and date and price and status:
+            orders_list = dao.getAllOrdersBySupplierDatePriceStatus(date, price, status, sid)
+        elif (len(args) == 2) and date and price:
+            orders_list = dao.getAllOrdersBySupplierDatePrice(date, price, sid)
+        elif (len(args) == 2) and date and status:
+            orders_list = dao.getAllOrdersBySupplierDateStatus(date, status, sid)
+        elif (len(args) == 2) and price and status:
+            orders_list = dao.getAllOrdersBySupplierPriceStatus(price, status, sid)
+        elif (len(args) == 1) and date:
+            orders_list = dao.getAllOrdersBySupplierDate(date, sid)
+        elif (len(args) == 1) and price:
+            orders_list = dao.getAllOrdersBySupplierPrice(price, sid)
+        elif (len(args) == 1) and status:
+            orders_list = dao.getAllOrdersBySupplierStatus(status, sid)
+        else:
+            return jsonify(Orders="Bad Request"), 400
+        result_list = []
+        for row in orders_list:
+            result = self.build_orders_dict(row)
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Order Not Found"), 404
+        else:
+            return jsonify(Orders=result_list)
 
+    def getOrdersByTransaction(self, tid):
+        dao = OrderDAO()
+        orders_list = dao.getAllOrdersByTransaction(tid) #Select oid, odate, oprice, ostatus from Order_Info where rid = %s
+        result_list = []
+        for row in orders_list:
+            result = self.build_orders_dict(row)
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Order Not Found"), 404
+        else:
+            return jsonify(Orders=result_list)
 
-
+    def searchOrdersByTransaction(self, tid, args):
+        date = args.get("odate")
+        price = args.get("oprice")
+        status = args.get("ostatus")
+        dao = OrderDAO()
+        orders_list = []
+        if (len(args) == 3) and date and price and status:
+            orders_list = dao.getAllOrdersByTransactionDatePriceStatus(date, price, status, tid)
+        elif (len(args) == 2) and date and price:
+            orders_list = dao.getAllOrdersByTransactionDatePrice(date, price, tid)
+        elif (len(args) == 2) and date and status:
+            orders_list = dao.getAllOrdersByTransactionDateStatus(date, status, tid)
+        elif (len(args) == 2) and price and status:
+            orders_list = dao.getAllOrdersByTransactionPriceStatus(price, status, tid)
+        elif (len(args) == 1) and date:
+            orders_list = dao.getAllOrdersByTransactionDate(date, tid)
+        elif (len(args) == 1) and price:
+            orders_list = dao.getAllOrdersByTransactionPrice(price, tid)
+        elif (len(args) == 1) and status:
+            orders_list = dao.getAllOrdersByTransactionStatus(status, tid)
+        else:
+            return jsonify(Orders="Bad Request"), 400
+        result_list = []
+        for row in orders_list:
+            result = self.build_orders_dict(row)
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Order Not Found"), 404
+        else:
+            return jsonify(Orders=result_list)

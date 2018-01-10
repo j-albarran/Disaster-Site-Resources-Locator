@@ -1730,5 +1730,19 @@ def getOrdersByRequester(rid):
     else:
         return OrdersHandler().searchOrdersByRequester(rid, request.args)
 
+@app.route('/ResourceApp/suppliers/<int:sid>/orders')
+def getOrdersBySupplier(sid):
+    if not request.args:
+        return OrdersHandler().getOrdersBySupplier(sid)
+    else:
+        return OrdersHandler().searchOrdersBySupplier(sid, request.args)
+
+@app.route('/ResourceApp/transactions/<int:tid>/orders')
+def getOrdersByTransaction(tid):
+    if not request.args:
+        return OrdersHandler().getOrdersByTransaction(tid)
+    else:
+        return OrdersHandler().searchOrdersByTransaction(tid, request.args)
+
 if __name__ == '__main__':
     app.run()
