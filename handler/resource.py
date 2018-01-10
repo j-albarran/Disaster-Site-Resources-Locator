@@ -134,6 +134,34 @@ class ResourceHandler:
             result = self.build_resource_dict(resource)
             return jsonify(Resource = result)
 
+    def getAvailabilityOfResourcesById(self, rsid):
+        dao = ResourceDAO()
+        resource = dao.getResourceById(rsid)
+        if not resource:
+            return jsonify(Error = "Resource Not Found"), 404
+        else:
+            resource = dao.getAvailabilityOfResourcesById(rsid)
+            result = {}
+            result['rsid'] = resource[0]
+            result['rsname'] = resource[1]
+            result['available'] = resource[2]
+            return jsonify(Resource = result)
+
+    def getAvailabilityOfResources(self):
+        dao = ResourceDAO()
+        resource_list = dao.getAvailabilityOfResources()
+        result_list = []
+        for resource in resource_list:
+            result = {}
+            result['rsid'] = resource[0]
+            result['rsname'] = resource[1]
+            result['available'] = resource[2]
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error = "Resources Not Found"), 404
+        else:
+            return jsonify(Resources = result_list)
+
     def insertResource(self, form):
         if len(form) != 6:
             return jsonify(Error = "Malformed Post Request"), 400

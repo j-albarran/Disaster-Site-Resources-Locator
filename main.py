@@ -337,6 +337,14 @@ def handleResourceById(rsid):
     else:
         return jsonify(Error = "Method not allowed."), 405
 
+@app.route('/ResourceApp/resources/<int:rsid>/availability')
+def getAvailabilityOfResourcesById(rsid):
+    return ResourceHandler().getAvailabilityOfResourcesById(rsid)
+
+@app.route('/ResourceApp/resources/availability')
+def getAvailabilityOfResources():
+    return ResourceHandler().getAvailabilityOfResources()
+
 @app.route('/ResourceApp/cities/<string:cname>/resources') # By rname, rprice, rqty, rdescription, r_supply_date, r_changed_date
 def getResourcesByCityName(cname):
     if not request.args:

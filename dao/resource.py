@@ -300,6 +300,22 @@ class ResourceDAO:
         result = cursor.fetchone()
         return result
 
+    def getAvailabilityOfResourcesById(self, rsid):
+        cursor = self.conn.cursor()
+        query = "Select rsid, rsname, rqty as available from Resource where rsid = %s;"
+        cursor.execute(query, (rsid,))
+        result = cursor.fetchone()
+        return result
+
+    def getAvailabilityOfResources(self):
+        cursor = self.conn.cursor()
+        query = "Select rsid, rsname, rqty as available from Resource;"
+        cursor.execute(query)
+        result = []
+        for row in cursor:
+            result.append(row)
+        return result
+
     def insert(self, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
         query = "insert into Resource(rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date) values (%s, %s, %s, %s, %s, %s) returning rsid;"
