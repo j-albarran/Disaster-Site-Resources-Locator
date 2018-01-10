@@ -385,7 +385,7 @@ class SupplierDAO:
 
     def getSuppliersOnThisCityByAlastEmail(self,cname, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and alast = %s and email = %s;"
         cursor.execute(query, (cname, alast, email, ))
         result = []
         for row in cursor:
@@ -439,7 +439,7 @@ class SupplierDAO:
 
     def getSuppliersOnThisCityByPhone(self,cname, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join address  where cname = %s and phone = %s;"
         cursor.execute(query, (cname, phone, ))
         result = []
         for row in cursor:
@@ -610,7 +610,7 @@ class SupplierDAO:
 
     def getSupplierOfThisBankAccountByAfirstAlastEmail(self,bid, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join bank_account  where bid = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (bid, afirst, alast, email, ))
         result = []
         for row in cursor:
@@ -844,7 +844,7 @@ class SupplierDAO:
 
     def getSupplierOfThisResourceByAfirst(self,rsid, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where rsid = %s and afirst = %s;"
         cursor.execute(query, (rsid, afirst, ))
         result = []
         for row in cursor:
@@ -880,7 +880,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategory(self,cat_name):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource_requested  where cat_name = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s;"
         cursor.execute(query, (cat_name, ))
         result = []
         for row in cursor:
@@ -889,7 +889,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByAfirstAlastEmailPhone(self,cat_name, afirst, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource_requested  where cat_name = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cat_name, afirst, alast, email, phone, ))
         result = []
         for row in cursor:
@@ -898,7 +898,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByAfirstAlastEmail(self,cat_name, afirst, alast, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource_requested  where cat_name = %s and afirst = %s and alast = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and alast = %s and email = %s;"
         cursor.execute(query, (cat_name, afirst, alast, email, ))
         result = []
         for row in cursor:
@@ -907,7 +907,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByAfirstAlastPhone(self,cat_name, afirst, alast, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and alast = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and alast = %s and phone = %s;"
         cursor.execute(query, (cat_name, afirst, alast, phone, ))
         result = []
         for row in cursor:
@@ -925,7 +925,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByAlastEmailPhone(self,cat_name, alast, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and alast = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and alast = %s and email = %s and phone = %s;"
         cursor.execute(query, (cat_name, alast, email, phone, ))
         result = []
         for row in cursor:
@@ -943,7 +943,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByAfirstEmail(self,cat_name, afirst, email):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and email = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s and email = %s;"
         cursor.execute(query, (cat_name, afirst, email, ))
         result = []
         for row in cursor:
@@ -979,7 +979,7 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByEmailPhone(self,cat_name, email, phone):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and email = %s and phone = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and email = %s and phone = %s;"
         cursor.execute(query, (cat_name, email, phone, ))
         result = []
         for row in cursor:
@@ -988,7 +988,8 @@ class SupplierDAO:
 
     def getSupplierOfThisCategoryByAfirst(self,cat_name, afirst):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join resource  where cat_name = %s and afirst = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid " \
+                " natural inner join resource  where cat_name = %s and afirst = %s;"
         cursor.execute(query, (cat_name, afirst, ))
         result = []
         for row in cursor:
@@ -1078,7 +1079,7 @@ class SupplierDAO:
 
     def getSupplierOfThisTransactionByAfirstAlast(self,tid, afirst, alast):
         cursor = self.conn.cursor()
-        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and alast = %s;"
+        query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid natural inner join transaction  where tid = %s and afirst = %s and alast = %s;"
         cursor.execute(query, (tid, afirst, alast, ))
         result = []
         for row in cursor:
