@@ -316,17 +316,17 @@ class ResourceDAO:
             result.append(row)
         return result
 
-    def insert(self, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date):
+    def insert(self, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, sid, cat_name):
         cursor = self.conn.cursor()
-        query = "insert into Resource(rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date) values (%s, %s, %s, %s, %s, %s) returning rsid;"
-        cursor.execute(query, (rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date,))
+        query = "insert into Resource(rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, sid, cat_name) values (%s, %s, %s, %s, %s, %s, %s, %s) returning rsid;"
+        cursor.execute(query, (rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, sid, cat_name,))
         rsid = cursor.fetchone()[0]
         self.conn.commit()
         return rsid
 
     def update(self, rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date):
         cursor = self.conn.cursor()
-        query = "update Resource set rsname = %s rdescription = %s r_changed_date = %s rqty = %s where rsid = %s;"
+        query = "update Resource set rsname = %s, rdescription = %s, r_changed_date = %s, rqty = %s, rprice = %s, r_supply_date = %s where rsid = %s;"
         cursor.execute(query, (rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, rsid,))
         self.conn.commit()
         return rsid
