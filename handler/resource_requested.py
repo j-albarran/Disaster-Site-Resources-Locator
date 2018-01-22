@@ -26,6 +26,17 @@ class ResourceRequestedHandler:
         result['rr_changed_date'] = rr_changed_date
         return result
 
+    def build_resource_requested_attributes_insert(self, rrid, rrqty, rrname, rr_request_date, rr_changed_date, rid, cat_name):
+        result = {}
+        result['rrid'] = rrid
+        result['rrqty'] = rrqty
+        result['rrname'] = rrname
+        result['rr_request_date'] = rr_request_date
+        result['rr_changed_date'] = rr_changed_date
+        result['rid'] = rid
+        result['cat_name'] = cat_name
+        return result
+
     def getAllResourcesRequested(self):
         dao = ResourceRequestedDAO()
         resource_requested_list = dao.getAllResourcesRequested()
@@ -76,17 +87,19 @@ class ResourceRequestedHandler:
             return jsonify(Resource_Requested = result)
 
     def insertResourceRequested(self, form):
-        if len(form) != 4:
+        if len(form) != 6:
             return jsonify(Error = "Malformed Post Request"), 400
         else:
             rrqty = form['rrqty']
             rrname = form['rrname']
             rr_request_date = form['rr_request_date']
             rr_changed_date = form['rr_changed_date']
-            if rrqty and rrname and rr_request_date and rr_changed_date:
+            rid = form['rid']
+            cat_name = form['cat_name']
+            if rrqty and rrname and rr_request_date and rr_changed_date and rid and cat_name:
                 dao = ResourceRequestedDAO()
-                rrid = dao.insert(rrqty, rrname, rr_request_date, rr_changed_date)
-                result = self.build_resource_requested_attributes(rrid, rrqty, rrname, rr_request_date, rr_changed_date)
+                rrid = dao.insert(rrqty, rrname, rr_request_date, rr_changed_date, rid, cat_name)
+                result = self.build_resource_requested_attributes_insert(rrid, rrqty, rrname, rr_request_date, rr_changed_date, rid, cat_name)
                 return jsonify(Resource_Requested = result), 201
             else:
                 return jsonify(Error = "Unexpected attributes in post request"), 400

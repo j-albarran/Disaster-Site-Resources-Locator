@@ -32,6 +32,19 @@ class ResourceHandler:
         result['r_supply_date'] = r_supply_date
         return result
 
+    def build_resource_attributes_insert(self, rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, sid, cat_name):
+        result = {}
+        result['rsid'] = rsid
+        result['rsname'] = rsname
+        result['rdescription'] = rdescription
+        result['r_changed_date'] = r_changed_date
+        result['rqty'] = rqty
+        result['rprice'] = rprice
+        result['r_supply_date'] = r_supply_date
+        result['sid'] = sid
+        result['cat_name'] = cat_name
+        return result
+
     def getAllResources(self):
         dao = ResourceDAO()
         resource_list = dao.getAllResources()
@@ -163,7 +176,7 @@ class ResourceHandler:
             return jsonify(Resources = result_list)
 
     def insertResource(self, form):
-        if len(form) != 6:
+        if len(form) != 8:
             return jsonify(Error = "Malformed Post Request"), 400
         else:
             rsname = form['rsname']
@@ -172,10 +185,12 @@ class ResourceHandler:
             rqty = form['rqty']
             rprice = form['rprice']
             r_supply_date = form['r_supply_date']
-            if rsname and rdescription and r_changed_date and rqty and rprice and r_supply_date:
+            sid = form['sid']
+            cat_name = form['cat_name']
+            if rsname and rdescription and r_changed_date and rqty and rprice and r_supply_date and sid and cat_name:
                 dao = ResourceDAO()
-                rsid = dao.insert(rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date)
-                result = self.build_resource_attributes(rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date)
+                rsid = dao.insert(rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, sid, cat_name)
+                result = self.build_resource_attributes_insert(rsid, rsname, rdescription, r_changed_date, rqty, rprice, r_supply_date, sid, cat_name)
                 return jsonify(Resource = result), 201
             else:
                 return jsonify(Error = "Unexpected attributes in post request"), 400

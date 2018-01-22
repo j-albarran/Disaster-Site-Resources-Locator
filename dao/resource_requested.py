@@ -84,17 +84,17 @@ class ResourceRequestedDAO:
         result = cursor.fetchone()
         return result
 
-    def insert(self, rrqty, rrname, rr_request_date, rr_changed_date):
+    def insert(self, rrqty, rrname, rr_request_date, rr_changed_date, rid, cat_name):
         cursor = self.conn.cursor()
-        query = "insert into Resource_Requested(rrqty, rrname, rr_request_date, rr_changed_date) values (%s, %s, %s, %s) returning rrid;"
-        cursor.execute(query, (rrqty, rrname, rr_request_date, rr_changed_date,))
+        query = "insert into Resource_Requested(rrqty, rrname, rr_request_date, rr_changed_date, rid, cat_name) values (%s, %s, %s, %s, %s, %s) returning rrid;"
+        cursor.execute(query, (rrqty, rrname, rr_request_date, rr_changed_date, rid, cat_name,))
         rrid = cursor.fetchone()[0]
         self.conn.commit()
         return rrid
 
     def update(self, rrid, rrqty, rrname, rr_request_date, rr_changed_date):
         cursor = self.conn.cursor()
-        query = "update Resource_Requested set rrqty = %s rrname = %s rr_request_date = %s rr_changed_date = %s where rrid = %s;"
+        query = "update Resource_Requested set rrqty = %s, rrname = %s, rr_request_date = %s, rr_changed_date = %s where rrid = %s;"
         cursor.execute(query, (rrqty, rrname, rr_request_date, rr_changed_date, rrid,))
         self.conn.commit()
         return rrid

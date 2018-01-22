@@ -999,6 +999,17 @@ def handleCategories():
         else:
             return CategoryHandler().searchCategories(request.args)
 
+@app.route('/ResourceApp/categories/<string:cat_name>', methods = ['GET', 'PUT', 'DELETE'])
+def handleCategoryByName(cat_name):
+    if request.method == 'GET':
+        return CategoryHandler().getCategoryByName(cat_name)
+    elif request.method == 'PUT':
+        return CategoryHandler().updateCategory(cat_name, request.form)
+    elif request.method == 'DELETE':
+        return CategoryHandler().deleteCategory(cat_name)
+    else:
+        return jsonify(Error = "Method not allowed."), 405
+
 @app.route('/ResourceApp/cities/<string:cname>/categories')
 def getCategoriesByCityName(cname):
     if not request.args:
