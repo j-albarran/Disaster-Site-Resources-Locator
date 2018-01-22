@@ -11,6 +11,23 @@ class OrdersHandler:
         result['ostatus'] = row[3]
         return result
 
+    def build_order_attributes(self,oid, odate, oprice, ostatus, payid):
+        result = {}
+        result['oid'] = oid
+        result['odate'] = odate
+        result['oprice'] = oprice
+        result['ostatus'] = ostatus
+        result['payid'] = payid
+        return result
+
+    def build_orderUpdate_attributes(self,oid, odate, oprice, ostatus):
+        result = {}
+        result['oid'] = oid
+        result['odate'] = odate
+        result['oprice'] = oprice
+        result['ostatus'] = ostatus
+        return result
+
     def getAllOrders(self):
         dao = OrderDAO()
         orders_list = dao.getAllOrders() #Select oid, odate, oprice, ostatus from Order_Info
@@ -96,6 +113,51 @@ class OrdersHandler:
             return jsonify(Error="Order Not Found"), 404
         else:
             return jsonify(Orders=result_list)
+
+
+    def insertOrder(self, form):
+        if len(form) != 4:
+            print(len(form))
+            print(form)
+            return jsonify(Error="Malformed post request"), 400
+        else:
+            odate = form['odate']
+            oprice = form['oprice']
+            ostatus = form['ostatus']
+            payid = form['payid']
+            if odate and oprice and ostatus and payid:
+                dao = OrderDAO()
+                oid = dao.insertOrder(odate, oprice, ostatus, payid)
+                result = self.build_order_attributes(oid, odate, oprice, ostatus, payid)
+                return jsonify(Order=result), 201
+            else:
+                return jsonify(Error="Unexpected attributes in post request"), 400
+
+    def deleteOrder(self, oid):
+        dao = OrderDAO()
+        if not dao.getOrderById(oid):
+            return jsonify(Error="Order not found."), 404
+        else:
+            dao.deleteOrder(oid)
+            return jsonify(DeleteStatus="OK"), 200
+
+    def updateOrder(self, oid, form):
+        dao = OrderDAO()
+        if not dao.getOrderById(oid):
+            return jsonify(Error="Order not found."), 404
+        else:
+            if len(form) != 3:
+                return jsonify(Error="Malformed update request"), 400
+            else:
+                odate = form['odate']
+                oprice = form['oprice']
+                ostatus = form['ostatus']
+                if odate and oprice and ostatus:
+                    dao.updateOrder(oid, odate, oprice, ostatus)
+                    result = self.build_orderUpdate_attributes(oid, odate, oprice, ostatus)
+                    return jsonify(Order=result), 200
+                else:
+                    return jsonify(Error="Unexpected attributes in update request"), 400
 
     def getOrdersByRequester(self, rid):
         dao = OrderDAO()

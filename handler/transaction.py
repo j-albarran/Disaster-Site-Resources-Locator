@@ -13,6 +13,30 @@ class TransactionsHandler:
         result['tstatus'] = row[4]
         return result
 
+    def build_transaction_attributes(self, tid, tprice, tqty, tdate, sid, bid, rsid, rid, oid, tstatus):
+        result = {}
+        result['tid'] = tid
+        result['tprice'] = tprice
+        result['tqty'] = tqty
+        result['tdate'] = tdate
+        result['sid'] = sid
+        result['bid'] = bid
+        result['rsid'] = rsid
+        result['rid'] = rid
+        result['oid'] = oid
+        result['tstatus'] = tstatus
+        return result
+
+    def build_transactionUpdate_attributes(self, tid, tprice, tqty, tdate, tstatus):
+        result = {}
+        result['tid'] = tid
+        result['tprice'] = tprice
+        result['tqty'] = tqty
+        result['tdate'] = tdate
+        result['tstatus'] = tstatus
+        return result
+
+
     def getTransaction(self, tid):
         dao = TransactionDAO()
         transactions_list = dao.getTransactionById(tid)
@@ -85,6 +109,55 @@ class TransactionsHandler:
             return jsonify(Error="Transaction Not Found"), 404
         else:
             return jsonify(Transactions=result_list)
+
+    def insertTransaction(self, form):
+        if len(form) != 9:
+            return jsonify(Error="Malformed post request"), 400
+        else:
+            tprice = form['tprice']
+            tqty = form['tqty']
+            tdate = form['tdate']
+            sid = form['sid']
+            bid = form['bid']
+            rsid = form['rsid']
+            rid = form['rid']
+            oid = form['oid']
+            tstatus = form['tstatus']
+            if tprice and tqty and tdate and sid and bid and rsid and rid and oid and tstatus:
+                dao = TransactionDAO()
+                tid = dao.insertTransaction(tprice, tqty, tdate, sid, bid, rsid, rid, oid, tstatus)
+                result = self.build_transaction_attributes(tid, tprice, tqty, tdate, sid, bid, rsid, rid, oid, tstatus)
+                return jsonify(Transaction=result), 201
+            else:
+                return jsonify(Error="Unexpected attributes in post request"), 400
+
+    def deleteTransaction(self, tid):
+        dao = TransactionDAO()
+        if not dao.getTransactionById(tid):
+            return jsonify(Error="Transaction not found."), 404
+        else:
+            dao.deleteTransaction(tid)
+            return jsonify(DeleteStatus="OK"), 200
+
+    def updateTransaction(self, tid, form):
+        dao = TransactionDAO()
+        if not dao.getTransactionById(tid):
+            return jsonify(Error="Transaction not found."), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error="Malformed update request"), 400
+            else:
+                tprice = form['tprice']
+                tqty = form['tqty']
+                tdate = form['tdate']
+                tstatus = form['tstatus']
+                if tprice and tqty and tdate and tstatus:
+                    dao.updateTransaction(tid, tprice, tqty, tdate, tstatus)
+                    result = self.build_transactionUpdate_attributes(tid, tprice, tqty, tdate, tstatus)
+                    return jsonify(Transaction=result), 200
+                else:
+                    return jsonify(Error="Unexpected attributes in update request"), 400
+
 
     def getTransactionsByRegion(self, rname):
         dao = TransactionDAO()

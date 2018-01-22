@@ -184,3 +184,32 @@ class CreditCardDAO:
             result.append(row)
         return result
 
+    def insertCreditCard(self, card_number, security_code, ccname, exp_date, rid, addid):
+        cursor = self.conn.cursor()
+        query = "insert into payment(rid) values (%s) returning payid;"
+        cursor.execute(query, (rid,))
+        payid = cursor.fetchone()[0]
+        query = "insert into credit_card(cid, card_number, security_code, ccname, exp_date, rid, addid) values (%s, %s, %s, %s, %s, %s, %s) returning cid;"
+        cursor.execute(query, (payid, card_number, security_code, ccname, exp_date, rid, addid))
+        cid = cursor.fetchone()[0]
+        self.conn.commit()
+        return cid
+
+    def deleteCreditCard(self, cid):
+        cursor = self.conn.cursor()
+        query = "delete from credit_card where cid = %s;"
+        cursor.execute(query, (cid, ))
+        query = "delete from payment where payid = %s"
+        cursor.execute(query, (cid,))
+        self.conn.commit()
+        return
+
+    def updateCreditCard(self, cid, card_number, security_code, ccname, exp_date):
+        cursor = self.conn.cursor()
+        query = "update credit_card set card_number = %s, security_code = %s, ccname = %s, exp_date = %s where cid = %s;"
+        cursor.execute(query, (card_number, security_code, ccname, exp_date, cid))
+        self.conn.commit()
+        return
+
+
+

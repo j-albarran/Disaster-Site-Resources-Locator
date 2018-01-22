@@ -363,3 +363,28 @@ class OrderDAO:
         for row in cursor:
             result.append(row)
         return result
+
+    def insertOrder(self, odate, oprice, ostatus, payid):
+        cursor = self.conn.cursor()
+        query = "insert into Order_Info (odate, oprice, ostatus, payid) values (%s, %s, %s, %s) returning oid;"
+        cursor.execute(query, (odate, oprice, ostatus, payid))
+        oid = cursor.fetchone()[0]
+        self.conn.commit()
+        return oid
+
+    def deleteOrder(self, oid):
+        cursor = self.conn.cursor()
+        query = "delete from Order_Info where oid = %s;"
+        cursor.execute(query, (oid,))
+        self.conn.commit()
+        return
+
+    def updateOrder(self, oid, odate, oprice, ostatus):
+        cursor = self.conn.cursor()
+        query = "update Order_Info set odate = %s, oprice = %s, ostatus = %s where oid = %s;"
+        cursor.execute(query, (odate, oprice, ostatus, oid))
+        self.conn.commit()
+        return
+
+
+

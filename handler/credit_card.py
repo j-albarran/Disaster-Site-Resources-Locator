@@ -12,6 +12,26 @@ class CreditCardsHandler:
         result['exp_date'] = row[4]
         return result
 
+    def build_creditcards_attributes(self, cid, card_number, security_code, ccname, exp_date, rid, addid):
+        result = {}
+        result['cid'] = cid
+        result['card_number'] = card_number
+        result['security_code'] = security_code
+        result['ccname'] = ccname
+        result['exp_date'] = exp_date
+        result['rid'] = rid
+        result['addid'] = addid
+        return result
+
+    def build_creditcardsUpdate_attributes(self, cid, card_number, security_code, ccname, exp_date):
+        result = {}
+        result['cid'] = cid
+        result['card_number'] = card_number
+        result['security_code'] = security_code
+        result['ccname'] = ccname
+        result['exp_date'] = exp_date
+        return result
+
     def getAllCreditCards(self):
         dao = CreditCardDAO()
         creditcards_list = dao.getAllCreditCards() #Select cid, card_number, security_code, cname, exp_date from Credit_Card
@@ -79,6 +99,52 @@ class CreditCardsHandler:
             return jsonify(Error="Credit Card Not Found"), 404
         else:
             return jsonify(Transactions=result_list)
+
+    def insertCreditCard(self, form):
+        if len(form) != 6:
+            return jsonify(Error="Malformed post request"), 400
+        else:
+            card_number = form['card_number']
+            security_code = form['security_code']
+            ccname = form['ccname']
+            exp_date = form['exp_date']
+            rid = form['rid']
+            addid = form['addid']
+            if card_number and security_code and ccname and exp_date and rid and addid:
+                dao = CreditCardDAO()
+                cid = dao.insertCreditCard(card_number, security_code, ccname, exp_date, rid, addid)
+                result = self.build_creditcards_attributes(cid, card_number, security_code, ccname, exp_date, rid, addid)
+                return jsonify(Credit_Card=result), 201
+            else:
+                return jsonify(Error="Unexpected attributes in post request"), 400
+
+    def deleteCreditCard(self, cid):
+        dao = CreditCardDAO()
+        if not dao.getCreditCardById(cid):
+            return jsonify(Error="Credit_Card not found."), 404
+        else:
+            dao.deleteCreditCard(cid)
+            return jsonify(DeleteStatus="OK"), 200
+
+
+    def updateCreditCard(self, cid, form):
+        dao = CreditCardDAO()
+        if not dao.getCreditCardById(cid):
+            return jsonify(Error="Credit Card not found."), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error="Malformed update request"), 400
+            else:
+                card_number = form['card_number']
+                security_code = form['security_code']
+                ccname = form['ccname']
+                exp_date = form['exp_date']
+                if card_number and security_code and ccname and exp_date:
+                    dao.updateCreditCard(cid, card_number, security_code, ccname, exp_date)
+                    result = self.build_creditcardsUpdate_attributes(cid, card_number, security_code, ccname, exp_date)
+                    return jsonify(Credit_Card=result), 200
+                else:
+                    return jsonify(Error="Unexpected attributes in update request"), 400
 
     def getCreditCardsByTransaction(self, tid):
         dao = CreditCardDAO()

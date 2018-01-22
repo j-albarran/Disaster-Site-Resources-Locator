@@ -11916,6 +11916,30 @@ class TransactionDAO:
             result.append(row)
         return result
 
+    def insertTransaction(self, tprice, tqty, tdate, sid, bid, rsid, rid, oid, tstatus):
+        cursor = self.conn.cursor()
+        query = "insert into transaction(tprice, tqty, tdate, sid, bid, rsid, rid, oid, tstatus) values (%s, %s, %s, %s, %s, %s, %s, %s, %s) returning tid;"
+        cursor.execute(query, (tprice, tqty, tdate, sid, bid, rsid, rid, oid, tstatus))
+        tid = cursor.fetchone()[0]
+        self.conn.commit()
+        return tid
+
+    def deleteTransaction(self, tid):
+        cursor = self.conn.cursor()
+        query = "delete from transaction where tid = %s;"
+        cursor.execute(query, (tid,))
+        self.conn.commit()
+        return
+
+    def updateTransaction(self, tid, tprice, tqty, tdate, tstatus):
+        cursor = self.conn.cursor()
+        query = "update transaction set tprice = %s, tqty = %s, tdate = %s, tstatus = %s where tid = %s;"
+        cursor.execute(query, (tprice, tqty, tdate, tstatus, tid))
+        self.conn.commit()
+        return
+
+
+
 
 
 

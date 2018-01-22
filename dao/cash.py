@@ -49,6 +49,26 @@ class CashDAO:
             result.append(row)
         return result
 
+    def insertCash(self, rid):
+        cursor = self.conn.cursor()
+        query = "insert into payment(rid) values (%s) returning payid;"
+        cursor.execute(query, (rid,))
+        payid = cursor.fetchone()[0]
+        query = "insert into cash(cashid) values (%s) returning cashid;"
+        cursor.execute(query, (payid,))
+        cashid = cursor.fetchone()[0]
+        self.conn.commit()
+        return cashid
+
+    def deleteCash(self, cashid):
+        cursor = self.conn.cursor()
+        query = "delete from Cash where cashid = %s;"
+        cursor.execute(query, (cashid,))
+        query = "delete from Payment where payid = %s;"
+        cursor.execute(query, (cashid,))
+        self.conn.commit()
+        return
+
 
 
 

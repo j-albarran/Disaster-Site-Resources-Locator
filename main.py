@@ -1052,16 +1052,26 @@ def getCategoriesByTransactionId(tid):
 #                            Transaction routes                                #
 # ---------------------------------------------------------------------------- #
 
-@app.route('/ResourceApp/transactions/<int:tid>')
+@app.route('/ResourceApp/transactions/<int:tid>', methods=['GET', 'PUT', 'DELETE'])
 def getTransactions(tid):
+    if request.method == 'PUT':
+        return TransactionsHandler().updateTransaction(tid, request.form)
+    elif request.method == 'GET':
         return TransactionsHandler().getTransaction(tid)
-
-@app.route('/ResourceApp/transactions')
-def getAllTransactions():
-    if not request.args:
-        return TransactionsHandler().getAllTransactions
+    elif request.method == 'DELETE':
+        return TransactionsHandler().deleteTransaction(tid)
     else:
-        return TransactionsHandler().searchAllTransactions(request.args)
+        return jsonify(Error="Method not allowed."), 405
+
+@app.route('/ResourceApp/transactions', methods=['GET', 'POST'])
+def getAllTransactions():
+    if request.method == 'POST':
+        return TransactionsHandler().insertTransaction(request.form)
+    else:
+        if not request.args:
+            return TransactionsHandler().getAllTransactions
+        else:
+            return TransactionsHandler().searchAllTransactions(request.args)
 
 @app.route('/ResourceApp/regions/<string:rname>/transactions')
 def getTransactionsByRegion(rname):
@@ -1633,20 +1643,31 @@ def getTransactionsByKeywordCategoryOrder(kid,cat_name,oid):
 #                            Credit_Card routes                                #
 # ---------------------------------------------------------------------------- #
 
-@app.route('/ResourceApp/credit_cards')
+@app.route('/ResourceApp/credit_cards', methods=['GET', 'POST'])
 def getAllCreditCards():
-    if not request.args:
-        return CreditCardsHandler().getAllCreditCards()
+    if request.method == 'POST':
+        return CreditCardsHandler().insertCreditCard(request.form)
     else:
-        return CreditCardsHandler().searchAllCreditCards(request.args)
+        if not request.args:
+            return CreditCardsHandler().getAllCreditCards()
+        else:
+            return CreditCardsHandler().searchAllCreditCards(request.args)
 
 
-@app.route('/ResourceApp/credit_cards/<int:cid>')
+@app.route('/ResourceApp/credit_cards/<int:cid>', methods=['GET', 'PUT', 'DELETE'])
 def getCreditCardsById(cid):
-    if not request.args:
-        return CreditCardsHandler().getCreditCard(cid)
+    if request.method == 'GET':
+        if not request.args:
+            return CreditCardsHandler().getCreditCard(cid)
+        else:
+            return CreditCardsHandler().searchCreditCard(cid, request.args)
+    elif request.method == 'PUT':
+        return CreditCardsHandler().updateCreditCard(cid, request.form)
+    elif request.method == 'DELETE':
+        return CreditCardsHandler().deleteCreditCard(cid)
     else:
-        return CreditCardsHandler().searchCreditCard(cid, request.args)
+        return jsonify(Error="Method not allowed."), 405
+
 
 
 @app.route('/ResourceApp/transactions/<int:tid>/credit_cards')
@@ -1676,15 +1697,24 @@ def getCreditCardsByOrder(oid):
 #                              Cash routes                                  #
 # ---------------------------------------------------------------------------- #
 
-@app.route('/ResourceApp/cashes')
+@app.route('/ResourceApp/cashes', methods=['GET', 'POST'])
 def getAllCashes():
-    return CashesHandler().getAllCashes()
+    if request.method == 'POST':
+        return CashesHandler().insertCash(request.form)
+    else:
+        return CashesHandler().getAllCashes()
 
 
 
-@app.route('/ResourceApp/cashes/<int:cashid>')
+@app.route('/ResourceApp/cashes/<int:cashid>', methods=['GET', 'DELETE'])
 def getCashesById(cashid):
-    return CashesHandler().getCashesById(cashid)
+    if request.method == 'GET':
+        return CashesHandler().getCashesById(cashid)
+    elif request.method == 'DELETE':
+        return CashesHandler().deleteCash(cashid)
+    else:
+        return jsonify(Error="Method not allowed."), 405
+
 
 
 
@@ -1707,20 +1737,32 @@ def getCashesByOrder(oid):
 # ---------------------------------------------------------------------------- #
 
 
-@app.route('/ResourceApp/orders')
+@app.route('/ResourceApp/orders', methods=['GET', 'POST'])
 def getAllOrders():
-    if not request.args:
-        return OrdersHandler().getAllOrders()
+    if request.method == 'POST':
+        return OrdersHandler().insertOrder(request.form)
     else:
-        return OrdersHandler().searchAllOrders(request.args)
+        if not request.args:
+            return OrdersHandler().getAllOrders()
+        else:
+            return OrdersHandler().searchAllOrders(request.args)
 
 
-@app.route('/ResourceApp/orders/<int:oid>')
+@app.route('/ResourceApp/orders/<int:oid>', methods=['GET', 'PUT', 'DELETE'])
 def getOrdersById(oid):
-    if not request.args:
-        return OrdersHandler().getOrdersById(oid)
+    print('hola')
+    if request.method == 'GET':
+        if not request.args:
+            return OrdersHandler().getOrdersById(oid)
+        else:
+            return OrdersHandler().searchOrdersById(oid, request.args)
+    elif request.method == 'PUT':
+        return OrdersHandler().updateOrder(oid, request.form)
+    elif request.method == 'DELETE':
+        return OrdersHandler().deleteOrder(oid)
     else:
-        return OrdersHandler().searchOrdersById(oid, request.args)
+        return jsonify(Error="Method not allowed."), 405
+
 
 
 @app.route('/ResourceApp/requesters/<int:rid>/orders')
