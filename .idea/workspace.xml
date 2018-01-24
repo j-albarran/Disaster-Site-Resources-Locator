@@ -4,6 +4,7 @@
     <list default="true" id="1d6eda7f-6d21-4ef4-85cc-f444eff36062" name="Default" comment="dao, handler and main for transaction, credit_card, cash and order">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/schema.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Disaster-Site-Resources-Locator.iml" afterPath="$PROJECT_DIR$/.idea/Disaster-Site-Resources-Locator.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/account.py" afterPath="$PROJECT_DIR$/dao/account.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/address.py" afterPath="$PROJECT_DIR$/dao/address.py" />
@@ -33,11 +34,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Disaster_Site_Resources_Locator$main.coverage" NAME="main Coverage Results" MODIFIED="1516828256313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
@@ -602,147 +603,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="credit_card.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/credit_card.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="208" column="35" lean-forward="false" selection-start-line="208" selection-start-column="35" selection-end-line="208" selection-end-column="35" />
-              <folding>
-                <marker date="1516581768467" expanded="true" signature="191:264" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="515:627" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="885:976" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="1228:1324" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="1566:1654" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="1920:2045" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="2314:2418" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="2681:2790" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="3049:3262" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="3537:3787" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="4065:4294" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="4566:4800" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="5057:5174" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="5447:5601" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="5877:6010" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="6280:6418" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="6671:6825" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="7094:7285" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="7557:7727" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="7993:8168" ph="Select cid, Credit_Card" />
-                <marker date="1516581768467" expanded="true" signature="8466:8518" ph="insert into payment... " />
-                <marker date="1516581768467" expanded="true" signature="8613:8749" ph="insert into credit_card... " />
-                <marker date="1516581768467" expanded="true" signature="9021:9059" ph="delete from " />
-                <marker date="1516581768467" expanded="true" signature="9044:9054" ph="insert into supplier... " />
-                <marker date="1516581768467" expanded="true" signature="9118:9154" ph="delete from " />
-                <marker date="1516581768467" expanded="true" signature="9373:9475" ph="update trans... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/order.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5730">
-              <caret line="382" column="35" lean-forward="false" selection-start-line="382" selection-start-column="35" selection-end-line="382" selection-end-column="35" />
-              <folding>
-                <marker date="1516574737235" expanded="true" signature="181:231" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="483:583" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="850:933" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="1193:1277" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="1540:1625" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="1873:1940" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="2180:2248" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="2491:2560" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="2793:2858" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="3127:3240" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="3518:3614" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="3885:3982" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="4256:4354" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="4613:4693" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="4944:5025" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="5279:5361" ph="Select oid, Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="5609:5743" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="6019:6201" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="6486:6651" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="6929:7095" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="7376:7543" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="7808:7957" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="8215:8365" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="8626:8777" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="9024:9157" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="9432:9613" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="9897:10061" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="10338:10503" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="10783:10949" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="11213:11361" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="11618:11767" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="12027:12177" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="12427:12532" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="12810:12963" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="13250:13386" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="13666:13803" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="14086:14224" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="14491:14611" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="14871:14992" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="15255:15377" ph="Select disti... Order_Info" />
-                <marker date="1516574737235" expanded="true" signature="15639:15731" ph="insert into Order_Info... " />
-                <marker date="1516574737235" expanded="true" signature="15964:16001" ph="delete from " />
-                <marker date="1516574737235" expanded="true" signature="15975:15987" ph="insert into Order_Info... " />
-                <marker date="1516574737235" expanded="true" signature="16194:16267" ph="update Order... " />
-                <marker date="1516574737235" expanded="true" signature="16194:16268" ph="update Order... " />
-                <marker date="1516574737235" expanded="true" signature="16200:16263" ph="insert into Order_Info... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/handler/order.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2145">
-              <caret line="144" column="24" lean-forward="false" selection-start-line="144" selection-start-column="24" selection-end-line="144" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cash.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dao/cash.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="58" column="37" lean-forward="false" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="37" />
-              <folding>
-                <marker date="1516578557821" expanded="true" signature="180:203" ph="Select cashi... Cash" />
-                <marker date="1516578557821" expanded="true" signature="425:466" ph="Select cashi... Cash" />
-                <marker date="1516578557821" expanded="true" signature="707:845" ph="Select cashi... Cash" />
-                <marker date="1516578557821" expanded="true" signature="1081:1187" ph="Select cashi... Cash" />
-                <marker date="1516578557821" expanded="true" signature="1419:1526" ph="Select cashi... Cash" />
-                <marker date="1516578557821" expanded="true" signature="1752:1804" ph="insert into payment... " />
-                <marker date="1516578557821" expanded="true" signature="1899:1952" ph="insert into credit_card... " />
-                <marker date="1516578557821" expanded="true" signature="2170:2204" ph="delete from " />
-                <marker date="1516578557821" expanded="true" signature="2192:2193" ph="insert into payment... " />
-                <marker date="1516578557821" expanded="true" signature="2265:2301" ph="delete from " />
-                <marker date="1516578557821" expanded="true" signature="2284:2285" ph="insert into credit_card... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cash.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/handler/cash.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="60" column="24" lean-forward="true" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="credit_card.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/handler/credit_card.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="15" column="19" lean-forward="true" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
       <file leaf-file-name="credentials.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/credentials.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -764,6 +624,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>/statuspr</find>
+      <find>cat_name = %s</find>
+      <find>cat_name = %s or cat_pname = %s</find>
       <find>Administrator</find>
       <find>adminId</find>
       <find>administrator</find>
@@ -796,7 +659,7 @@
     </option>
     <option name="SIGN_OFF_COMMIT" value="true" />
     <push-targets>
-      <push-target-info repo="$PROJECT_DIR$" source="Andres" target-remote="origin" target-branch="Andres" />
+      <push-target-info target-remote="origin" target-branch="Andres" repo="$PROJECT_DIR$" source="Andres" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
@@ -804,13 +667,15 @@
       <list>
         <option value="$PROJECT_DIR$/handler/request.py" />
         <option value="$PROJECT_DIR$/handler/supply.py" />
+        <option value="$PROJECT_DIR$/handler/credit_card.py" />
+        <option value="$PROJECT_DIR$/handler/order.py" />
+        <option value="$PROJECT_DIR$/handler/transaction.py" />
+        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/config/dbconfig.py" />
-        <option value="$PROJECT_DIR$/handler/transaction.py" />
-        <option value="$PROJECT_DIR$/dao/transaction.py" />
         <option value="$PROJECT_DIR$/dao/order.py" />
-        <option value="$PROJECT_DIR$/handler/order.py" />
-        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/dao/transaction.py" />
+        <option value="$PROJECT_DIR$/dao/credit_card.py" />
         <option value="$PROJECT_DIR$/dao/cash.py" />
         <option value="$PROJECT_DIR$/schema.sql" />
         <option value="$PROJECT_DIR$/dao/region.py" />
@@ -863,78 +728,36 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
+    <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="handler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Disaster-Site-Resources-Locator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="Disaster-Site-Resources-Locator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Disaster-Site-Resources-Locator" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Disaster-Site-Resources-Locator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Disaster-Site-Resources-Locator" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Disaster-Site-Resources-Locator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Disaster-Site-Resources-Locator" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Disaster-Site-Resources-Locator" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Disaster-Site-Resources-Locator" type="462c0819:PsiDirectoryNode" />
+              <item name="handler" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -962,23 +785,13 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Disaster-Site-Resources-Locator" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -1066,15 +879,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <module name="Disaster-Site-Resources-Locator" />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -1194,9 +998,24 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python.main" />
-    </list>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Disaster-Site-Resources-Locator" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <recent_temporary>
       <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
@@ -1236,7 +1055,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17991126" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925585" sideWeight="0.2361186" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33892968" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1245,14 +1064,27 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925585" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33892968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3768194" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1349,34 +1181,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1516581768467" expanded="true" signature="191:264" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="515:627" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="885:976" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="1228:1324" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="1566:1654" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="1920:2045" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="2314:2418" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="2681:2790" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="3049:3262" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="3537:3787" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="4065:4294" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="4566:4800" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="5057:5174" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="5447:5601" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="5877:6010" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="6280:6418" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="6671:6825" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="7094:7285" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="7557:7727" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="7993:8168" ph="Select cid, Credit_Card" />
-            <marker date="1516581768467" expanded="true" signature="8466:8518" ph="insert into payment... " />
-            <marker date="1516581768467" expanded="true" signature="8613:8749" ph="insert into credit_card... " />
-            <marker date="1516581768467" expanded="true" signature="9021:9059" ph="delete from " />
-            <marker date="1516581768467" expanded="true" signature="9044:9054" ph="insert into supplier... " />
-            <marker date="1516581768467" expanded="true" signature="9118:9154" ph="delete from " />
-            <marker date="1516581768467" expanded="true" signature="9373:9475" ph="update trans... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
