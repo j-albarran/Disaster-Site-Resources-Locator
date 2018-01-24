@@ -9,6 +9,47 @@ class AdministratorDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewAdministrator(self, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "insert into account(afirst, alast, email) values(%s, %s, %s) returning aid;"
+        cursor.execute(query, (afirst, alast, email,))
+        aid = cursor.fetchone()[0]
+        query = "insert into phone(aid, phone) values(%s, %s);"
+        cursor.execute(query, (aid, phone,))
+        query = "insert into administrator(adminId) values(%s)"
+        cursor.execute(query, (aid,))
+        self.conn.commit()
+        return aid
+
+    def updateAdministrator(self, adminId, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "update account set afirst = %s, alast = %s, email = %s where aid = %s;"
+        cursor.execute(query, (afirst, alast, email, adminId, ))
+        query = "update phone set phone = %s where aid = %s;"
+        cursor.execute(query, (phone, adminId, ))
+        self.conn.commit()
+        return adminId
+
+    def deleteAdministrator(self, adminId):
+        cursor = self.conn.cursor()
+        query = "delete from administrator where adminId = %s;"
+        cursor.execute(query, (adminId, ))
+        query = "delete from phone where aid = %s;"
+        cursor.execute(query, (adminId, ))
+        query = "delete from account where aid = %s;"
+        cursor.execute(query, (adminId,))
+        self.conn.commit()
+        return adminId
+
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllAdministrators(self):
         cursor = self.conn.cursor()
         query = "select administrator.adminId, afirst, alast, email, phone from account natural inner join phone inner join administrator on account.aid = administrator.adminId;"

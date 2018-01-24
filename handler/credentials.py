@@ -15,9 +15,68 @@ class CredentialsHandler:
         result['password'] = row[1]
         return result
 
+    def build_credential_attributes(self, username, password):
+        result = {}
+        result['username'] = username
+        result['password'] = password
+        return result
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
+
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addCredentials(self, form):
+        if len(form) != 3:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+
+            username = form['username']
+            password = form['password']
+            aid = form['aid']
+
+            if username and password and aid:
+                dao = CredentialDAO()
+                credential = dao.addCredentials(username, password, aid)
+                result = self.build_credential_attributes(credential, password)
+                return jsonify(Credentials = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateCredentials(self, username, form):
+        dao = CredentialDAO()
+        if not dao.getCredentialsByUsername(username):
+            return jsonify(Error = "Credentials not found"), 404
+        else:
+            if len(form) != 3:
+                return jsonify(Error = "Malformed update request"), 400
+
+            username = form['username']
+            password = form['password']
+            aid = form['aid']
+
+            if username and password and aid:
+                dao.updateCredentials(username, password, aid)
+                result = self.build_credential_attributes(username, password)
+                return jsonify(Credentials = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteCredentials(self, username):
+        dao = CredentialDAO()
+        if not dao.getCredentialsByUsername(username):
+            return jsonify(Error="Credentials not found"), 404
+        else:
+            dao.deleteCredentials(username)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ============ #
+    #    Gets      #
+    # ============ #
 
 # ================ #
 #    Credentials   #

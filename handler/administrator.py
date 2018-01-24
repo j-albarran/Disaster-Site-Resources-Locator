@@ -22,13 +22,74 @@ class AdministratorHandler:
         return result
 
 
+    def build_administrator_attributes(self, adminId, afirst, alast, email, phone):
+        result = {}
+        result['adminId'] = adminId
+        result['afirst'] = afirst
+        result['alast'] = alast
+        result['email'] = email
+        result['phone'] = phone
+        return result
+
+
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
 
-# ================ #
-#  Administrators  #
-# ================ #
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewAdministrator(self, form):
+        if len(form) != 4:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao = AdministratorDAO()
+                adminId = dao.addNewAdministrator(afirst, alast,email, phone)
+                result = self.build_administrator_attributes(adminId, afirst, alast, email, phone)
+                return jsonify(Administrator = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateAdministrator(self, adminId, form):
+        dao = AdministratorDAO()
+        if not dao.getAdministratorById(adminId):
+            return jsonify(Error = "Administrator not found"), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error = "Malformed update request"), 400
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao.updateAdministrator(adminId, afirst, alast, email, phone)
+                result = self.build_administrator_attributes(adminId, afirst, alast, email, phone)
+                return jsonify(Administrator = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteAdministrator(self, adminId):
+        dao = AdministratorDAO()
+        if not dao.getAdministratorById(adminId):
+            return jsonify(Error="Administrator not found."), 404
+        else:
+            dao.deleteAdministrator(adminId)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ================ #
+    #  Administrators  #
+    # ================ #
 
     def getAllAdministrators(self):
 

@@ -21,6 +21,12 @@ class CityHandler:
         result['cname'] = row[0]
         return result
 
+    def build_city_attributes(self, cname):
+        result = {}
+        result['cname'] = cname
+        return result
+
+
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
@@ -28,6 +34,52 @@ class CityHandler:
 # ================ #
 #      Cities      #
 # ================ #
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewCity(self, form):
+        if len(form) != 2:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+            cname = form['cname']
+            rname = form['rname']
+            if cname and rname:
+                dao = CityDAO()
+                cityName = dao.addNewCity(cname, rname)
+                result = self.build_city_attributes(cityName)
+                return jsonify(City = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateCity(self, cname, form):
+        dao = CityDAO()
+        if not dao.getCityByName(cname):
+            return jsonify(Error = "City not found"), 404
+        else:
+            if len(form) != 1:
+                return jsonify(Error = "Malformed update request"), 400
+            rname = form['rname']
+            if cname and rname:
+                dao.updateCity(cname, rname)
+                result = self.build_city_attributes(cname)
+                return jsonify(City = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteCity(self, cname):
+        dao = CityDAO()
+        if not dao.getCityByName(cname):
+            return jsonify(Error="City not found."), 404
+        else:
+            dao.deleteCity(cname)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ============ #
+    #    Gets      #
+    # ============ #
 
     def getAllCities(self):
         dao = CityDAO()

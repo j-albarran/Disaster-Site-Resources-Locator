@@ -25,9 +25,68 @@ class SupplierHandler:
         result['phone'] = row[4]
         return result
 
+    def build_supplier_attributes(self, sid, afirst, alast, email, phone):
+        result = {}
+        result['sid'] = sid
+        result['afirst'] = afirst
+        result['alast'] = alast
+        result['email'] = email
+        result['phone'] = phone
+        return result
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewSupplier(self, form):
+        if len(form) != 4:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao = SupplierDAO()
+                sid = dao.addNewSupplier(afirst, alast, email, phone)
+                result = self.build_supplier_attributes(sid, afirst, alast, email, phone)
+                return jsonify(Supplier = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateSupplier(self, sid, form):
+        dao = SupplierDAO()
+        if not dao.getSupplierById(sid):
+            return jsonify(Error = "Supplier not found"), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error = "Malformed update request"), 400
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao.updateSupplier(sid, afirst, alast, email, phone)
+                result = self.build_supplier_attributes(sid, afirst, alast, email, phone)
+                return jsonify(Supplier = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteSupplier(self, sid):
+        dao = SupplierDAO()
+        if not dao.getSupplierById(sid):
+            return jsonify(Error="Supplier not found."), 404
+        else:
+            dao.deleteSupplier(sid)
+            return jsonify(DeleteStatus="OK"), 200
 
 # ================ #
 #     Suppliers    #

@@ -8,6 +8,37 @@ class CredentialDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addCredentials(self, username, password, aid):
+        cursor = self.conn.cursor()
+        query = "insert into credentials(username, password, aid) values(%s, %s, %s) returning username;"
+        cursor.execute(query, (username, password, aid,))
+        username = cursor.fetchone()[0]
+        self.conn.commit()
+        return username
+
+    def updateCredentials(self, username, password, aid):
+        cursor = self.conn.cursor()
+        query = "update credentials set password = %s, aid = %s where username = %s;"
+        cursor.execute(query, (password, aid, username, ))
+        self.conn.commit()
+        return username
+
+    def deleteCredentials(self, username):
+        cursor = self.conn.cursor()
+        query = "delete from credentials where username = %s;"
+        cursor.execute(query, (username,))
+        self.conn.commit()
+        return username
+
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllCredentials(self):
         cursor = self.conn.cursor()
         query = "select username, password from credentials"

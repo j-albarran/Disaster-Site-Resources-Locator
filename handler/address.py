@@ -23,6 +23,15 @@ class AddressHandler:
         result['zipcode'] = row[4]
         return result
 
+    def build_address_attributes(self, addId, street, number, unit, zipcode):
+        result = {}
+        result['addId'] = addId
+        result['street'] = street
+        result['number'] = number
+        result['unit'] = unit
+        result['zipcode'] = zipcode
+        return result
+
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
@@ -30,6 +39,63 @@ class AddressHandler:
 # ================ #
 #    Addresses     #
 # ================ #
+
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewAddress(self, form):
+        if len(form) != 6:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+            street = form['cname']
+            number = form['rname']
+            unit = form['unit']
+            zipcode = form['zipcode']
+            aid = form['aid']
+            cname = form['cname']
+
+            if street and number and unit and zipcode and aid and cname:
+                dao = AddressDAO()
+                addId = dao.addNewAddress(street, number, unit, zipcode, aid, cname)
+                result = self.build_address_attributes(addId, street, number, unit, zipcode)
+                return jsonify(Address = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateAddress(self, addId, form):
+        dao = AddressDAO()
+        if not dao.getAddressById(addId):
+            return jsonify(Error = "Address not found"), 404
+        else:
+            if len(form) != 6:
+                return jsonify(Error = "Malformed update request"), 400
+            street = form['street']
+            number = form['number']
+            unit = form['unit']
+            zipcode = form['zipcode']
+            aid = form['aid']
+            cname = form['cname']
+            if street and number and unit and zipcode and aid and cname:
+                dao.updateAddress(addId, street, number, unit, zipcode, aid, cname)
+                result = self.build_address_attributes(addId, street, number, unit, zipcode)
+                return jsonify(Address = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteAddress(self, addId):
+        dao = AddressDAO()
+        if not dao.getAddressById(addId):
+            return jsonify(Error="Address not found."), 404
+        else:
+            dao.deleteAddress(addId)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ============ #
+    #    Gets      #
+    # ============ #
 
     def getAllAddresses(self):
 

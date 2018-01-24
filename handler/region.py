@@ -21,6 +21,11 @@ class RegionHandler:
         result['rname'] = row[0]
         return result
 
+    def build_region_attribute(self, rname):
+        result = {}
+        result['rname'] = rname
+        return result
+
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
@@ -28,6 +33,36 @@ class RegionHandler:
 # ================ #
 #      Regions     #
 # ================ #
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewRegion(self, form):
+        if len(form) != 1:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+            rname = form['rname']
+            if rname:
+                dao = RegionDAO()
+                regionName = dao.addNewRegion(rname)
+                result = self.build_region_attribute(regionName)
+                return jsonify(Region = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def deleteRegion(self, rname):
+        dao = RegionDAO()
+        if not dao.getRegionByName(rname):
+            return jsonify(Error="Region not found."), 404
+        else:
+            dao.deleteRegion(rname)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ============ #
+    #    Gets      #
+    # ============ #
 
     def getAllRegions(self):
         dao = RegionDAO()

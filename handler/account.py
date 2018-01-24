@@ -21,6 +21,16 @@ class AccountHandler:
         result['phone'] = row[4]
         return result
 
+    def build_account_attributes(self, aid, afirst, alast, email, phone):
+        result = {}
+        result['aid'] = aid
+        result['afirst'] = afirst
+        result['alast'] = alast
+        result['email'] = email
+        result['phone'] = phone
+        return result
+
+
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
@@ -28,6 +38,61 @@ class AccountHandler:
 # ================ #
 #     Accounts     #
 # ================ #
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewAccount(self, form):
+        if len(form) != 4:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao = AccountDAO()
+                aid = dao.addNewAccount(afirst, alast, email, phone)
+                result = self.build_account_attributes(aid, afirst, alast, email, phone)
+                return jsonify(Account = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateAccount(self, aid, form):
+        dao = AccountDAO()
+        if not dao.getAccountById(aid):
+            return jsonify(Error = "Account not found"), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error = "Malformed update request"), 400
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao.updateAccount(aid, afirst, alast, email, phone)
+                result = self.build_account_attributes(aid, afirst, alast, email, phone)
+                return jsonify(Account = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteAccount(self, aid):
+        dao = AccountDAO()
+        if not dao.getAccountById(aid):
+            return jsonify(Error="Account not found."), 404
+        else:
+            dao.deleteAccount(aid)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ============ #
+    #    Gets      #
+    # ============ #
 
     def getAllAccounts(self):
         dao = AccountDAO()

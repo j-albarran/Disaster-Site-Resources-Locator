@@ -8,6 +8,29 @@ class RegionDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewRegion(self, rname):
+        cursor = self.conn.cursor()
+        query = "insert into region values(%s) returning rname;"
+        cursor.execute(query, (rname,))
+        cname = cursor.fetchone()[0]
+        self.conn.commit()
+        return rname
+
+    def deleteRegion(self, rname):
+        cursor = self.conn.cursor()
+        query = "delete from region where rname = %s;"
+        cursor.execute(query, (rname,))
+        self.conn.commit()
+        return rname
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllRegions(self):
         cursor = self.conn.cursor()
         query = "select * from region;"
