@@ -8,6 +8,41 @@ class AccountDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewAccount(self, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "insert into account(afirst, alast, email) values(%s, %s, %s) returning aid;"
+        cursor.execute(query, (afirst, alast, email,))
+        aid = cursor.fetchone()[0]
+        query = "insert into phone(aid, phone) values(%s, %s);"
+        cursor.execute(query, (aid, phone, ))
+        self.conn.commit()
+        return aid
+
+    def updateAccount(self, aid, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "update account set afirst = %s, alast = %s, email = %s where aid = %s;"
+        cursor.execute(query, (afirst, alast, email, aid, ))
+        query = "update phone set phone = %s where aid = %s;"
+        cursor.execute(query, (phone, aid, ))
+        self.conn.commit()
+        return aid
+
+    def deleteAccount(self, aid):
+        cursor = self.conn.cursor()
+        query = "delete from account where aid = %s;"
+        cursor.execute(query, (aid,))
+        self.conn.commit()
+        return aid
+
+
+        # ============ #
+        #    Gets      #
+        # ============ #
+
     def getAllAccounts(self):
         cursor = self.conn.cursor()
         query = "select aid, afirst, alast, email, phone from account natural inner join phone;"

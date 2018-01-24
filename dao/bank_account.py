@@ -9,6 +9,36 @@ class BankAccountDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewBankAccount(self, routing, accountNumber, BankName, sid):
+        cursor = self.conn.cursor()
+        query = "insert into bank_account(routing, accountNumber, BankName, sid) values(%s, %s, %s, %s) returning bid;"
+        cursor.execute(query, (routing, accountNumber, BankName, sid, ))
+        bid = cursor.fetchone()[0]
+        self.conn.commit()
+        return bid
+
+    def updateBankAccount(self, bid, routing, accountNumber, BankName, sid):
+        cursor = self.conn.cursor()
+        query = "update bank_account set routing = %s, accountNumber = %s, BankName = %s, sid = %s where bid = %s;"
+        cursor.execute(query, (routing, accountNumber, BankName, sid, bid, ))
+        self.conn.commit()
+        return bid
+
+    def deleteBankAccount(self, bid):
+        cursor = self.conn.cursor()
+        query = "delete from bank_account where bid = %s;"
+        cursor.execute(query, (bid, ))
+        self.conn.commit()
+        return bid
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllBankAccounts(self):
         cursor = self.conn.cursor()
         query = "select bid, routing, accountNumber, BankName from bank_account;"

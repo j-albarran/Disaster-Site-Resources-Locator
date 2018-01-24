@@ -7,6 +7,47 @@ class RequesterDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewRequester(self, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "insert into account(afirst, alast, email) values(%s, %s, %s) returning aid;"
+        cursor.execute(query, (afirst, alast, email,))
+        aid = cursor.fetchone()[0]
+        query = "insert into phone(aid, phone) values(%s, %s);"
+        cursor.execute(query, (aid, phone,))
+        query = "insert into requester values(%s)"
+        cursor.execute(query, (aid,))
+        self.conn.commit()
+        return aid
+
+    def updateRequester(self, rid, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "update account set afirst = %s, alast = %s, email = %s where aid = %s;"
+        cursor.execute(query, (afirst, alast, email, rid,))
+        query = "update phone set phone = %s where aid = %s;"
+        cursor.execute(query, (phone, rid,))
+        self.conn.commit()
+        return rid
+
+    def deleteRequester(self, rid):
+        cursor = self.conn.cursor()
+        query = "delete from requester where rid = %s;"
+        cursor.execute(query, (rid,))
+        query = "delete from phone where aid = %s;"
+        cursor.execute(query, (rid,))
+        query = "delete from account where aid = %s;"
+        cursor.execute(query, (rid,))
+        self.conn.commit()
+        return rid
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllRequesters(self):
         cursor = self.conn.cursor()
         query = "select requester.rid, afirst, alast, email, phone from account natural inner join phone inner join requester on account.aid = requester.rid ;"

@@ -18,13 +18,73 @@ class BankAccountHandler:
         result['BankName'] = row[3]
         return result
 
+    def build_bank_account_attributes(self, bid, routing, accountNumber, BankAccount):
+        result = {}
+        result['bid'] = bid
+        result['routing'] = routing
+        result['accountNumber'] = accountNumber
+        result['BankName'] = BankAccount
+        return result
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
 
-# ================ #
-#   Bank Accounts  #
-# ================ #
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewBankAccount(self, form):
+        if len(form) != 4:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+
+            routing = form['routing']
+            accountNumber = form['accountNumber']
+            BankName = form['BankName']
+            sid = form['sid']
+
+            if routing and accountNumber and BankName and sid:
+                dao = BankAccountDAO()
+                bid = dao.addNewBankAccount(routing, accountNumber, BankName, sid)
+                result = self.build_bank_account_attributes(bid, routing, accountNumber, BankName)
+                return jsonify(BankAccount = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+    #
+
+    def updateBankAccount(self, bid, form):
+        dao = BankAccountDAO()
+        if not dao.getBankAccountById(bid):
+            return jsonify(Error = 'Bank Account not found'), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error = "Malformed update request"), 400
+
+            routing = form['routing']
+            accountNumber = form['accountNumber']
+            BankName = form['BankName']
+            sid = form['sid']
+
+            if routing and accountNumber and BankName and sid:
+                dao.updateBankAccount(bid, routing, accountNumber, BankName, sid)
+                result = self.build_bank_account_attributes(bid, routing, accountNumber, BankName)
+                return jsonify(BankAccount = result)
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+
+    def deleteBankAccount(self, bid):
+        dao = BankAccountDAO()
+        if not dao.getBankAccountById(bid):
+            return jsonify(Error="Bank Account not found."), 404
+        else:
+            dao.deleteBankAccount(bid)
+            return jsonify(DeleteStatus="OK"), 200
+
+    # ================ #
+    #   Bank Accounts  #
+    # ================ #
 
     def getAllBankAccounts(self):
 

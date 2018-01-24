@@ -9,6 +9,38 @@ class CityDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewCity(self, cname, rname):
+        cursor = self.conn.cursor()
+        query = "insert into city(cname, rname) values(%s, %s) returning cname;"
+        cursor.execute(query, (cname, rname, ))
+        cname = cursor.fetchone()[0]
+        self.conn.commit()
+        return cname
+
+    def updateCity(self, cname, rname):
+        cursor = self.conn.cursor()
+        query = "update city set rname = %s where cname = %s;"
+        cursor.execute(query, (rname, cname, ))
+        self.conn.commit()
+        return cname
+
+
+    def deleteCity(self, cname):
+        cursor = self.conn.cursor()
+        query = "delete from city where cname = %s;"
+        cursor.execute(query, (cname, ))
+        self.conn.commit()
+        return cname
+
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllCities(self):
         cursor = self.conn.cursor()
         query = "select cname from city;"

@@ -7,6 +7,48 @@ class SupplierDAO:
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
+
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewSupplier(self, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "insert into account(afirst, alast, email) values(%s, %s, %s) returning aid;"
+        cursor.execute(query, (afirst, alast, email,))
+        aid = cursor.fetchone()[0]
+        query = "insert into phone(aid, phone) values(%s, %s);"
+        cursor.execute(query, (aid, phone,))
+        query = "insert into supplier values(%s)"
+        cursor.execute(query, (aid,))
+        self.conn.commit()
+        return aid
+
+    def updateSupplier(self, sid, afirst, alast, email, phone):
+        cursor = self.conn.cursor()
+        query = "update account set afirst = %s, alast = %s, email = %s where aid = %s;"
+        cursor.execute(query, (afirst, alast, email, sid,))
+        query = "update phone set phone = %s where aid = %s;"
+        cursor.execute(query, (phone, sid,))
+        self.conn.commit()
+        return sid
+
+    def deleteSupplier(self, sid):
+        cursor = self.conn.cursor()
+        query = "delete from supplier where sid = %s;"
+        cursor.execute(query, (sid,))
+        query = "delete from phone where aid = %s;"
+        cursor.execute(query, (sid,))
+        query = "delete from account where aid = %s;"
+        cursor.execute(query, (sid,))
+        self.conn.commit()
+        return sid
+
+
+    # ============ #
+    #    Gets      #
+    # ============ #
+
     def getAllSuppliers(self):
         cursor = self.conn.cursor()
         query = "select supplier.sid, afirst, alast, email, phone from account natural inner join phone inner join supplier on account.aid = supplier.sid;"

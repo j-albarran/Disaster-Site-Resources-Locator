@@ -28,10 +28,70 @@ class RequesterHandler:
         result['phone'] = row[4]
         return result
 
+    def build_requester_attributes(self, rid, afirst, alast, email, phone):
+        result = {}
+        result['rid'] = rid
+        result['afirst'] = afirst
+        result['alast'] = alast
+        result['email'] = email
+        result['phone'] = phone
+        return result
+
 # =========================================================================== #
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewRequester(self, form):
+        if len(form) != 4:
+            return jsonify(Error = "Malformed post request"), 400
+        else:
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao = RequesterDAO()
+                rid = dao.addNewRequester(afirst, alast, email, phone)
+                result = self.build_requester_attributes(rid, afirst, alast, email, phone)
+                return jsonify(Requester = result), 201
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+
+
+    def updateRequester(self, rid, form):
+        dao = RequesterDAO()
+        if not dao.getRequesterById(rid):
+            return jsonify(Error = "Requester not found"), 404
+        else:
+            if len(form) != 4:
+                return jsonify(Error = "Malformed update request"), 400
+
+            afirst = form['afirst']
+            alast = form['alast']
+            email = form['email']
+            phone = form['phone']
+
+            if afirst and alast and email and phone:
+                dao.updateRequester(rid, afirst, alast, email, phone)
+                result = self.build_requester_attributes(rid, afirst, alast, email, phone)
+                return jsonify(Requester = result), 200
+            else:
+                return jsonify(Error = "Unexpected attributes in update request"), 400
+
+    def deleteRequester(self, rid):
+        dao = RequesterDAO()
+        if not dao.getRequesterById(rid):
+            return jsonify(Error="Requester not found."), 404
+        else:
+            dao.deleteRequester(rid)
+            return jsonify(DeleteStatus="OK"), 200
+        
 # ================ #
 #    Requesters    #
 # ================ #

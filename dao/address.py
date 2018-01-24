@@ -8,6 +8,37 @@ class AddressDAO:
 #                                 Methods                                     #
 # =========================================================================== #
 
+    # ============ #
+    #    Updates   #
+    # ============ #
+
+    def addNewAddress(self, street, number, unit, zipcode, aid, cname):
+        cursor = self.conn.cursor()
+        query = "insert into address(street, number, unit, zipcode, aid, cname) values(%s, %s, %s, %s, %s, %s) returning addId;"
+        cursor.execute(query, (street, number, unit, zipcode, aid, cname, ))
+        addId = cursor.fetchone()[0]
+        self.conn.commit()
+        return addId
+
+    def updateAddress(self, addId, street, number, unit, zipcode, aid, cname):
+        cursor = self.conn.cursor()
+        query = "update address set street = %s, number = %s, unit = %s, zipcode = %s, aid = %s, cname = %s where addId = %s;"
+        cursor.execute(query, (street, number, unit, zipcode, aid, cname, addId,))
+        self.conn.commit()
+        return addId
+
+    def deleteAddress(self, addId):
+        cursor = self.conn.cursor()
+        query = "delete from address where addId = %s;"
+        cursor.execute(query, (addId,))
+        self.conn.commit()
+        return addId
+
+
+        # ============ #
+        #    Gets      #
+        # ============ #
+
     def getAllAddresses(self):
         cursor = self.conn.cursor()
         query = "select addId, street, number, unit, zipcode from address;"
