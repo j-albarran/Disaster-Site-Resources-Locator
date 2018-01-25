@@ -33,6 +33,8 @@ class AccountDAO:
 
     def deleteAccount(self, aid):
         cursor = self.conn.cursor()
+        query = "delete from phone where aid = %s;"
+        cursor.execute(query, (aid,))
         query = "delete from account where aid = %s;"
         cursor.execute(query, (aid,))
         self.conn.commit()

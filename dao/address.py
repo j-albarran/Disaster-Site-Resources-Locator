@@ -20,10 +20,10 @@ class AddressDAO:
         self.conn.commit()
         return addId
 
-    def updateAddress(self, addId, street, number, unit, zipcode, aid, cname):
+    def updateAddress(self, addId, street, number, unit, zipcode):
         cursor = self.conn.cursor()
-        query = "update address set street = %s, number = %s, unit = %s, zipcode = %s, aid = %s, cname = %s where addId = %s;"
-        cursor.execute(query, (street, number, unit, zipcode, aid, cname, addId,))
+        query = "update address set street = %s, number = %s, unit = %s, zipcode = %s where addId = %s;"
+        cursor.execute(query, (street, number, unit, zipcode, addId,))
         self.conn.commit()
         return addId
 

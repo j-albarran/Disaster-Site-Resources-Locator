@@ -49,8 +49,8 @@ class AddressHandler:
         if len(form) != 6:
             return jsonify(Error = "Malformed post request"), 400
         else:
-            street = form['cname']
-            number = form['rname']
+            street = form['street']
+            number = form['number']
             unit = form['unit']
             zipcode = form['zipcode']
             aid = form['aid']
@@ -70,16 +70,16 @@ class AddressHandler:
         if not dao.getAddressById(addId):
             return jsonify(Error = "Address not found"), 404
         else:
-            if len(form) != 6:
+            if len(form) != 4:
                 return jsonify(Error = "Malformed update request"), 400
+
             street = form['street']
             number = form['number']
             unit = form['unit']
             zipcode = form['zipcode']
-            aid = form['aid']
-            cname = form['cname']
-            if street and number and unit and zipcode and aid and cname:
-                dao.updateAddress(addId, street, number, unit, zipcode, aid, cname)
+
+            if street and number and unit and zipcode:
+                dao.updateAddress(addId, street, number, unit, zipcode)
                 result = self.build_address_attributes(addId, street, number, unit, zipcode)
                 return jsonify(Address = result), 200
             else:

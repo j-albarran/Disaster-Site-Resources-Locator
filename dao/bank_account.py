@@ -21,10 +21,10 @@ class BankAccountDAO:
         self.conn.commit()
         return bid
 
-    def updateBankAccount(self, bid, routing, accountNumber, BankName, sid):
+    def updateBankAccount(self, bid, routing, accountNumber, BankName):
         cursor = self.conn.cursor()
-        query = "update bank_account set routing = %s, accountNumber = %s, BankName = %s, sid = %s where bid = %s;"
-        cursor.execute(query, (routing, accountNumber, BankName, sid, bid, ))
+        query = "update bank_account set routing = %s, accountNumber = %s, BankName = %s where bid = %s;"
+        cursor.execute(query, (routing, accountNumber, BankName, bid, ))
         self.conn.commit()
         return bid
 

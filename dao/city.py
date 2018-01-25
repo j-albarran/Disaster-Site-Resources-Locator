@@ -21,14 +21,6 @@ class CityDAO:
         self.conn.commit()
         return cname
 
-    def updateCity(self, cname, rname):
-        cursor = self.conn.cursor()
-        query = "update city set rname = %s where cname = %s;"
-        cursor.execute(query, (rname, cname, ))
-        self.conn.commit()
-        return cname
-
-
     def deleteCity(self, cname):
         cursor = self.conn.cursor()
         query = "delete from city where cname = %s;"

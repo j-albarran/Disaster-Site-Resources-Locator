@@ -20,10 +20,10 @@ class CredentialDAO:
         self.conn.commit()
         return username
 
-    def updateCredentials(self, username, password, aid):
+    def updateCredentials(self, username, password):
         cursor = self.conn.cursor()
-        query = "update credentials set password = %s, aid = %s where username = %s;"
-        cursor.execute(query, (password, aid, username, ))
+        query = "update credentials set password = %s where username = %s;"
+        cursor.execute(query, (password, username, ))
         self.conn.commit()
         return username
 

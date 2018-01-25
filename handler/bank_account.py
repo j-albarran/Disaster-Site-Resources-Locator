@@ -58,16 +58,15 @@ class BankAccountHandler:
         if not dao.getBankAccountById(bid):
             return jsonify(Error = 'Bank Account not found'), 404
         else:
-            if len(form) != 4:
+            if len(form) != 3:
                 return jsonify(Error = "Malformed update request"), 400
 
             routing = form['routing']
             accountNumber = form['accountNumber']
             BankName = form['BankName']
-            sid = form['sid']
 
-            if routing and accountNumber and BankName and sid:
-                dao.updateBankAccount(bid, routing, accountNumber, BankName, sid)
+            if routing and accountNumber and BankName:
+                dao.updateBankAccount(bid, routing, accountNumber, BankName)
                 result = self.build_bank_account_attributes(bid, routing, accountNumber, BankName)
                 return jsonify(BankAccount = result)
             else:
