@@ -52,15 +52,14 @@ class CredentialsHandler:
         if not dao.getCredentialsByUsername(username):
             return jsonify(Error = "Credentials not found"), 404
         else:
-            if len(form) != 3:
+            if len(form) != 2:
                 return jsonify(Error = "Malformed update request"), 400
 
             username = form['username']
             password = form['password']
-            aid = form['aid']
 
-            if username and password and aid:
-                dao.updateCredentials(username, password, aid)
+            if username and password:
+                dao.updateCredentials(username, password)
                 result = self.build_credential_attributes(username, password)
                 return jsonify(Credentials = result), 200
             else:

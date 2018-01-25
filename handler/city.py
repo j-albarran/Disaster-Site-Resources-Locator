@@ -54,21 +54,6 @@ class CityHandler:
                 return jsonify(Error = "Unexpected attributes in post request"), 400
 
 
-    def updateCity(self, cname, form):
-        dao = CityDAO()
-        if not dao.getCityByName(cname):
-            return jsonify(Error = "City not found"), 404
-        else:
-            if len(form) != 1:
-                return jsonify(Error = "Malformed update request"), 400
-            rname = form['rname']
-            if cname and rname:
-                dao.updateCity(cname, rname)
-                result = self.build_city_attributes(cname)
-                return jsonify(City = result), 200
-            else:
-                return jsonify(Error = "Unexpected attributes in update request"), 400
-
     def deleteCity(self, cname):
         dao = CityDAO()
         if not dao.getCityByName(cname):
