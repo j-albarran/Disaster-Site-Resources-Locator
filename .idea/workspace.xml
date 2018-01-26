@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1d6eda7f-6d21-4ef4-85cc-f444eff36062" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/dashboards.py" afterPath="$PROJECT_DIR$/dao/dashboards.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/dashboards.py" afterPath="$PROJECT_DIR$/handler/dashboards.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,31 +25,33 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="465">
+              <caret line="148" column="18" lean-forward="true" selection-start-line="148" selection-start-column="18" selection-end-line="148" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+            <state relative-caret-position="735">
+              <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
               <folding>
-                <marker date="1516947212536" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
-                <marker date="1516947212536" expanded="true" signature="554:659" ph="select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="886:991" ph="select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="886:1154" ph="select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="1036:1154" ph="select sum(r... resource_requested" />
-                <marker date="1516947212536" expanded="true" signature="1392:1567" ph="select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="1797:1959" ph="select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="2187:2349" ph="select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="2187:2569" ph="select sum(r... " />
-                <marker date="1516947212536" expanded="true" signature="2394:2569" ph="select sum(r... resource_requested" />
-                <marker date="1516947212536" expanded="true" signature="2815:3047" ph="Select sum(r... resource" />
-                <marker date="1516947212536" expanded="true" signature="3274:3518" ph="select sum(r... resource_requested" />
+                <marker date="1516975687282" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
+                <marker date="1516975687282" expanded="true" signature="554:659" ph="select sum(r... resource" />
+                <marker date="1516975687282" expanded="true" signature="886:1004" ph="select sum(r... resource" />
+                <marker date="1516975687282" expanded="true" signature="886:1184" ph="select sum(r... resource" />
+                <marker date="1516975687282" expanded="true" signature="1053:1184" ph="select sum(r... resource_requested" />
+                <marker date="1516975687282" expanded="true" signature="1422:1597" ph="select sum(r... resource" />
+                <marker date="1516975687282" expanded="true" signature="1827:1989" ph="select sum(r... resource" />
+                <marker date="1516975687282" expanded="true" signature="2217:2392" ph="select COALE... resource" />
+                <marker date="1516975687282" expanded="true" signature="2217:2629" ph="select COALE... " />
+                <marker date="1516975687282" expanded="true" signature="2441:2629" ph="select COALE... resource_requested" />
+                <marker date="1516975687282" expanded="true" signature="2875:3107" ph="Select sum(r... resource" />
+                <marker date="1516975687282" expanded="true" signature="3334:3578" ph="select sum(r... resource_requested" />
               </folding>
             </state>
           </provider>
@@ -116,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="262" column="48" lean-forward="true" selection-start-line="262" selection-start-column="48" selection-end-line="262" selection-end-column="48" />
+            <state relative-caret-position="240">
+              <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -173,7 +173,7 @@
       <file leaf-file-name="credit_card.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/credit_card.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="165">
               <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -688,7 +688,21 @@
       <option name="project" value="LOCAL" />
       <updated>1516942576355</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add dashboards By Region">
+      <created>1516947260733</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1516947260733</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Change dashboard unions by union all">
+      <created>1516975875725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1516975875725</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -697,11 +711,11 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16927224" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925585" sideWeight="0.18328841" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43017328" sideWeight="0.18328841" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33892968" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32925585" sideWeight="0.8167116" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43017328" sideWeight="0.8167116" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -728,7 +742,9 @@
     <MESSAGE value="Posts, puts, deletes" />
     <MESSAGE value="Add dashboards in main, handler and dao" />
     <MESSAGE value="Add dashboards for Resource Match Daily and Weekly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dashboards for Resource Match Daily and Weekly" />
+    <MESSAGE value="Add dashboards By Region" />
+    <MESSAGE value="Change dashboard unions by union all" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change dashboard unions by union all" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -774,7 +790,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="181" column="19" lean-forward="true" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -791,7 +809,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -806,7 +826,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -814,7 +836,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="96" column="61" lean-forward="false" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
-          <folding />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1086,16 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/credit_card.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1120,41 +1134,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/handler/credit_card.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="262" column="48" lean-forward="true" selection-start-line="262" selection-start-column="48" selection-end-line="262" selection-end-column="48" />
+        <state relative-caret-position="165">
+          <caret line="26" column="19" lean-forward="true" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="148" column="18" lean-forward="true" selection-start-line="148" selection-start-column="18" selection-end-line="148" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
+        <state relative-caret-position="735">
+          <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
           <folding>
-            <marker date="1516947212536" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
-            <marker date="1516947212536" expanded="true" signature="554:659" ph="select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="886:991" ph="select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="886:1154" ph="select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="1036:1154" ph="select sum(r... resource_requested" />
-            <marker date="1516947212536" expanded="true" signature="1392:1567" ph="select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="1797:1959" ph="select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="2187:2349" ph="select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="2187:2569" ph="select sum(r... " />
-            <marker date="1516947212536" expanded="true" signature="2394:2569" ph="select sum(r... resource_requested" />
-            <marker date="1516947212536" expanded="true" signature="2815:3047" ph="Select sum(r... resource" />
-            <marker date="1516947212536" expanded="true" signature="3274:3518" ph="select sum(r... resource_requested" />
+            <marker date="1516975687282" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
+            <marker date="1516975687282" expanded="true" signature="554:659" ph="select sum(r... resource" />
+            <marker date="1516975687282" expanded="true" signature="886:1004" ph="select sum(r... resource" />
+            <marker date="1516975687282" expanded="true" signature="886:1184" ph="select sum(r... resource" />
+            <marker date="1516975687282" expanded="true" signature="1053:1184" ph="select sum(r... resource_requested" />
+            <marker date="1516975687282" expanded="true" signature="1422:1597" ph="select sum(r... resource" />
+            <marker date="1516975687282" expanded="true" signature="1827:1989" ph="select sum(r... resource" />
+            <marker date="1516975687282" expanded="true" signature="2217:2392" ph="select COALE... resource" />
+            <marker date="1516975687282" expanded="true" signature="2217:2629" ph="select COALE... " />
+            <marker date="1516975687282" expanded="true" signature="2441:2629" ph="select COALE... resource_requested" />
+            <marker date="1516975687282" expanded="true" signature="2875:3107" ph="Select sum(r... resource" />
+            <marker date="1516975687282" expanded="true" signature="3334:3578" ph="select sum(r... resource_requested" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

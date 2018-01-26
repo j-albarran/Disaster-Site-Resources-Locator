@@ -98,7 +98,7 @@ class DashBoardHandler:
         result['slicingdistance'] = '15'
         result['showpercentvalues'] = '1'
         result['showpercentintooltip'] = '0'
-        result['plottooltext'] = '$label percentage : $datavalue'
+        result['plottooltext'] = '$label quantity : $datavalue'
         result['theme'] = 'fint'
         return result
 
@@ -113,7 +113,7 @@ class DashBoardHandler:
         result['slicingdistance'] = '15'
         result['showpercentvalues'] = '1'
         result['showpercentintooltip'] = '0'
-        result['plottooltext'] = '$label percentage : $datavalue'
+        result['plottooltext'] = '$label quantity : $datavalue'
         result['theme'] = 'fint'
         return result
 
@@ -128,7 +128,7 @@ class DashBoardHandler:
         result['slicingdistance'] = '15'
         result['showpercentvalues'] = '1'
         result['showpercentintooltip'] = '0'
-        result['plottooltext'] = '$label percentage : $datavalue'
+        result['plottooltext'] = '$label quantity : $datavalue'
         result['theme'] = 'fint'
         return result
 
