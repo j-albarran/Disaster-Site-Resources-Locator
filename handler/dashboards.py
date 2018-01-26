@@ -189,6 +189,9 @@ class DashBoardHandler:
         if not result_list:
             return jsonify(Error="Result Not Found"), 404
         else:
+            if result_list[0].get('value') == 0 and result_list[1].get('value') == 0:
+                result_list[0]['value'] = 50
+                result_list[1]['value'] = 50
             return jsonify(chart=self.build_theme_match(), data=result_list), 200
 
     def getResourcesAvailablesWeekly(self):
@@ -236,6 +239,9 @@ class DashBoardHandler:
         if not result_list:
             return jsonify(Error="Result Not Found"), 404
         else:
+            if result_list[0].get('value') == 0 and result_list[1].get('value') == 0:
+                result_list[0]['value'] = 50
+                result_list[1]['value'] = 50
             return jsonify(chart=self.build_theme_matchW(), data=result_list), 200
 
 
