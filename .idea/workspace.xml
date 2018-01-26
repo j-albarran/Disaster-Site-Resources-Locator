@@ -5,6 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/dashboards.py" afterPath="$PROJECT_DIR$/dao/dashboards.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/dashboards.py" afterPath="$PROJECT_DIR$/handler/dashboards.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Disaster-Site-Resources-Locator$main.coverage" NAME="main Coverage Results" MODIFIED="1516942499097" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Disaster-Site-Resources-Locator$main.coverage" NAME="main Coverage Results" MODIFIED="1516947215682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Disaster_Site_Resources_Locator$main.coverage" NAME="main Coverage Results" MODIFIED="1516866311359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -26,31 +27,31 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="210">
+              <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+            <state relative-caret-position="269">
+              <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
               <folding>
-                <marker date="1516941985508" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
-                <marker date="1516941985508" expanded="true" signature="554:659" ph="select sum(r... resource" />
-                <marker date="1516941985508" expanded="true" signature="886:992" ph="select sum(r... resource" />
-                <marker date="1516941985508" expanded="true" signature="886:1156" ph="select sum(r... resource" />
-                <marker date="1516941985508" expanded="true" signature="1037:1156" ph="select sum(r... resource_requested" />
-                <marker date="1516941985508" expanded="true" signature="1394:1569" ph="select sum(r... resource" />
-                <marker date="1516941985508" expanded="true" signature="1799:1961" ph="select sum(r... resource" />
-                <marker date="1516941985508" expanded="true" signature="2189:2351" ph="select sum(r... resource" />
-                <marker date="1516941985508" expanded="true" signature="2189:2571" ph="select sum(r... " />
-                <marker date="1516941985508" expanded="true" signature="2396:2571" ph="select sum(r... resource_requested" />
+                <marker date="1516947212536" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
+                <marker date="1516947212536" expanded="true" signature="554:659" ph="select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="886:991" ph="select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="886:1154" ph="select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="1036:1154" ph="select sum(r... resource_requested" />
+                <marker date="1516947212536" expanded="true" signature="1392:1567" ph="select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="1797:1959" ph="select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="2187:2349" ph="select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="2187:2569" ph="select sum(r... " />
+                <marker date="1516947212536" expanded="true" signature="2394:2569" ph="select sum(r... resource_requested" />
+                <marker date="1516947212536" expanded="true" signature="2815:3047" ph="Select sum(r... resource" />
+                <marker date="1516947212536" expanded="true" signature="3274:3518" ph="select sum(r... resource_requested" />
               </folding>
             </state>
           </provider>
@@ -115,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="127" column="38" lean-forward="false" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
+            <state relative-caret-position="253">
+              <caret line="262" column="48" lean-forward="true" selection-start-line="262" selection-start-column="48" selection-end-line="262" selection-end-column="48" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -266,8 +267,8 @@
         <option value="$PROJECT_DIR$/dao/address.py" />
         <option value="$PROJECT_DIR$/handler/address.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/dao/dashboards.py" />
         <option value="$PROJECT_DIR$/handler/dashboards.py" />
+        <option value="$PROJECT_DIR$/dao/dashboards.py" />
       </list>
     </option>
   </component>
@@ -680,7 +681,14 @@
       <option name="project" value="LOCAL" />
       <updated>1516939694175</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add dashboards for Resource Match Daily and Weekly">
+      <created>1516942576355</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1516942576355</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -719,7 +727,8 @@
     <MESSAGE value="dao, handler and main for transaction, credit_card, cash and order" />
     <MESSAGE value="Posts, puts, deletes" />
     <MESSAGE value="Add dashboards in main, handler and dao" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dashboards in main, handler and dao" />
+    <MESSAGE value="Add dashboards for Resource Match Daily and Weekly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add dashboards for Resource Match Daily and Weekly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -765,9 +774,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
           <caret line="181" column="19" lean-forward="true" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -784,9 +791,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -801,9 +806,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -811,9 +814,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1440">
           <caret line="96" column="61" lean-forward="false" selection-start-line="96" selection-start-column="61" selection-end-line="96" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1121,39 +1122,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="43" column="46" lean-forward="false" selection-start-line="43" selection-start-column="46" selection-end-line="43" selection-end-column="46" />
+        <state relative-caret-position="210">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="262" column="48" lean-forward="true" selection-start-line="262" selection-start-column="48" selection-end-line="262" selection-end-column="48" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <state relative-caret-position="269">
+          <caret line="34" column="21" lean-forward="true" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
           <folding>
-            <marker date="1516941985508" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
-            <marker date="1516941985508" expanded="true" signature="554:659" ph="select sum(r... resource" />
-            <marker date="1516941985508" expanded="true" signature="886:992" ph="select sum(r... resource" />
-            <marker date="1516941985508" expanded="true" signature="886:1156" ph="select sum(r... resource" />
-            <marker date="1516941985508" expanded="true" signature="1037:1156" ph="select sum(r... resource_requested" />
-            <marker date="1516941985508" expanded="true" signature="1394:1569" ph="select sum(r... resource" />
-            <marker date="1516941985508" expanded="true" signature="1799:1961" ph="select sum(r... resource" />
-            <marker date="1516941985508" expanded="true" signature="2189:2351" ph="select sum(r... resource" />
-            <marker date="1516941985508" expanded="true" signature="2189:2571" ph="select sum(r... " />
-            <marker date="1516941985508" expanded="true" signature="2396:2571" ph="select sum(r... resource_requested" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="127" column="38" lean-forward="false" selection-start-line="127" selection-start-column="38" selection-end-line="127" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1516947212536" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
+            <marker date="1516947212536" expanded="true" signature="554:659" ph="select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="886:991" ph="select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="886:1154" ph="select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="1036:1154" ph="select sum(r... resource_requested" />
+            <marker date="1516947212536" expanded="true" signature="1392:1567" ph="select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="1797:1959" ph="select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="2187:2349" ph="select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="2187:2569" ph="select sum(r... " />
+            <marker date="1516947212536" expanded="true" signature="2394:2569" ph="select sum(r... resource_requested" />
+            <marker date="1516947212536" expanded="true" signature="2815:3047" ph="Select sum(r... resource" />
+            <marker date="1516947212536" expanded="true" signature="3274:3518" ph="select sum(r... resource_requested" />
           </folding>
         </state>
       </provider>

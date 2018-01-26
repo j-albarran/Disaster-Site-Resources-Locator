@@ -69,9 +69,9 @@ def resourcesNeedsByRegion():
 def resourcesAvailablesByRegion():
     return DashBoardHandler().getResourcesAvailablesByRegion()
 
-@app.route('/ResourceApp/ResourcesMatches/SanJuan')
+@app.route('/ResourceApp/ResourcesMatches/ByRegion')
 def resourcesMatchesSanJuan():
-    return DashBoardHandler().getResourcesMatchesSanJuan()
+    return DashBoardHandler().getResourcesMatchesByRegion()
 
 
 
