@@ -47,9 +47,7 @@ class CategoryHandler:
 
     def insertCategory(self, form):
         dao = CategoryDAO()
-        if len(form) != 2:
-            return jsonify(Error = "Malformed Post Request"), 400
-        else:
+        if len(form) == 2:
             cat_name = form['cat_name']
             cat_pname = form['cat_pname']
             if cat_name:
@@ -61,6 +59,20 @@ class CategoryHandler:
                     return jsonify(Error = "Category already exists")
             else:
                 return jsonify(Error = "Unexpected attributes in post request"), 400
+        elif len(form) == 1:
+            cat_name = form['cat_name']
+            cat_pname = None
+            if cat_name:
+                if not dao.getCategoryByName(cat_name):
+                    dao.insert(cat_name, cat_pname)
+                    result = self.build_category_attributes(cat_name, cat_pname)
+                    return jsonify(Category = result), 201
+                else:
+                    return jsonify(Error = "Category already exists")
+            else:
+                return jsonify(Error = "Unexpected attributes in post request"), 400
+        else:
+            return jsonify(Error = "Malformed Post Request"), 400
 
     def updateCategory(self, cat_name, form):
         dao = CategoryDAO()
