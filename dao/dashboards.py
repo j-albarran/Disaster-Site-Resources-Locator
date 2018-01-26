@@ -68,7 +68,7 @@ class DashBoardsDAO:
 
     def getResourcesAvailablesByRegion(self):
         cursor = self.conn.cursor()
-        query = "Select sum(rqty), region.rname from (resource natural inner join supplier inner join account on sid = aid) natural inner join address natural inner join city right outer join region on city.rname = region.rname group by region.rname"
+        query = "Select sum(rqty), region.rname from (resource natural inner join supplier inner join account on sid = aid) natural inner join address natural inner join city right outer join region on city.rname = region.rname group by region.rname order by region.rname"
         cursor.execute(query)
         result = []
         for row in cursor:
@@ -77,7 +77,7 @@ class DashBoardsDAO:
 
     def getResourcesNeedsByRegion(self):
         cursor = self.conn.cursor()
-        query = "Select sum(rrqty), region.rname from (resource_requested natural inner join requester inner join account on rid = aid) natural inner join address natural inner join city right outer join region on city.rname = region.rname group by region.rname"
+        query = "Select sum(rrqty), region.rname from (resource_requested natural inner join requester inner join account on rid = aid) natural inner join address natural inner join city right outer join region on city.rname = region.rname group by region.rname order by region.rname"
         cursor.execute(query)
         result = []
         for row in cursor:

@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1d6eda7f-6d21-4ef4-85cc-f444eff36062" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/handler/dashboards.py" afterPath="$PROJECT_DIR$/handler/dashboards.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/dashboards.py" afterPath="$PROJECT_DIR$/dao/dashboards.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,24 +34,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+            <state relative-caret-position="275">
+              <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
               <folding>
-                <marker date="1516975687282" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
-                <marker date="1516975687282" expanded="true" signature="554:659" ph="select sum(r... resource" />
-                <marker date="1516975687282" expanded="true" signature="886:1004" ph="select sum(r... resource" />
-                <marker date="1516975687282" expanded="true" signature="886:1184" ph="select sum(r... resource" />
-                <marker date="1516975687282" expanded="true" signature="1053:1184" ph="select sum(r... resource_requested" />
-                <marker date="1516975687282" expanded="true" signature="1422:1597" ph="select sum(r... resource" />
-                <marker date="1516975687282" expanded="true" signature="1827:1989" ph="select sum(r... resource" />
-                <marker date="1516975687282" expanded="true" signature="2217:2392" ph="select COALE... resource" />
-                <marker date="1516975687282" expanded="true" signature="2217:2629" ph="select COALE... " />
-                <marker date="1516975687282" expanded="true" signature="2441:2629" ph="select COALE... resource_requested" />
-                <marker date="1516975687282" expanded="true" signature="2875:3107" ph="Select sum(r... resource" />
-                <marker date="1516975687282" expanded="true" signature="3334:3578" ph="select sum(r... resource_requested" />
+                <marker date="1516976436086" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
+                <marker date="1516976436086" expanded="true" signature="554:659" ph="select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="886:1004" ph="select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="886:1184" ph="select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="1053:1184" ph="select sum(r... resource_requested" />
+                <marker date="1516976436086" expanded="true" signature="1422:1597" ph="select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="1827:1989" ph="select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="2217:2392" ph="select COALE... resource" />
+                <marker date="1516976436086" expanded="true" signature="2217:2629" ph="select COALE... " />
+                <marker date="1516976436086" expanded="true" signature="2441:2629" ph="select COALE... resource_requested" />
+                <marker date="1516976436086" expanded="true" signature="2875:3107" ph="Select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="2875:3129" ph="Select sum(r... resource" />
+                <marker date="1516976436086" expanded="true" signature="3356:3600" ph="select sum(r... resource_requested" />
+                <marker date="1516976436086" expanded="true" signature="3356:3622" ph="Select sum(r... resource_requested" />
               </folding>
             </state>
           </provider>
@@ -116,10 +118,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboards.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="-2276">
               <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -702,14 +704,21 @@
       <option name="project" value="LOCAL" />
       <updated>1516975875725</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="dashboard handler updated">
+      <created>1516976239479</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1516976239479</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16927224" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16927224" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43017328" sideWeight="0.18328841" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -744,7 +753,8 @@
     <MESSAGE value="Add dashboards for Resource Match Daily and Weekly" />
     <MESSAGE value="Add dashboards By Region" />
     <MESSAGE value="Change dashboard unions by union all" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change dashboard unions by union all" />
+    <MESSAGE value="dashboard handler updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboard handler updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1154,33 +1164,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
+    <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="29" lean-forward="true" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
+        <state relative-caret-position="-2276">
+          <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
           <folding>
-            <marker date="1516975687282" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
-            <marker date="1516975687282" expanded="true" signature="554:659" ph="select sum(r... resource" />
-            <marker date="1516975687282" expanded="true" signature="886:1004" ph="select sum(r... resource" />
-            <marker date="1516975687282" expanded="true" signature="886:1184" ph="select sum(r... resource" />
-            <marker date="1516975687282" expanded="true" signature="1053:1184" ph="select sum(r... resource_requested" />
-            <marker date="1516975687282" expanded="true" signature="1422:1597" ph="select sum(r... resource" />
-            <marker date="1516975687282" expanded="true" signature="1827:1989" ph="select sum(r... resource" />
-            <marker date="1516975687282" expanded="true" signature="2217:2392" ph="select COALE... resource" />
-            <marker date="1516975687282" expanded="true" signature="2217:2629" ph="select COALE... " />
-            <marker date="1516975687282" expanded="true" signature="2441:2629" ph="select COALE... resource_requested" />
-            <marker date="1516975687282" expanded="true" signature="2875:3107" ph="Select sum(r... resource" />
-            <marker date="1516975687282" expanded="true" signature="3334:3578" ph="select sum(r... resource_requested" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/dashboards.py">
+    <entry file="file://$PROJECT_DIR$/dao/dashboards.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="100" column="49" lean-forward="false" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
+        <state relative-caret-position="275">
+          <caret line="80" column="29" lean-forward="true" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="29" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <marker date="1516976436086" expanded="true" signature="207:325" ph="select sum(r... resource_requested" />
+            <marker date="1516976436086" expanded="true" signature="554:659" ph="select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="886:1004" ph="select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="886:1184" ph="select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="1053:1184" ph="select sum(r... resource_requested" />
+            <marker date="1516976436086" expanded="true" signature="1422:1597" ph="select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="1827:1989" ph="select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="2217:2392" ph="select COALE... resource" />
+            <marker date="1516976436086" expanded="true" signature="2217:2629" ph="select COALE... " />
+            <marker date="1516976436086" expanded="true" signature="2441:2629" ph="select COALE... resource_requested" />
+            <marker date="1516976436086" expanded="true" signature="2875:3107" ph="Select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="2875:3129" ph="Select sum(r... resource" />
+            <marker date="1516976436086" expanded="true" signature="3356:3600" ph="select sum(r... resource_requested" />
+            <marker date="1516976436086" expanded="true" signature="3356:3622" ph="Select sum(r... resource_requested" />
           </folding>
         </state>
       </provider>
