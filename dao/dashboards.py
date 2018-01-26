@@ -37,7 +37,7 @@ class DashBoardsDAO:
     #weekly
     def getResourcesNeedsWeekly(self):
         cursor = self.conn.cursor()
-        query = "select sum(rrqty) as partial_sum from resource_requested where rr_changed_date between date_trunc('day', now()) and (date_trunc('day', now()) - interval '7 days') and rrqty >0"
+        query = "select sum(rrqty) as partial_sum from resource_requested where rr_changed_date between (date_trunc('day', now()) - interval '7 days')  and date_trunc('day', now()) and rrqty >0"
         cursor.execute(query)
         result = []
         for row in cursor:
