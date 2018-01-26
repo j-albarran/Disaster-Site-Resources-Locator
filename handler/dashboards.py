@@ -38,6 +38,36 @@ class DashBoardHandler:
         result['yAxisName'] = 'Quantity'
         return result
 
+    def build_theme_match(self):
+        result = {}
+        result['caption'] = 'Matching between need and available'
+        result['subCaption'] = 'Daily'
+        result['startingangle'] = '120'
+        result['showlabels'] = '0'
+        result['showlegend'] = '1'
+        result['enablemultislicing'] = '0'
+        result['slicingdistance'] = '15'
+        result['showpercentvalues'] = '1'
+        result['showpercentintooltip'] = '0'
+        result['plottooltext'] = '$label percentage : $datavalue'
+        result['theme'] = 'fint'
+        return result
+
+    def build_theme_matchW(self):
+        result = {}
+        result['caption'] = 'Matching between need and available'
+        result['subCaption'] = 'Weekly'
+        result['startingangle'] = '120'
+        result['showlabels'] = '0'
+        result['showlegend'] = '1'
+        result['enablemultislicing'] = '0'
+        result['slicingdistance'] = '15'
+        result['showpercentvalues'] = '1'
+        result['showpercentintooltip'] = '0'
+        result['plottooltext'] = '$label percentage : $datavalue'
+        result['theme'] = 'fint'
+        return result
+
     def build_theme_availableW(self):
         result = {}
         result['caption'] = 'Available Since 7 Days Ago'
@@ -78,6 +108,29 @@ class DashBoardHandler:
         else:
             return jsonify(chart=self.build_theme_available(), data=result_list), 200
 
+    def getResourcesMatchesDaily(self):
+        dao = DashBoardsDAO()
+        need_list = dao.getResourcesMatchesDaily()  # Select cid, card_number, security_code, cname, exp_date from Credit_Card
+        result_list = []
+        if len(need_list)==2:
+            for row in need_list:
+                if(row == need_list[0]):
+                    result = self.build_available_dict(row)
+                elif (row == need_list[1]):
+                    result = self.build_need_dict(row)
+                else:
+                    result = self.build_need_dict(row)
+                result_list.append(result)
+        else:
+            result = self.build_available_dict(need_list[0])
+            result_list.append(result)
+            result = self.build_need_dict(need_list[0])
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Result Not Found"), 404
+        else:
+            return jsonify(chart=self.build_theme_match(), data=result_list), 200
+
     def getResourcesAvailablesWeekly(self):
         dao = DashBoardsDAO()
         need_list = dao.getResourcesAvailablesWeekly() #Select cid, card_number, security_code, cname, exp_date from Credit_Card
@@ -101,3 +154,26 @@ class DashBoardHandler:
             return jsonify(Error="Result Not Found"), 404
         else:
             return jsonify(chart=self.build_theme_needW(),data=result_list), 200
+
+    def getResourcesMatchesWeekly(self):
+        dao = DashBoardsDAO()
+        need_list = dao.getResourcesMatchesWeekly()  # Select cid, card_number, security_code, cname, exp_date from Credit_Card
+        result_list = []
+        if len(need_list)==2:
+            for row in need_list:
+                if(row == need_list[0]):
+                    result = self.build_available_dict(row)
+                elif (row == need_list[1]):
+                    result = self.build_need_dict(row)
+                else:
+                    result = self.build_need_dict(row)
+                result_list.append(result)
+        else:
+            result = self.build_available_dict(need_list[0])
+            result_list.append(result)
+            result = self.build_need_dict(need_list[0])
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Result Not Found"), 404
+        else:
+            return jsonify(chart=self.build_theme_matchW(), data=result_list), 200
