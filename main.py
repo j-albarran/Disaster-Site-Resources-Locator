@@ -18,6 +18,7 @@ from handler.credentials import CredentialsHandler
 from handler.region import RegionHandler
 from handler.requester import RequesterHandler
 from handler.supplier import SupplierHandler
+from handler.dashboards import DashBoardHandler
 
 
 app = Flask(__name__)
@@ -27,6 +28,58 @@ def welcome():
     return jsonify(Welcome = 'Hello, this is the Disaster-Site-Resources-Locator project.')
 
 # ------------------------------------------------------------------------------- #
+#                                  Dashboard routes                                    #
+# ------------------------------------------------------------------------------- #
+#daily
+@app.route('/ResourceApp/ResourcesNeeds/Daily')
+def resourcesNeedsDaily():
+    return DashBoardHandler().getResourcesNeedsDaily()
+
+@app.route('/ResourceApp/ResourcesAvailables/Daily')
+def resourcesAvailablesDaily():
+    return DashBoardHandler().getResourcesAvailablesDaily()
+
+@app.route('/ResourceApp/ResourcesMatches/Daily')
+def resourcesMatchesDaily():
+    return DashBoardHandler().getResourcesMatchesDaily()
+
+
+
+#weekly
+@app.route('/ResourceApp/ResourcesNeeds/Weekly')
+def resourcesNeedsWeekly():
+    return DashBoardHandler().getResourcesNeedsWeekly()
+
+@app.route('/ResourceApp/ResourcesAvailables/Weekly')
+def resourcesAvailablesWeekly():
+    return DashBoardHandler().getResourcesAvailablesWeekly()
+
+@app.route('/ResourceApp/ResourcesMatches/Weekly')
+def resourcesMatchesWeekly():
+    return DashBoardHandler().getResourcesMatchesWeekly()
+
+
+
+#region
+@app.route('/ResourceApp/ResourcesNeeds/ByRegion')
+def resourcesNeedsByRegion():
+    return DashBoardHandler().getResourcesNeedsByRegion()
+
+@app.route('/ResourceApp/ResourcesAvailables/ByRegion')
+def resourcesAvailablesByRegion():
+    return DashBoardHandler().getResourcesAvailablesByRegion()
+
+@app.route('/ResourceApp/ResourcesMatches/SanJuan')
+def resourcesMatchesSanJuan():
+    return DashBoardHandler().getResourcesMatchesSanJuan()
+
+
+
+
+
+
+
+                    # ------------------------------------------------------------------------------- #
 #                                  City routes                                    #
 # ------------------------------------------------------------------------------- #
 @app.route('/ResourceApp/cities', methods = ['GET', 'POST'])
