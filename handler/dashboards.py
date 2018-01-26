@@ -33,15 +33,11 @@ class DashBoardHandler:
 
     def build_need_dictR(self, row):
         result = {}
-        if row[0]:
-            result['available'] = int(row[0])
-        else:
-            result['available'] = 0
         if row[1]:
-            result['need'] = int(row[1])
+            result['value'] = int(row[1])
         else:
-            result['need'] = 0
-        result['region'] = row[2]
+            result['value'] = 0
+        result['label'] = 'Need'
         return result
 
     def build_region_dict(self, row):
@@ -117,10 +113,10 @@ class DashBoardHandler:
         result['theme'] = 'fint'
         return result
 
-    def build_theme_matchR(self):
+    def build_theme_matchR(self, rname):
         result = {}
         result['caption'] = 'Matching between need and available'
-        result['subCaption'] = 'Daily'
+        result['subCaption'] = '%s Region' %(rname)
         result['startingangle'] = '120'
         result['showlabels'] = '0'
         result['showlegend'] = '1'
@@ -128,7 +124,7 @@ class DashBoardHandler:
         result['slicingdistance'] = '15'
         result['showpercentvalues'] = '1'
         result['showpercentintooltip'] = '0'
-        result['plottooltext'] = '$label quantity : $datavalue'
+        result['plottooltext'] = '$label percentage : $datavalue'
         result['theme'] = 'fint'
         return result
 
@@ -254,6 +250,36 @@ class DashBoardHandler:
             return jsonify(Error="Result Not Found"), 404
         else:
             return jsonify(chart=self.build_theme_matchW(),data=result_list), 200
+
+    def searchResourcesMatchesByRegion(self, args):
+        rname = args['rname']
+        dao = DashBoardsDAO()
+        result_list = []
+        if len(args) == 1 and rname:
+            need_list = dao.getResourcesMatchesByRegion(rname)
+        else:
+            return jsonify(Error = "Malformed Query String"), 400
+        if len(need_list)==2:
+            for row in need_list:
+                if(row == need_list[0]):
+                    result = self.build_available_dictR(row)
+                elif (row == need_list[1]):
+                    result = self.build_need_dictR(row)
+                else:
+                    result = self.build_need_dictR(row)
+                result_list.append(result)
+        else:
+            result = self.build_available_dictR(need_list[0])
+            result_list.append(result)
+            result = self.build_need_dictR(need_list[0])
+            result_list.append(result)
+        if not result_list:
+            return jsonify(Error="Result Not Found"), 404
+        else:
+            if result_list[0].get('value') == 0 and result_list[1].get('value') == 0:
+                result_list[0]['value'] = 50
+                result_list[1]['value'] = 50
+            return jsonify(chart=self.build_theme_matchR(rname), data=result_list), 200
 
     def getResourcesNeedsByRegion(self):
         dao = DashBoardsDAO()

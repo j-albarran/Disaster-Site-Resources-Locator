@@ -70,8 +70,11 @@ def resourcesAvailablesByRegion():
     return DashBoardHandler().getResourcesAvailablesByRegion()
 
 @app.route('/ResourceApp/ResourcesMatches/ByRegion')
-def resourcesMatchesSanJuan():
-    return DashBoardHandler().getResourcesMatchesByRegion()
+def resourcesMatchesByRegion():
+    if not request.args:
+        return DashBoardHandler().getResourcesMatchesByRegion()
+    else:
+        return DashBoardHandler().searchResourcesMatchesByRegion(request.args)
 
 
 

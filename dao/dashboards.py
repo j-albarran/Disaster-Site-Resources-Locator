@@ -85,7 +85,7 @@ class DashBoardsDAO:
         return result
 
 
-    def getResourcesMatchesByRegion(self):
+    def getResourcesMatchesByRegion(self, rname):
         cursor = self.conn.cursor()
         query = ("with partials_sum as"
                 "("
@@ -100,10 +100,10 @@ class DashBoardsDAO:
                 "need as"
                 "(Select sum(rrqty) as partial_sum, rname as region from (resource_requested natural inner join requester inner join account on rid = aid) natural inner join address natural inner join city group by rname)"
                 "Select A.percent as Availabe_Resources, B.percent as Need_Resources, A.regionTwo from (Select available.partial_sum/total_sum.sum*100 as percent, region.rname as regionTwo from total_sum inner join available on total_sum.region = available.region right outer join region on total_sum.region = region.rname) as A full outer join (Select need.partial_sum/total_sum.sum*100 as percent, total_sum.region as region from total_sum inner join need on total_sum.region = need.region) as B on A.regionTwo = B.region"
+                " where A.regionTwo = %s"
                 )
-        cursor.execute(query)
+        cursor.execute(query, (rname,))
         result = []
         for row in cursor:
             result.append(row)
         return result
-
